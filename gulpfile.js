@@ -15,8 +15,8 @@ const {src, dest, watch, series} = require('gulp');
 
 
 function moveFiles(){
-  return src('./shopify/shopify-tw2-01/build/**/*.*')
-  .pipe(dest('./themes/shopify/tw2-01'))
+  return src('./commercejs/comjs-tw2-01/build/**/*.*')
+  .pipe(dest('./themes/commercejs/tw2-01'));
 }
 
 function watchTask(){
