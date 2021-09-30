@@ -5,6 +5,7 @@ import ImageOnload from './ImageOnload';
 function Item({image, price, name, width, height}) {
   return (
     <div className="p-5">
+      <p>Product Item</p>
       <div className="border border-gray-300 w-80 h-98 p-3">
           <ImageOnload 
           width={width}
