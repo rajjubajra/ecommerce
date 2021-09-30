@@ -29,7 +29,7 @@ function Products() {
   console.log(ndata);
   console.log(ndata.length);
   console.log(ndata.products);
-  console.log(ndata.products.length);
+  console.log(ndata.products.products);
 
   return (
     <div>
