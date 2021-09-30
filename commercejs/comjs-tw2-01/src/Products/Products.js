@@ -31,6 +31,7 @@ function Products() {
 
   return (
     <div>
+      <p>Product page</p>
       {
         products.length > 0 && 
         products.map((item,index) => {
