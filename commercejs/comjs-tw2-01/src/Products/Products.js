@@ -15,7 +15,7 @@ function Products() {
    */
     async function fetchProducts(){
       await commerce.products.list().then((products) => {
-      setNdata({products});
+      setNdata({ products: products.data });
     }).catch((error) => {
       console.log('There was an error fetching the products', error);
     });
@@ -26,8 +26,7 @@ function Products() {
       fetchProducts();
   },[])
 
-  console.log("raw",ndata, ndata.length);
-  console.log("data",ndata.products.data);
+  console.log(ndata.length, ndata);
 
   return (
     <div>
@@ -35,7 +34,6 @@ function Products() {
       {
         ndata.length > 0 && 
         ndata.map((item) => {
-          console.log(item);
           //const {image:{url:image, image_dimensions:{width, height}}} = item;
           //const {name,price:{formated_with_symbol:rate}} = item;
           return <div>
