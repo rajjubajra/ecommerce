@@ -36,7 +36,7 @@ function Products() {
         products.map((item,index) => {
           const {image:{url:image, image_dimensions:{width, height}}} = item;
           const {name,price:{formated_with_symbol:rate}} = item;
-          <div>
+          return <div key={index}>
           <Item image={image} price={rate} name={name} width={width} height={height}/>
           </div>
         })
