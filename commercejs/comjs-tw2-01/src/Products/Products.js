@@ -28,19 +28,25 @@ function Products() {
 
   console.log(ndata);
   console.log(ndata.length);
-  console.log(ndata.products);
+  console.log(ndata.products.length);
   //console.log(ndata.products.products);
 
   return (
     <div>
       <p>Product page</p>
       {
-        ndata.length > 0 ? 
-        ndata.map((item) => {
-          //const {image:{url:image, image_dimensions:{width, height}}} = item;
-          //const {name,price:{formated_with_symbol:rate}} = item;
+        ndata.products.length > 0 ? 
+        ndata.products.map((item) => {
+          const {image:{url:image, image_dimensions:{width, height}}} = item;
+          const {name,price:{formated_with_symbol:rate}} = item;
           return <div>
-                  <div>Name: {item.name}</div>
+                  <Item 
+                  image={image} 
+                  price={rate} 
+                  name={name}
+                  width={width}
+                  height={height}
+                  />
               </div>
         })
         : "loading...."
