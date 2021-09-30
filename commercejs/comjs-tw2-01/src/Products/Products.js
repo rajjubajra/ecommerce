@@ -34,13 +34,13 @@ function Products() {
       <p>Product page</p>
       {
         products.length > 0 && 
-        products.map((item,index) => {
+        products.map((item) => {
           const {image:{url:image, image_dimensions:{width, height}}} = item;
           const {name,price:{formated_with_symbol:rate}} = item;
           return <div>
               <div>Name: {name}</div>
               <div>Price: {rate}</div>
-                        
+
               </div>
         })
       }
