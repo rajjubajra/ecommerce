@@ -1,4 +1,5 @@
 import Products from './Products/Products';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 
 function App() {
@@ -8,7 +9,9 @@ function App() {
   return (
     <div>
       <h1>Comerce Js</h1>
-      <Products />
+      <BrowserRouter>
+        <Products />
+      </BrowserRouter>
     </div>
   )
 }
