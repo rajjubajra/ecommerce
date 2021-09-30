@@ -35,7 +35,8 @@ function Products() {
     <div>
       <p>Product page</p>
       {
-        ndata.products.map((item) => {
+        ndata.length > 0 ? 
+        ndata.map((item) => {
           const {image:{url:image, image_dimensions:{width, height}}} = item;
           const {name,price:{formated_with_symbol:rate}} = item;
           return <div>
@@ -48,6 +49,7 @@ function Products() {
                   />
               </div>
         })
+        : "loading...."
       }
     </div>
   )
