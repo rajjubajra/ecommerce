@@ -1,4 +1,4 @@
-import ImageOnload from '../../../ImageOnload';
+import ImageOnload from '../ImageOnload';
 
 function MeausingAdvice() {
 

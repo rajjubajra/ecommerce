@@ -1,11 +1,10 @@
-import {useState} from 'react';
 import Colours from './Colours';
 import SizeStandard from './SizeStandard';
 import SizeLong from './SizeLong';
 import Delivery from './Delivery';
 import AddToBag from './AddToBag';
 import DetailAndCare from './DetailAndCare';
-import Btn from '../../Buttons/Btn';
+import Btn from '../Buttons/Btn';
 
 
 function ItemDetailInfo({handleSizeChart}) {
