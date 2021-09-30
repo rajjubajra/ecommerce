@@ -15,7 +15,7 @@ function Products() {
    */
     async function fetchProducts(){
       await commerce.products.list().then((products) => {
-      setNdata(products.data);
+      setNdata({products:products.data});
     }).catch((error) => {
       console.log('There was an error fetching the products', error);
     });
@@ -26,7 +26,7 @@ function Products() {
       fetchProducts();
   },[])
 
-  console.log(ndata.length, ndata);
+  console.log(ndata.length, ndata.products, ndata.products.length);
 
   return (
     <div>
