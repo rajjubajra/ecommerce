@@ -27,7 +27,7 @@ function Products() {
   },[])
 
   console.log("raw",ndata, ndata.length);
-  //console.log("data",ndata.products.data,"length", ndata.products.data.length);
+  console.log("data",ndata.products);
 
   return (
     <div>
