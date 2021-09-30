@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div>
-      A T shirt store - commerce js
+      <h1>Comerce Js</h1>
       <Products />
     </div>
   )
