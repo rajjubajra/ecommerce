@@ -1,2 +1,0 @@
-(this["webpackJsonpcomjs-tw2-01"]=this["webpackJsonpcomjs-tw2-01"]||[]).push([[0],{9:function(t,e,s){"use strict";s.r(e);s(0);var c=s(3),r=s.n(c),n=s(1);var o=function(){return Object(n.jsx)("div",{children:"A T shirt store - commerce js"})};r.a.render(Object(n.jsx)(o,{}),document.getElementById("root"))}},[[9,1,2]]]);
-//# sourceMappingURL=main.c9d666a7.chunk.js.map
