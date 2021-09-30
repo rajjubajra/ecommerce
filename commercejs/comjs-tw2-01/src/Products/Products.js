@@ -3,6 +3,18 @@ import Item from './Item';
 import { commerce } from '../lib/commerce';
 
 
+const items = [
+  {
+    "id": "1",
+    "name": "Product one",
+  },
+  {
+    "id": "2",
+    "name": "Product Two",
+  }
+]
+
+
 
 function Products() {
 
@@ -33,16 +45,14 @@ function Products() {
     <div>
       <p>Product page</p>
       {
-        products.length > 0 && 
-        products.map((item) => {
-          const {image:{url:image, image_dimensions:{width, height}}} = item;
-          const {name,price:{formated_with_symbol:rate}} = item;
+        items.length > 0 && 
+        items.map((prd) => {
           return <div>
-              <div>Name: {name}</div>
-              <div>Price: {rate}</div>
-
-              </div>
+            <p>{prd.id} : {prd.name}</p>
+          </div>
         })
+
+
       }
     </div>
   )
