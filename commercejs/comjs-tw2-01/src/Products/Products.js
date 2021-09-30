@@ -26,7 +26,8 @@ function Products() {
       fetchProducts();
   },[])
 
-  console.log(ndata);
+  console.log("raw",ndata, ndata.length);
+  console.log("data",ndata.products.data,"length", ndata.products.data.length);
 
   return (
     <div>
@@ -34,6 +35,7 @@ function Products() {
       {
         ndata.length > 0 && 
         ndata.map((item) => {
+          console.log(item);
           //const {image:{url:image, image_dimensions:{width, height}}} = item;
           //const {name,price:{formated_with_symbol:rate}} = item;
           return <div>
