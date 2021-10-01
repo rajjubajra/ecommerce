@@ -44,7 +44,7 @@ function Products() {
   console.log(products);
   console.log(products.length);
   console.log(products);
-  console.log("cart",cart);
+  console.log("cart",cartItems);
 
   const passIndex = (index) => {
     setViewIndex(index);
