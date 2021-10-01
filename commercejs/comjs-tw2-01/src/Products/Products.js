@@ -65,6 +65,12 @@ function Products() {
         setCartItems(item.cart)
       }).catch(err=>{console.log("There was an error removing the item from the cart", err)})
   }
+  /** EMPTY CART  */
+  const handleEmptyCart = () => {
+    commerce.cart.empty().then((res)=>{
+      setCartItems(res.cart);
+    }).catch((err)=>{console.log("There was an error emptying cart", err)})
+  }
 
 
 
@@ -102,6 +108,7 @@ function Products() {
       cartItems={cartItems} 
       handleAddToCart={handleAddToCart} 
       handleRemoveFromCart={handleRemoveFromCart}
+      handleEmptyCart={handleEmptyCart}
       />
     </div>
   )
