@@ -1,5 +1,5 @@
 import Products from './Products/Products';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Switch, Link} from 'react-router-dom';
 
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
     <div>
       <h1>Comerce Js</h1>
       <BrowserRouter>
+        <Link to="/">Shop</Link>
         <Switch>
           <Products />  
         </Switch>
