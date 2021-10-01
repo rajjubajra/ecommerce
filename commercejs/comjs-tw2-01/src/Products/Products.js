@@ -4,6 +4,7 @@ import ItemDetails from './ItemDetails';
 import Cart from '../Components/Cart';
 import Checkout from '../Components/Checkout';
 import { commerce } from '../lib/commerce';
+import {Route} from 'react-router-dom';
 
 
 
@@ -80,6 +81,8 @@ function Products() {
 
 
   return (
+    <div>
+      <Route exact path="/">
     <div className="flex flex-row flex-wrap">
       {
         products.length > 0 && !viewDetail ? 
@@ -111,8 +114,12 @@ function Products() {
         handleRemoveFromCart={handleRemoveFromCart}
         handleEmptyCart={handleEmptyCart}
       />
-
+    </div>
+    </Route>
+    
+    <Route path="/checkout">
       <Checkout cartItems={cartItems}  />
+    </Route>
 
     </div>
   )

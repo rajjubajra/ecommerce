@@ -1,6 +1,7 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 
-function Cart({cartItems, handleAddToCart, handleRemoveFromCart, handleEmptyCart, genrateCheckoutToken}) {
+function Cart({cartItems, handleAddToCart, handleRemoveFromCart, handleEmptyCart}) {
 
   const [totalItem, setTotalItem] = useState(0);
 
@@ -34,7 +35,7 @@ function Cart({cartItems, handleAddToCart, handleRemoveFromCart, handleEmptyCart
         }
         <div>Total Items:{totalItem}</div>
         <div>Sub Total: {cartItems.subtotal.formatted_with_symbol}</div>
-        <div onClick={() => genrateCheckoutToken()}>Checkout</div>
+        <div><Link to="/checkout">Checkout</Link></div>
         <div onClick={()=>handleEmptyCart()}>Empty Cart</div>
         </div>
       : <div>Cart is empty</div>

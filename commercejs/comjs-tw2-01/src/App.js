@@ -8,7 +8,9 @@ function App() {
     <div>
       <h1>Comerce Js</h1>
       <BrowserRouter>
-        <Products />  
+        <Switch>
+          <Products />  
+        </Switch>
       </BrowserRouter>
     </div>
   )
