@@ -6,9 +6,11 @@ function Cart({cartItems}) {
   const [totalItem, setTotalItem] = useState(0);
 
   useEffect(()=>{
-    setTotalItem(cartItems.cart.total_items);
+    setTotalItem(cartItems.total_items);
       
-  },[cartItems.cart.total_items])
+  },[cartItems.total_items])
+
+
   console.log("CART-items",cartItems);
   console.log("CART-items",cartItems.cart);
   console.log("Total item", totalItem);
