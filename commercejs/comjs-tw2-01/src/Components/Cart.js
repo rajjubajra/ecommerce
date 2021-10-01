@@ -15,21 +15,20 @@ function Cart({cartItems}) {
   console.log("Total item", cartItems.total_items);
   console.log("TotalItem", totalItem);
 
-  const CartList = (cartItems) => {
-      cartItems.line_items.map((item)=>{
-        return <div>
-          <div>{item.product_name} | Qty: {item.quantity} | Rate: {item.price.formatted_with_symbol}</div>
-        </div>
-      })
-
-  }
+  
 
   
   return (
     <div>
       {totalItem > 0 
       ? <div>
-        {CartList(cartItems)}
+        {
+          cartItems.line_items.map((item)=>{
+            return <div>
+              <div>{item.product_name} | Qty: {item.quantity} | Rate: {item.price.formatted_with_symbol}</div>
+            </div>
+          })
+        }
         <div>Total Items:{totalItem}</div>
         <div>Sub Total: {cartItems.subtotal.formatted_with_symbol}</div>
 
