@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 
-function Cart({cartItems, handleAddToCart, handleRemoveItem}) {
+function Cart({cartItems, handleAddToCart, handleRemoveFromCart}) {
 
 
   const [totalItem, setTotalItem] = useState(0);
@@ -28,7 +28,7 @@ function Cart({cartItems, handleAddToCart, handleRemoveItem}) {
               <div>{item.product_name} | Qty: {item.quantity} | Rate: {item.price.formatted_with_symbol}
                 <div onClick={()=> handleAddToCart(item.product_id, -1)}> 
                   - minus item</div>
-                <div onClick={()=> handleRemoveItem(item.product_id)}>
+                <div onClick={()=> handleRemoveFromCart(item.id)}>
                   Remove Item</div>
               </div>
             </div>

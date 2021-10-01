@@ -60,9 +60,9 @@ function Products() {
     }).catch((err) => {console.log("There was an error adding the item to the cart", err)});
   }
   /** REMOVE ITEM */
-  const handleRemoveItem = (productId) => {
-      commerce.cart.remove(productId).then((item)=>{
-        setCartItems(item.cart);
+  const handleRemoveFromCart = (lineItemId) => {
+      commerce.cart.remove(lineItemId).then((item)=>{
+        setCartItems(item.cart)
       }).catch(err=>{console.log("There was an error removing the item from the cart", err)})
   }
 
@@ -101,7 +101,7 @@ function Products() {
       <Cart 
       cartItems={cartItems} 
       handleAddToCart={handleAddToCart} 
-      handleRemoveItem={handleRemoveItem}
+      handleRemoveFromCart={handleRemoveFromCart}
       />
     </div>
   )
