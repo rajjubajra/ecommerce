@@ -57,6 +57,8 @@ function Products() {
     }).catch((err) => {console.log("There was an error adding the item to the cart", err)});
   }
 
+  
+
 
   return (
     <div className="flex flex-row flex-wrap">
@@ -84,7 +86,7 @@ function Products() {
       }
       { viewDetail && <ItemDetails />
       }
-      <Cart cartItems={cartItems} />
+      <Cart cartItems={cartItems, handleAddToCart} />
     </div>
   )
 }
