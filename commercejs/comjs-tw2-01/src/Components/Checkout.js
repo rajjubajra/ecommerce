@@ -17,7 +17,7 @@ function Checkout({cartItems}) {
    */
   const genrateCheckoutToken = () => {
         
-    if(cartItems.line_items.length){
+    if(cartItems.total_items > 0){
       commerce.checkout.genrateToken(cartItems.id, {type: 'cart'})
       .then((token) => {
         setToken(token);

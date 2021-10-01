@@ -112,7 +112,7 @@ function Products() {
         handleEmptyCart={handleEmptyCart}
       />
 
-      <Checkout cartItems={cartItems} />
+      <Checkout cartItems={cartItems}  />
 
     </div>
   )
