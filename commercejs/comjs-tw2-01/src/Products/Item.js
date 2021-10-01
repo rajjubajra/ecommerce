@@ -1,9 +1,9 @@
 import React from 'react';
 import Colours from './Colours';
 import ImageOnload from './ImageOnload';
-import {Link} from 'react-router-dom';
 
-function Item({image, price, name, width, height, index, passIndex, checkout}) {
+
+function Item({id, image, price, name, width, height, index, passIndex, handleAddToCart}) {
   return (
     <div className="p-5">
       <p>Product Item</p>
@@ -20,7 +20,7 @@ function Item({image, price, name, width, height, index, passIndex, checkout}) {
         <p className="text-xs font-extralight">Availble colours</p>
         <Colours />
       </div>  
-      <div><Link to={checkout}>Checkout</Link></div>
+      <div onClick={()=> handleAddToCart(id, 1)}>Quick Add</div>
     </div>
   )
 }

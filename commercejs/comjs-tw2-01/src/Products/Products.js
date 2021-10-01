@@ -9,6 +9,7 @@ function Products() {
 
 
   const [ products, setProducts] = useState([]);
+  const [cart, setCart] = useState({});
 
   const [viewIndex, setViewIndex] = useState(0);
   const [viewDetail, setViewDetail] = useState(false);
@@ -25,20 +26,36 @@ function Products() {
     });
   }
 
+  async function fetchCart(){
+    commerce.cart.retrive().then((cart)=>{
+      setCart({cart});
+    }).catch((error)=>{
+      console.error('There was an error fetching cart',error);
+    })
+  }
+
 
   useEffect(()=>{
       fetchProducts();
+      fetchCart();
   },[])
 
   console.log(products);
   console.log(products.length);
   console.log(products);
-  //console.log(ndata.products.products);
+  console.log("cart",cart);
 
   const passIndex = (index) => {
     setViewIndex(index);
     setViewDetail(true);
   }
+
+  const handleAddToCart = (productId, quantity) => {
+    commerce.cart.add(productId, quantity).then((item)=>{
+      setCart({cart: item.cart})
+    }).catch((err) => {console.log("There was an error adding the item to the cart", err)});
+  }
+
 
   return (
     <div className="flex flex-row flex-wrap">
@@ -46,10 +63,11 @@ function Products() {
         products.length > 0 && !viewDetail ? 
         products.map((item,index) => {
           const {image:{url:image, image_dimensions:{width, height}}} = item;
-          const {name,price:{formatted_with_symbol:rate}} = item;
-          const {checkout_url:{checkout, display}} = item;
-          return <div key={item.id}>
+          const {id,name,price:{formatted_with_symbol:rate}} = item;
+          
+          return <div key={id}>
                   <Item 
+                  id={id}
                   image={image} 
                   price={rate} 
                   name={name}
@@ -57,7 +75,7 @@ function Products() {
                   height={height}
                   index={index}
                   passIndex={passIndex}
-                  checkout={checkout}
+                  handleAddToCart={handleAddToCart}
                   />
               </div>
         })
