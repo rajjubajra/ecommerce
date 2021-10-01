@@ -8,7 +8,8 @@ import { commerce } from '../lib/commerce';
 function Products() {
 
 
-  const [ ndata, setNdata] = useState([]);
+  const [ products, setProducts] = useState([]);
+
   const [viewIndex, setViewIndex] = useState(0);
   const [viewDetail, setViewDetail] = useState(false);
 
@@ -18,7 +19,7 @@ function Products() {
    */
     async function fetchProducts(){
       await commerce.products.list().then((products) => {
-      setNdata(products.data);
+      setProducts(products.data);
     }).catch((error) => {
       console.log('There was an error fetching the products', error);
     });
@@ -29,9 +30,9 @@ function Products() {
       fetchProducts();
   },[])
 
-  console.log(ndata);
-  console.log(ndata.length);
-  console.log(ndata);
+  console.log(products);
+  console.log(products.length);
+  console.log(products);
   //console.log(ndata.products.products);
 
   const passIndex = (index) => {
@@ -42,8 +43,8 @@ function Products() {
   return (
     <div className="flex flex-row flex-wrap">
       {
-        ndata.length > 0 && !viewDetail ? 
-        ndata.map((item,index) => {
+        products.length > 0 && !viewDetail ? 
+        products.map((item,index) => {
           const {image:{url:image, image_dimensions:{width, height}}} = item;
           const {name,price:{formatted_with_symbol:rate}} = item;
           const {checkout_url:{checkout, display}} = item;
