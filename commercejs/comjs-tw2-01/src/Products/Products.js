@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Item from './Item';
 import ItemDetails from './ItemDetails';
+import Cart from '../Components/Cart';
 import { commerce } from '../lib/commerce';
 
 
@@ -9,7 +10,7 @@ function Products() {
 
 
   const [ products, setProducts] = useState([]);
-  const [cart, setCart] = useState({});
+  const [cartItems, setCartItems] = useState({});
 
   const [viewIndex, setViewIndex] = useState(0);
   const [viewDetail, setViewDetail] = useState(false);
@@ -28,7 +29,7 @@ function Products() {
 
   async function fetchCart(){
     commerce.cart.retrive().then((cart)=>{
-      setCart({cart});
+      setCartItems({cart});
     }).catch((error)=>{
       console.error('There was an error fetching cart',error);
     })
@@ -52,7 +53,7 @@ function Products() {
 
   const handleAddToCart = (productId, quantity) => {
     commerce.cart.add(productId, quantity).then((item)=>{
-      setCart({cart: item.cart})
+      setCartItems({cart: item.cart})
     }).catch((err) => {console.log("There was an error adding the item to the cart", err)});
   }
 
@@ -83,6 +84,7 @@ function Products() {
       }
       { viewDetail && <ItemDetails />
       }
+      <Cart cartItems={cartItems} />
     </div>
   )
 }
