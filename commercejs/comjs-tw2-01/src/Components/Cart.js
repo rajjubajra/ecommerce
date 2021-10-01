@@ -16,7 +16,7 @@ function Cart({cartItems}) {
   console.log("TotalItem", totalItem);
 
   const CartList = (cartItems) => {
-      cartItems.map((item)=>{
+      cartItems.line_items.map((item)=>{
         return <div>
           <div>{item.product_name} | Qty: {item.quantity} | Rate: {item.price.formatted_with_symbol}</div>
         </div>
