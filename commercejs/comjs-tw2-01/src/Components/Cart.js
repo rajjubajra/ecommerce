@@ -9,8 +9,8 @@ function Cart({cartItems}) {
     setTotalItem(cartItems.total_items);
       
   },[cartItems.total_items])
-
   console.log("CART-items",cartItems);
+  console.log("CART-items",cartItems.cart);
   console.log("Total item", totalItem);
 
   
