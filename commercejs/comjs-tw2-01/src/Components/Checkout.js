@@ -34,7 +34,7 @@ function Checkout({cartItems}) {
 
 
   return (
-    <div>
+    <div className="w-full max-w-screen-xl m-auto">
       Checkout Page
       <CheckoutForm />
     </div>
