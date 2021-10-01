@@ -2,16 +2,20 @@ import React from 'react'
 
 function CheckoutForm({firstName, lastName, email, shippingName, shippingStreet, shippingCity, shippingPostCode, cardNum, expMonth, expYear, ccv}) {
   return (
-    <form className="grid grid-cols-2 grid-flow-row">
-      <h4 className="col-span-2">Customer information</h4>
-      <div>
-        <label className="checkout__label" htmlFor="firstName">First name</label>
-        <input className="checkout__input" type="text" value={firstName} name="firstName" placeholder="Enter your first name" required />
+    <form className="grid grid-cols-2 grid-flow-row font-extralight">
+
+      <div className="col-span-2 border border-b border-gray-400">
+        <h4 className="col-span-2">Customer information</h4>
       </div>
       
-      <div>
-        <label className="checkout__label" htmlFor="lastName">Last name</label>
-        <input className="checkout__input" type="text" value={lastName}name="lastName" placeholder="Enter your last name" required />
+      <div className="flex">
+        <label htmlFor="firstName">First name</label>
+        <input className="outline-none  border border-gray-200" type="text" value={firstName} name="firstName" placeholder="Enter your first name" required />
+      </div>
+      
+      <div className="flex">
+        <label htmlFor="lastName">Last name</label>
+        <input className="outline-none  border border-gray-200" type="text" value={lastName}name="lastName" placeholder="Enter your last name" required />
       </div>
       
       <div>
@@ -19,7 +23,7 @@ function CheckoutForm({firstName, lastName, email, shippingName, shippingStreet,
         <input className="checkout__input" type="text" value={email} name="email" placeholder="Enter your email" required />
       </div>
       
-      <div className="col-span-2">
+      <div className="col-span-2 border border-b border-gray-400">
         <h4 className="checkout__subheading">Shipping details</h4>
       </div>
       
@@ -43,7 +47,7 @@ function CheckoutForm({firstName, lastName, email, shippingName, shippingStreet,
         <input className="checkout__input" type="text" value={shippingPostCode} name="shippingPostalZipCode" placeholder="Enter your postal/zip code" required />
       </div>
       
-      <div>
+      <div className="col-span-2 border border-b border-gray-400">
         <h4 className="checkout__subheading">Payment information</h4>
       </div>
       
@@ -67,7 +71,7 @@ function CheckoutForm({firstName, lastName, email, shippingName, shippingStreet,
         <input className="checkout__input" type="text" name="ccv" value={ccv} placeholder="CCV (3 digits)" />
       </div>
 
-      <div>
+      <div className="col-span-2 border border-b border-gray-400">
         <button className="checkout__btn-confirm">Confirm order</button>
       </div>
 
