@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import { commerce } from '../lib/commerce';
+import CheckoutForm from './CheckoutForm';
 
 
 function Checkout({cartItems}) {
@@ -35,6 +36,7 @@ function Checkout({cartItems}) {
   return (
     <div>
       Checkout Page
+      <CheckoutForm />
     </div>
   )
 }
