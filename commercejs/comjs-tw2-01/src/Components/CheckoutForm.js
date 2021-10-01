@@ -2,18 +2,18 @@ import React from 'react'
 
 function CheckoutForm({firstName, lastName, email, shippingName, shippingStreet, shippingCity, shippingPostCode, cardNum, expMonth, expYear, ccv}) {
   return (
-    <form className="grid grid-cols-2 grid-flow-row font-extralight">
+    <form className="grid grid-cols-2 grid-flow-row font-extralight text-sm">
 
       <div className="col-span-2 border border-b border-gray-400">
         <h4 className="col-span-2">Customer information</h4>
       </div>
       
-      <div className="flex">
+      <div className="flex flex-col">
         <label htmlFor="firstName">First name</label>
         <input className="outline-none  border border-gray-200" type="text" value={firstName} name="firstName" placeholder="Enter your first name" required />
       </div>
       
-      <div className="flex">
+      <div className="flex flex-col">
         <label htmlFor="lastName">Last name</label>
         <input className="outline-none  border border-gray-200" type="text" value={lastName}name="lastName" placeholder="Enter your last name" required />
       </div>
