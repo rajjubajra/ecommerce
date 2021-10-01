@@ -86,7 +86,9 @@ function Products() {
       }
       { viewDetail && <ItemDetails />
       }
-      <Cart cartItems={cartItems, handleAddToCart} />
+      <Cart 
+      cartItems={cartItems} 
+      handleAddToCart={handleAddToCart} />
     </div>
   )
 }
