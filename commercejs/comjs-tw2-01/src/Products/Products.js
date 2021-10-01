@@ -53,7 +53,7 @@ function Products() {
 
   const handleAddToCart = (productId, quantity) => {
     commerce.cart.add(productId, quantity).then((item)=>{
-      setCartItems({cart: item.cart})
+      setCartItems(item.cart)
     }).catch((err) => {console.log("There was an error adding the item to the cart", err)});
   }
 

@@ -13,7 +13,7 @@ function Cart({cartItems}) {
 
   console.log("CART-items",cartItems);
   console.log("CART-items", cartItems.cart);
-  console.log("Total item", cartItems.cart.total_items);
+  console.log("Total item", cartItems.total_items);
 
   
   return (
