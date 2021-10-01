@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react';
 import Item from './Item';
 import ItemDetails from './ItemDetails';
 import Cart from '../Components/Cart';
+import Checkout from '../Components/Checkout';
 import { commerce } from '../lib/commerce';
+
 
 
 
@@ -11,6 +13,7 @@ function Products() {
 
   const [ products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState({});
+  const [token, setToken] = useState({});
 
   const [viewIndex, setViewIndex] = useState(0);
   const [viewDetail, setViewDetail] = useState(false);
@@ -35,7 +38,6 @@ function Products() {
     })
   }
 
-
   useEffect(()=>{
       fetchProducts();
       fetchCart();
@@ -45,11 +47,13 @@ function Products() {
   console.log(products.length);
   console.log(products);
   console.log("cart",cartItems);
+  console.log("Checkout Token", token);
 
   const passIndex = (index) => {
     setViewIndex(index);
     setViewDetail(true);
   }
+
 
 
   /** HANDLER */
@@ -71,6 +75,24 @@ function Products() {
       setCartItems(res.cart);
     }).catch((err)=>{console.log("There was an error emptying cart", err)})
   }
+
+  
+
+  /** GENERATE CHECKOUT TOKEN */
+  /**
+   *  Generates a checkout token
+   *  https://commercejs.com/docs/sdk/checkout#generate-token
+   */
+    const genrateCheckoutToken = () => {
+        
+        if(cartItems.line_items.length){
+          commerce.checkout.genrateToken(cartItems.id, {type: 'cart'})
+          .then((token) => {
+            setToken(token);
+          }) 
+        }
+
+    }
 
 
 
@@ -102,14 +124,18 @@ function Products() {
         })
         : "loading...."
       }
-      { viewDetail && <ItemDetails />
-      }
+      { viewDetail && <ItemDetails /> }
+      
       <Cart 
-      cartItems={cartItems} 
-      handleAddToCart={handleAddToCart} 
-      handleRemoveFromCart={handleRemoveFromCart}
-      handleEmptyCart={handleEmptyCart}
+        cartItems={cartItems} 
+        handleAddToCart={handleAddToCart} 
+        handleRemoveFromCart={handleRemoveFromCart}
+        handleEmptyCart={handleEmptyCart}
+        genrateCheckoutToken={genrateCheckoutToken}
       />
+
+      <Checkout token={token} />
+
     </div>
   )
 }

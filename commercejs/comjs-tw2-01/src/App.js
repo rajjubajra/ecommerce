@@ -10,7 +10,11 @@ function App() {
     <div>
       <h1>Comerce Js</h1>
       <BrowserRouter>
-        <Products />
+        <Switch>
+            <Route exact path="/">
+              <Products />
+            </Route>
+        </Switch>
       </BrowserRouter>
     </div>
   )

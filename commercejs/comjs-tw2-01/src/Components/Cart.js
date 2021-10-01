@@ -1,13 +1,11 @@
 import {useState, useEffect} from 'react'
 
-function Cart({cartItems, handleAddToCart, handleRemoveFromCart, handleEmptyCart}) {
-
+function Cart({cartItems, handleAddToCart, handleRemoveFromCart, handleEmptyCart, genrateCheckoutToken}) {
 
   const [totalItem, setTotalItem] = useState(0);
 
     useEffect(()=>{
       setTotalItem(cartItems.total_items);
-      
     },[cartItems.total_items])
 
 
@@ -36,6 +34,7 @@ function Cart({cartItems, handleAddToCart, handleRemoveFromCart, handleEmptyCart
         }
         <div>Total Items:{totalItem}</div>
         <div>Sub Total: {cartItems.subtotal.formatted_with_symbol}</div>
+        <div onClick={() => genrateCheckoutToken()}>Checkout</div>
         <div onClick={()=>handleEmptyCart()}>Empty Cart</div>
         </div>
       : <div>Cart is empty</div>
