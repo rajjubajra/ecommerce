@@ -13,7 +13,7 @@ function Products() {
 
   const [ products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState({});
-  const [token, setToken] = useState({});
+  
 
   const [viewIndex, setViewIndex] = useState(0);
   const [viewDetail, setViewDetail] = useState(false);
@@ -47,7 +47,7 @@ function Products() {
   console.log(products.length);
   console.log(products);
   console.log("cart",cartItems);
-  console.log("Checkout Token", token);
+  
 
   const passIndex = (index) => {
     setViewIndex(index);
@@ -75,27 +75,6 @@ function Products() {
       setCartItems(res.cart);
     }).catch((err)=>{console.log("There was an error emptying cart", err)})
   }
-
-  
-
-  /** GENERATE CHECKOUT TOKEN */
-  /**
-   *  Generates a checkout token
-   *  https://commercejs.com/docs/sdk/checkout#generate-token
-   */
-    const genrateCheckoutToken = () => {
-        
-        if(cartItems.line_items.length){
-          commerce.checkout.genrateToken(cartItems.id, {type: 'cart'})
-          .then((token) => {
-            setToken(token);
-          }) 
-        }
-
-    }
-
-
-
 
   
 
@@ -131,10 +110,9 @@ function Products() {
         handleAddToCart={handleAddToCart} 
         handleRemoveFromCart={handleRemoveFromCart}
         handleEmptyCart={handleEmptyCart}
-        genrateCheckoutToken={genrateCheckoutToken}
       />
 
-      <Checkout token={token} />
+      <Checkout cartItems={cartItems} />
 
     </div>
   )
