@@ -51,11 +51,23 @@ function Products() {
     setViewDetail(true);
   }
 
+
+  /** HANDLER */
+  /** ADD AND MINUS */
   const handleAddToCart = (productId, quantity) => {
     commerce.cart.add(productId, quantity).then((item)=>{
       setCartItems(item.cart)
     }).catch((err) => {console.log("There was an error adding the item to the cart", err)});
   }
+  /** REMOVE ITEM */
+  const handleRemoveItem = (productId) => {
+      commerce.cart.remove(productId).then((item)=>{
+        setCartItems(item.cart);
+      }).catch(err=>{console.log("There was an error removing the item from the cart", err)})
+  }
+
+
+
 
   
 
@@ -88,7 +100,9 @@ function Products() {
       }
       <Cart 
       cartItems={cartItems} 
-      handleAddToCart={handleAddToCart} />
+      handleAddToCart={handleAddToCart} 
+      handleRemoveItem={handleRemoveItem}
+      />
     </div>
   )
 }
