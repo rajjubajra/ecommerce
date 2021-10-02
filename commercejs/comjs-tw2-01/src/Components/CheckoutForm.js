@@ -49,6 +49,31 @@ function CheckoutForm() {
   
   
   return (
+
+      <>
+      
+      <div className="flex flex-row justify-between text-xm my-10 font-extralight text-xs">
+        <div className="checkout-customer-detail">
+          <div className="before:block before:content-['1'] before:bg-gray-500">
+            <div className={`${!customerInfo ? "font-bold" : "font-extralight"}`}>Customer Information</div>
+          </div>
+        </div>
+        <div className="checkout-shipping-address">
+          <div className="before:block before:content-['2'] before:bg-gray-500">
+            <div className={`${customerInfo && !shippingAddress 
+              ? "font-bold" 
+              : "font-extralight" }`}>Shipping Address</div>
+          </div>  
+        </div>
+        <div className="checkout-payment-detail">
+          <div className="before:block before:content-['3'] before:bg-gray-500">
+            <div className={`${customerInfo && shippingAddress && !paymentDetail 
+        ? "font-bold" : "font-extralight"}`}>Payment Details</div>
+          </div>
+        </div>
+      </div>
+      
+
     <form 
     onSubmit={handleSubmit}
     className="w-full m-auto grid grid-cols-2 grid-flow-row font-extralight text-sm">
@@ -57,7 +82,7 @@ function CheckoutForm() {
       !customerInfo &&
       <>
           <div className="col-span-2 border border-gray-400">
-            <h4 className={`${!customerInfo ? "font-bold" : "font-extralight"}`}>Customer information</h4>
+            <h4>Customer information</h4>
           </div>
           
           <div className="flex flex-col col-span-2">
@@ -102,9 +127,7 @@ function CheckoutForm() {
       customerInfo && !shippingAddress &&
       <>
       <div className="col-span-2 border-t border-b border-gray-400">
-        <h4 className={`${customerInfo && !shippingAddress 
-              ? "font-bold" 
-              : "font-extralight" }`}>Shipping details</h4>
+        <h4>Shipping details</h4>
       </div>
       
       <div className="flex flex-col col-span-2">
@@ -161,8 +184,7 @@ function CheckoutForm() {
       customerInfo && shippingAddress && !paymentDetail &&
       <>
       <div className="col-span-2 border-t border-b border-gray-400">
-        <h4 className={`${customerInfo && shippingAddress && !paymentDetail 
-        ? "font-bold" : "font-extralight"}`}>Payment information</h4>
+        <h4>Payment information</h4>
       </div>
       
       <div className="flex flex-col col-span-2">
@@ -218,6 +240,7 @@ function CheckoutForm() {
     </div>
 
     </form>
+    </>
   )
 }
 
