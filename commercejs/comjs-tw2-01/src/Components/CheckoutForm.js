@@ -2,7 +2,7 @@ import React from 'react'
 
 function CheckoutForm({firstName, lastName, email, shippingName, shippingStreet, shippingCity, shippingPostCode, cardNum, expMonth, expYear, ccv}) {
   return (
-    <form className="md:w-1/2 w-full m-auto grid grid-cols-2 grid-flow-row font-extralight text-sm">
+    <form className="w-full m-auto grid grid-cols-2 grid-flow-row font-extralight text-sm">
 
       <div className="col-span-2 border border-gray-400">
         <h4>Customer information</h4>
