@@ -39,7 +39,9 @@ function CheckoutForm() {
   console.log("firstname", firstname);
   
   return (
-    <form className="w-full m-auto grid grid-cols-2 grid-flow-row font-extralight text-sm">
+    <form 
+    onSubmit={handleSubmit}
+    className="w-full m-auto grid grid-cols-2 grid-flow-row font-extralight text-sm">
 
     {
       !customerInfo &&
