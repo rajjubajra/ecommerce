@@ -16,10 +16,12 @@ function CheckoutForm() {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [email,setEmail] = useState('');
+
   const [shippingName, setShippingName] = useState('');
   const [shippingStreet, setShippingStreet] = useState('');
   const [shippingCity, setShippingCity] = useState('');
   const [shippingPostCode, setShippingPostCode] = useState('');
+
   const [cardNum, setCardNum] = useState('');
   const [expMonth, setExpMonth] = useState('');
   const [expYear, setExpYear] = useState('');
@@ -33,10 +35,15 @@ function CheckoutForm() {
       setCustomerInfo(true);
     }
 
+    if(shippingName && shippingStreet && shippingCity && shippingPostCode){
+      setShippingAddress(true);
+    }
+
   } 
 
   
-  console.log("firstname", firstname);
+  console.log("firstname", firstname, "lsatename", lastname, "email", email);
+  console.log("shippingName", shippingName);
   
   return (
     <form 
@@ -53,7 +60,7 @@ function CheckoutForm() {
           <div className="flex flex-col col-span-2">
             <label htmlFor="firstName">First name</label>
             <input 
-            className="outline-none  border border-gray-200" 
+            className="outline-none  border border-gray-200 p-2" 
             type="text" 
             onChange={(e)=>setFirstname(e.target.value)}
             value={firstname} 
@@ -65,7 +72,7 @@ function CheckoutForm() {
           <div className="flex flex-col col-span-2">
             <label htmlFor="lastName">Last name</label>
             <input 
-            className="outline-none  border border-gray-200" 
+            className="outline-none  border border-gray-200 p-2" 
             type="text" 
             onChange={(e) => setLastname(e.target.value)}
             value={lastname}
@@ -77,7 +84,7 @@ function CheckoutForm() {
           <div className="flex flex-col col-span-2">
             <label htmlFor="email">Email</label>
             <input  
-            className="outline-none  border border-gray-200" 
+            className="outline-none  border border-gray-200 p-2" 
             type="text" 
             onChange={(e) => setEmail(e.target.value)}
             value={email} 
@@ -97,22 +104,50 @@ function CheckoutForm() {
       
       <div className="flex flex-col col-span-2">
         <label htmlFor="shippingName">Full name</label>
-        <input  className="outline-none  border border-gray-200" type="text" value={shippingName} name="shippingName" placeholder="Enter your shipping full name" required />
+        <input  
+        className="outline-none  border border-gray-200" 
+        type="text" 
+        onChange={(e)=>setShippingName(e.target.value)}
+        value={shippingName} 
+        name="shippingName" 
+        placeholder="Enter your shipping full name" 
+        required />
       </div>
       
       <div className="flex flex-col col-span-2">
         <label htmlFor="shippingStreet">Street address</label>
-        <input  className="outline-none  border border-gray-200" type="text" value={shippingStreet} name="shippingStreet" placeholder="Enter your street address" required />
+        <input  
+        className="outline-none  border border-gray-200 p-2"  
+        type="text" 
+        onChange={(e) => setShippingStreet(e.target.value)}
+        value={shippingStreet} 
+        name="shippingStreet" 
+        placeholder="Enter your street address" 
+        required />
       </div>
       
       <div className="flex flex-col col-span-2">
         <label  htmlFor="shippingCity">City</label>
-        <input  className="outline-none  border border-gray-200" type="text" value={shippingCity} name="shippingCity" placeholder="Enter your city" required />
+        <input  
+        className="outline-none  border border-gray-200 p-2" 
+        type="text" 
+        onChange={(e) => setShippingCity(e.target.value)}
+        value={shippingCity} 
+        name="shippingCity" 
+        placeholder="Enter your city" 
+        required />
       </div>
       
       <div className="flex flex-col col-span-2">
         <label htmlFor="shippingPostalZipCode">Postal/Zip code</label>
-        <input  className="outline-none  border border-gray-200" type="text" value={shippingPostCode} name="shippingPostalZipCode" placeholder="Enter your postal/zip code" required />
+        <input  
+        className="outline-none  border border-gray-200" 
+        type="text" 
+        onChange={(e) => setShippingPostCode(e.target.value)}
+        value={shippingPostCode} 
+        name="shippingPostalZipCode" 
+        placeholder="Enter your postal/zip code" 
+        required />
       </div>
       </>
     }
@@ -126,30 +161,55 @@ function CheckoutForm() {
       
       <div className="flex flex-col col-span-2">
         <label  htmlFor="cardNum">Credit card number</label>
-        <input  className="outline-none  border border-gray-200" type="text" name="cardNum" value={cardNum} placeholder="Enter your card number" />
+        <input  
+        className="outline-none  border border-gray-200 p-2" 
+        type="text" 
+        name="cardNum" 
+        onChange={(e) => setCardNum(e.target.value)} 
+        value={cardNum} 
+        placeholder="Enter your card number" 
+        required />
       </div>
       
       <div className="flex flex-col col-span-2">
         <label  htmlFor="expMonth">Expiry month</label>
-        <input  className="outline-none  border border-gray-200" type="text" name="expMonth" value={expMonth} placeholder="Card expiry month" />
+        <input  
+        className="outline-none  border border-gray-200 p-2"  
+        type="text" 
+        onChange={(e) => setExpMonth(e.target.value)}
+        name="expMonth" 
+        value={expMonth} 
+        placeholder="Card expiry month" />
       </div>
       
       <div className="flex flex-col col-span-2">
         <label  htmlFor="expYear">Expiry year</label>
-        <input  className="outline-none  border border-gray-200" type="text" name="expYear" value={expYear} placeholder="Card expiry year" />
+        <input  
+        className="outline-none  border border-gray-200 p-2" 
+        type="text" 
+        onChange={(e) => expYear(e.target.value)}
+        name="expYear" 
+        value={expYear} 
+        placeholder="Card expiry year" />
       </div>
       
       <div className="flex flex-col col-span-2">
         <label  htmlFor="ccv">CCV</label>
-        <input  className="outline-none  border border-gray-200" type="text" name="ccv" value={ccv} placeholder="CCV (3 digits)" />
+        <input  
+        className="outline-none  border border-gray-200 p-2" 
+        type="text" 
+        name="ccv" 
+        onChange={(e) => setCcv(e.target.value)}
+        value={ccv} 
+        placeholder="CCV (3 digits)" 
+        required />
       </div>
       </>
     }
-      
 
-      <div className="col-span-2">
-        <button className="py-2  px-3 my-2 border border-gray-400">Confirm order</button>
-      </div>
+    <div className="col-span-2">
+        <button className="py-2  px-3 my-2 border border-gray-400">Submit</button>
+    </div>
 
     </form>
   )
