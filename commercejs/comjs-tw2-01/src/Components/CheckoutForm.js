@@ -1,28 +1,43 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 function CheckoutForm({firstName, lastName, email, shippingName, shippingStreet, shippingCity, shippingPostCode, cardNum, expMonth, expYear, ccv}) {
+  
+  const [customerInfo, setCustomerInfo] = useState(false);
+  const [shippingAddress, setShippingAddress] = useState(false);
+  const [paymentDetail, setPaymentDetail] = useState(false);
+  
+  
+  
   return (
     <form className="w-full m-auto grid grid-cols-2 grid-flow-row font-extralight text-sm">
 
-      <div className="col-span-2 border border-gray-400">
-        <h4>Customer information</h4>
-      </div>
-      
-      <div className="flex flex-col grid-col-2">
-        <label htmlFor="firstName">First name</label>
-        <input className="outline-none  border border-gray-200" type="text" value={firstName} name="firstName" placeholder="Enter your first name" required />
-      </div>
-      
-      <div className="flex flex-col col-span-2">
-        <label htmlFor="lastName">Last name</label>
-        <input className="outline-none  border border-gray-200" type="text" value={lastName}name="lastName" placeholder="Enter your last name" required />
-      </div>
-      
-      <div className="flex flex-col col-span-2">
-        <label htmlFor="email">Email</label>
-        <input  className="outline-none  border border-gray-200" type="text" value={email} name="email" placeholder="Enter your email" required />
-      </div>
-      
+    {
+      !customerInfo &&
+      <>
+          <div className="col-span-2 border border-gray-400">
+            <h4>Customer information</h4>
+          </div>
+          
+          <div className="flex flex-col grid-col-2">
+            <label htmlFor="firstName">First name</label>
+            <input className="outline-none  border border-gray-200" type="text" value={firstName} name="firstName" placeholder="Enter your first name" required />
+          </div>
+          
+          <div className="flex flex-col col-span-2">
+            <label htmlFor="lastName">Last name</label>
+            <input className="outline-none  border border-gray-200" type="text" value={lastName}name="lastName" placeholder="Enter your last name" required />
+          </div>
+          
+          <div className="flex flex-col col-span-2">
+            <label htmlFor="email">Email</label>
+            <input  className="outline-none  border border-gray-200" type="text" value={email} name="email" placeholder="Enter your email" required />
+          </div>
+        </>
+    }
+    
+    {
+        customerInfo && !shippingAddress &&
+      <>
       <div className="col-span-2 border-t border-b border-gray-400">
         <h4>Shipping details</h4>
       </div>
@@ -46,7 +61,12 @@ function CheckoutForm({firstName, lastName, email, shippingName, shippingStreet,
         <label htmlFor="shippingPostalZipCode">Postal/Zip code</label>
         <input  className="outline-none  border border-gray-200" type="text" value={shippingPostCode} name="shippingPostalZipCode" placeholder="Enter your postal/zip code" required />
       </div>
-      
+      </>
+    }
+    
+    {
+      customerInfo && shippingAddress && !paymentDetail &&
+      <>
       <div className="col-span-2 border-t border-b border-gray-400">
         <h4 className="checkout__subheading">Payment information</h4>
       </div>
@@ -70,6 +90,9 @@ function CheckoutForm({firstName, lastName, email, shippingName, shippingStreet,
         <label  htmlFor="ccv">CCV</label>
         <input  className="outline-none  border border-gray-200" type="text" name="ccv" value={ccv} placeholder="CCV (3 digits)" />
       </div>
+      </>
+    }
+      
 
       <div className="col-span-2">
         <button className="py-2  px-3 my-2 border border-gray-400">Confirm order</button>

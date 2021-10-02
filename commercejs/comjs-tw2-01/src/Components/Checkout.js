@@ -30,7 +30,7 @@ function Checkout({cartItems}) {
 
   useEffect(()=>{
     genrateCheckoutToken();
-  },[])
+  },[]);
 
 
   return (

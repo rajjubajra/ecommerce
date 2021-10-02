@@ -23,7 +23,7 @@ function Products() {
    * Fetch products data from Chec and stores in the products data object.
    * https://commercejs.com/docs/sdk/products
    */
-    async function fetchProducts(){
+  async function fetchProducts(){
       await commerce.products.list().then((products) => {
       setProducts(products.data);
     }).catch((error) => {
