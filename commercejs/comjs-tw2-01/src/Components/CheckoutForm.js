@@ -25,6 +25,16 @@ function CheckoutForm() {
   const [expYear, setExpYear] = useState('');
   const [ccv, setCcv] = useState('');
 
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if(firstname, lastname, email){
+      setCustomerInfo(true);
+    }
+
+  } 
+
   
   console.log("firstname", firstname);
   
@@ -77,7 +87,7 @@ function CheckoutForm() {
     }
     
     {
-        customerInfo && !shippingAddress &&
+      customerInfo && !shippingAddress &&
       <>
       <div className="col-span-2 border-t border-b border-gray-400">
         <h4>Shipping details</h4>
