@@ -43,7 +43,7 @@ function CheckoutForm() {
             <input 
             className="outline-none  border border-gray-200" 
             type="text" 
-            onChange={(e)=>setFirstname(e)}
+            onChange={(e)=>setFirstname(e.target.value)}
             value={firstname} 
             name="firstName" 
             placeholder="Enter your first name" 
@@ -55,7 +55,7 @@ function CheckoutForm() {
             <input 
             className="outline-none  border border-gray-200" 
             type="text" 
-            onChange={(e) => setLastname(e)}
+            onChange={(e) => setLastname(e.target.value)}
             value={lastname}
             name="lastName" 
             placeholder="Enter your last name" 
@@ -67,7 +67,7 @@ function CheckoutForm() {
             <input  
             className="outline-none  border border-gray-200" 
             type="text" 
-            onChange={(e) => setEmail(e)}
+            onChange={(e) => setEmail(e.target.value)}
             value={email} 
             name="email"
             placeholder="Enter your email" 
