@@ -34,11 +34,11 @@ function Checkout({cartItems}) {
 
 
   return (
-    <div className="w-full max-w-screen-xl m-auto">
-      <div className="md:w-1/2 m-auto">
+    <div className="w-full md:w-1/2 max-w-screen-xl m-auto">
+      <div className="w-full m-auto">
         <h1>Checkout Page</h1>
       </div>
-      <div className="flex flex-col justify-around">
+      <div className="flex flex-row justify-around text-sm">
         <div>
           <div className="before:block before:content-['1'] before:bg-gray-500">
             Customer Information
