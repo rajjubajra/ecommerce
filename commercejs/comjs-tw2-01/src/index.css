@@ -50,3 +50,9 @@
   color: #eee;
   font-weight: 500;
 }
+
+.checkout-customer-detail,
+.checkout-payment-detail,
+.checkout-shipping-address{
+  @apply w-full flex justify-center
+}
