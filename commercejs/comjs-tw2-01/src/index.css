@@ -54,4 +54,5 @@
 
 input::placeholder{
     font-size: 9px;
+    @apply px-2
 }
