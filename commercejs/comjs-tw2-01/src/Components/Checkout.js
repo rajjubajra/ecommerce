@@ -35,7 +35,27 @@ function Checkout({cartItems}) {
 
   return (
     <div className="w-full max-w-screen-xl m-auto">
-      Checkout Page
+      <div className="md:w-1/2 m-auto">
+        <h1>Checkout Page</h1>
+      </div>
+      <div className="flex flex-col justify-around">
+        <div>
+          <div className="before:block before:content-['1'] before:bg-gray-500">
+            Customer Information
+          </div>
+        </div>
+        <div>
+          <div className="before:block before:content-['2'] before:bg-gray-500">
+            Shipping Address
+          </div>  
+        </div>
+        <div>
+          <div className="before:block before:content-['3'] before:bg-gray-500">
+            Payment Details
+          </div>
+        </div>
+      </div>
+      
       <CheckoutForm />
     </div>
   )
