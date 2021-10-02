@@ -38,7 +38,7 @@ function Checkout({cartItems}) {
       <div className="w-full m-auto">
         <h1>Checkout Page</h1>
       </div>
-      <div className="flex flex-row justify-between text-xm my-10 font-extralight">
+      <div className="flex flex-row justify-between text-xm my-10 font-extralight text-xs">
         <div className="checkout-customer-detail">
           <div className="before:block before:content-['1'] before:bg-gray-500">
             Customer Information
@@ -49,7 +49,7 @@ function Checkout({cartItems}) {
             Shipping Address
           </div>  
         </div>
-        <div className="chekout-payment-detail">
+        <div className="checkout-payment-detail">
           <div className="before:block before:content-['3'] before:bg-gray-500">
             Payment Details
           </div>
