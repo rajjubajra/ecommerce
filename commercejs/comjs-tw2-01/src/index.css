@@ -51,8 +51,6 @@
   font-weight: 500;
 }
 
-.checkout-customer-detail,
-.checkout-payment-detail,
-.checkout-shipping-address{
-  @apply w-full flex justify-center
+input:placeholder {
+  @apply text-xs font-extralight tracking-wider
 }

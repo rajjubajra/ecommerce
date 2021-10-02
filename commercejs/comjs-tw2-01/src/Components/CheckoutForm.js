@@ -18,7 +18,7 @@ function CheckoutForm({firstName, lastName, email, shippingName, shippingStreet,
             <h4>Customer information</h4>
           </div>
           
-          <div className="flex flex-col grid-col-2">
+          <div className="flex flex-col col-span-2">
             <label htmlFor="firstName">First name</label>
             <input className="outline-none  border border-gray-200" type="text" value={firstName} name="firstName" placeholder="Enter your first name" required />
           </div>
