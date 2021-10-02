@@ -57,7 +57,7 @@ function CheckoutForm() {
       !customerInfo &&
       <>
           <div className="col-span-2 border border-gray-400">
-            <h4>Customer information</h4>
+            <h4 className={`${!customerInfo ? "font-bold" : "font-extralight"}`}>Customer information</h4>
           </div>
           
           <div className="flex flex-col col-span-2">
@@ -102,7 +102,9 @@ function CheckoutForm() {
       customerInfo && !shippingAddress &&
       <>
       <div className="col-span-2 border-t border-b border-gray-400">
-        <h4>Shipping details</h4>
+        <h4 className={`${customerInfo && !shippingAddress 
+              ? "font-bold" 
+              : "font-extralight" }`}>Shipping details</h4>
       </div>
       
       <div className="flex flex-col col-span-2">
@@ -144,7 +146,7 @@ function CheckoutForm() {
       <div className="flex flex-col col-span-2">
         <label htmlFor="shippingPostalZipCode">Postal/Zip code</label>
         <input  
-        className="outline-none  border border-gray-200" 
+        className="outline-none  border border-gray-200 p-2" 
         type="text" 
         onChange={(e) => setShippingPostCode(e.target.value)}
         value={shippingPostCode} 
@@ -159,7 +161,8 @@ function CheckoutForm() {
       customerInfo && shippingAddress && !paymentDetail &&
       <>
       <div className="col-span-2 border-t border-b border-gray-400">
-        <h4 className="checkout__subheading">Payment information</h4>
+        <h4 className={`${customerInfo && shippingAddress && !paymentDetail 
+        ? "font-bold" : "font-extralight"}`}>Payment information</h4>
       </div>
       
       <div className="flex flex-col col-span-2">
@@ -190,7 +193,7 @@ function CheckoutForm() {
         <input  
         className="outline-none  border border-gray-200 p-2" 
         type="text" 
-        onChange={(e) => expYear(e.target.value)}
+        onChange={(e) => setExpYear(e.target.value)}
         name="expYear" 
         value={expYear} 
         placeholder="Card expiry year" />
