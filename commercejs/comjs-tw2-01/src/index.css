@@ -7,10 +7,46 @@
 
 
 .checkout-customer-detail::before{
-  content: "1";
-  display: block;
-  width: 20px;
-  height: 20px;
+    content: "1";
+    display: flex;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #999;
+    justify-content: center;
+    float: left;
+    margin: 4px;
+    font-size: 10px;
+    color: #eee;
+    font-weight: 500;
+}
+
+.checkout-shipping-address::before{
+  content: "2";
+  display: flex;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background-color: #999;
+  justify-content: center;
+  float: left;
+  margin: 4px;
+  font-size: 10px;
+  color: #eee;
+  font-weight: 500;
+}
+
+.checkout-payment-detail::before{
+  content: "3";
+  display: flex;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #999;
+  justify-content: center;
+  float: left;
+  margin: 4px;
+  font-size: 10px;
+  color: #eee;
+  font-weight: 500;
 }

@@ -44,12 +44,12 @@ function Checkout({cartItems}) {
             Customer Information
           </div>
         </div>
-        <div>
+        <div className="checkout-shipping-address">
           <div className="before:block before:content-['2'] before:bg-gray-500">
             Shipping Address
           </div>  
         </div>
-        <div>
+        <div className="chekout-payment-detail">
           <div className="before:block before:content-['3'] before:bg-gray-500">
             Payment Details
           </div>
