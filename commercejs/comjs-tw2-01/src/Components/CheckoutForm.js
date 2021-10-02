@@ -39,11 +39,14 @@ function CheckoutForm() {
       setShippingAddress(true);
     }
 
+
+    console.log("firstname", firstname, "lsatename", lastname, "email", email);
+    console.log("shippingName", shippingName, "shippingStree", shippingStreet, "shippingCity", shippingCity, "shippingPostCode", shippingPostCode );
+  
+
   } 
 
   
-  console.log("firstname", firstname, "lsatename", lastname, "email", email);
-  console.log("shippingName", shippingName);
   
   return (
     <form 
@@ -105,7 +108,7 @@ function CheckoutForm() {
       <div className="flex flex-col col-span-2">
         <label htmlFor="shippingName">Full name</label>
         <input  
-        className="outline-none  border border-gray-200" 
+        className="outline-none  border border-gray-200 p-2" 
         type="text" 
         onChange={(e)=>setShippingName(e.target.value)}
         value={shippingName} 
