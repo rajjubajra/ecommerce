@@ -1,12 +1,32 @@
 import React, {useState, useEffect} from 'react'
 
-function CheckoutForm({firstName, lastName, email, shippingName, shippingStreet, shippingCity, shippingPostCode, cardNum, expMonth, expYear, ccv}) {
+
+/**
+ * 
+ * @returns {firstName, lastName, email, shippingName, shippingStreet, shippingCity, shippingPostCode, cardNum, expMonth, expYear, ccv}
+ */
+
+function CheckoutForm() {
   
   const [customerInfo, setCustomerInfo] = useState(false);
   const [shippingAddress, setShippingAddress] = useState(false);
   const [paymentDetail, setPaymentDetail] = useState(false);
+
+
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [email,setEmail] = useState('');
+  const [shippingName, setShippingName] = useState('');
+  const [shippingStreet, setShippingStreet] = useState('');
+  const [shippingCity, setShippingCity] = useState('');
+  const [shippingPostCode, setShippingPostCode] = useState('');
+  const [cardNum, setCardNum] = useState('');
+  const [expMonth, setExpMonth] = useState('');
+  const [expYear, setExpYear] = useState('');
+  const [ccv, setCcv] = useState('');
+
   
-  
+  console.log("firstname", firstname);
   
   return (
     <form className="w-full m-auto grid grid-cols-2 grid-flow-row font-extralight text-sm">
@@ -20,17 +40,38 @@ function CheckoutForm({firstName, lastName, email, shippingName, shippingStreet,
           
           <div className="flex flex-col col-span-2">
             <label htmlFor="firstName">First name</label>
-            <input className="outline-none  border border-gray-200" type="text" value={firstName} name="firstName" placeholder="Enter your first name" required />
+            <input 
+            className="outline-none  border border-gray-200" 
+            type="text" 
+            onChange={(e)=>setFirstname(e)}
+            value={firstname} 
+            name="firstName" 
+            placeholder="Enter your first name" 
+            required />
           </div>
           
           <div className="flex flex-col col-span-2">
             <label htmlFor="lastName">Last name</label>
-            <input className="outline-none  border border-gray-200" type="text" value={lastName}name="lastName" placeholder="Enter your last name" required />
+            <input 
+            className="outline-none  border border-gray-200" 
+            type="text" 
+            onChange={(e) => setLastname(e)}
+            value={lastname}
+            name="lastName" 
+            placeholder="Enter your last name" 
+            required />
           </div>
           
           <div className="flex flex-col col-span-2">
             <label htmlFor="email">Email</label>
-            <input  className="outline-none  border border-gray-200" type="text" value={email} name="email" placeholder="Enter your email" required />
+            <input  
+            className="outline-none  border border-gray-200" 
+            type="text" 
+            onChange={(e) => setEmail(e)}
+            value={email} 
+            name="email"
+            placeholder="Enter your email" 
+            required />
           </div>
         </>
     }
