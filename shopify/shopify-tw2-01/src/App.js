@@ -10,7 +10,7 @@ function App() {
     // Initializing a client to return content in the store's primary language
 const client = Client.buildClient({
   domain: 'yw-t-shirt.myshopify.com',
-  storefrontAccessToken: '182c7505e65d013f21c7fd8a1015ef27'
+  storefrontAccessToken: 'cc92551596409162e6f510c8efd7f0b0'
 });
 
     // Fetch all products in your shop
