@@ -33,14 +33,14 @@ function Products() {
 
   const LoadImage = (image) => {
     return image.map((item)=>{
-      return <div><img src={item.src} alt="product item" /></div>
+      return <div><img className="w-14 p-1" src={item.src} alt="product item" /></div>
     })
   }
 
   const LoadVariants = (data) => {
     return data.map(item => {
       const {available, sku, title, price } = item;
-      return available && <div>
+      return available && <div className="flex p-2 bg-gray-100 m-1">
         <p>{title}</p>
         <p>Price: {price}</p>
         <p>SKU: {sku}</p>
@@ -55,7 +55,7 @@ function Products() {
         productState.length > 0 && 
         productState.map((item)=>{
           const {title, descriptionHtml, images, variants} = item;
-          return <div>
+          return <div className="border border-gray-300 p-3 m-3">
             <h3>{title}</h3>
             <div>{descriptionHtml}</div>
             <div>{LoadImage(images)}</div>
