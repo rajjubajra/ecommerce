@@ -32,16 +32,18 @@ function Products() {
   console.log("Product State", productState);
 
   const LoadImage = (image) => {
-    image.map((item)=>{
+    return image.map((item)=>{
       return <div><img src={item.src} alt="product item" /></div>
     })
   }
 
   const LoadVariants = (data) => {
-    data.map(item => {
+    return data.map(item => {
       const {available, sku, title, price } = item;
       return available && <div>
-        Price: {price}
+        <p>{title}</p>
+        <p>Price: {price}</p>
+        <p>SKU: {sku}</p>
       </div>
     })
   }
