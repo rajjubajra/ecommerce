@@ -28,12 +28,39 @@ function Products() {
       });
   },[])
 
-  
+
   console.log("Product State", productState);
 
+  const LoadImage = (image) => {
+    image.map((item)=>{
+      return <div><img src={item.src} alt="product item" /></div>
+    })
+  }
+
+  const LoadVariants = (data) => {
+    data.map(item => {
+      const {available, sku, title, price } = item;
+      return available && <div>
+        Price: {price}
+      </div>
+    })
+  }
+
   return (
-    <div>
-      
+    <div className="w-full md:max-w-screen-xl m-auto">
+      <h1 className="text-lg">Proucts</h1>
+      {
+        productState.length > 0 && 
+        productState.map((item)=>{
+          const {title, descriptionHtml, images, variants} = item;
+          return <div>
+            <h3>{title}</h3>
+            <div>{descriptionHtml}</div>
+            <div>{LoadImage(images)}</div>
+            <div>{LoadVariants(variants)}</div>
+          </div>
+        })
+      }
     </div>
   )
 }
