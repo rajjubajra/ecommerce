@@ -19,6 +19,14 @@ const client = Client.buildClient({
       console.log(products);
     });
 
+    // Fetch all collections, including their products
+client.collection.fetchAllWithProducts().then((collections) => {
+  // Do something with the collections
+  console.log(collections);
+  console.log(collections[0].products);
+});
+
+
 
   },[])
 
