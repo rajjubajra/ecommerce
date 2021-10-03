@@ -1,15 +1,11 @@
-import './App.css';
-import Home from './components/Home';
+import React from 'react'
 
-function App() {
+function app() {
   return (
-    <div className="w-full">
-      <div className="flex justify-center items-center max-w-screen-xl m-auto h-screen">
-        <h1 className="text-6xl">T-Shirt Store</h1>
-        <Home />
-      </div>
+    <div>
+      shopify shop
     </div>
-  );
+  )
 }
 
-export default App;
+export default app
