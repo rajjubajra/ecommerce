@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/ecommerce/themes/shopify/tw2-01/static/css/main.4f8fd653.chunk.css",
-    "main.js": "/ecommerce/themes/shopify/tw2-01/static/js/main.540461c1.chunk.js",
-    "main.js.map": "/ecommerce/themes/shopify/tw2-01/static/js/main.540461c1.chunk.js.map",
+    "main.css": "/ecommerce/themes/shopify/tw2-01/static/css/main.f1453def.chunk.css",
+    "main.js": "/ecommerce/themes/shopify/tw2-01/static/js/main.af7b638a.chunk.js",
+    "main.js.map": "/ecommerce/themes/shopify/tw2-01/static/js/main.af7b638a.chunk.js.map",
     "runtime-main.js": "/ecommerce/themes/shopify/tw2-01/static/js/runtime-main.138f6709.js",
     "runtime-main.js.map": "/ecommerce/themes/shopify/tw2-01/static/js/runtime-main.138f6709.js.map",
-    "static/js/2.b328dd18.chunk.js": "/ecommerce/themes/shopify/tw2-01/static/js/2.b328dd18.chunk.js",
-    "static/js/2.b328dd18.chunk.js.map": "/ecommerce/themes/shopify/tw2-01/static/js/2.b328dd18.chunk.js.map",
+    "static/js/2.85903138.chunk.js": "/ecommerce/themes/shopify/tw2-01/static/js/2.85903138.chunk.js",
+    "static/js/2.85903138.chunk.js.map": "/ecommerce/themes/shopify/tw2-01/static/js/2.85903138.chunk.js.map",
     "index.html": "/ecommerce/themes/shopify/tw2-01/index.html",
-    "static/css/main.4f8fd653.chunk.css.map": "/ecommerce/themes/shopify/tw2-01/static/css/main.4f8fd653.chunk.css.map",
-    "static/js/2.b328dd18.chunk.js.LICENSE.txt": "/ecommerce/themes/shopify/tw2-01/static/js/2.b328dd18.chunk.js.LICENSE.txt"
+    "static/css/main.f1453def.chunk.css.map": "/ecommerce/themes/shopify/tw2-01/static/css/main.f1453def.chunk.css.map",
+    "static/js/2.85903138.chunk.js.LICENSE.txt": "/ecommerce/themes/shopify/tw2-01/static/js/2.85903138.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.138f6709.js",
-    "static/js/2.b328dd18.chunk.js",
-    "static/css/main.4f8fd653.chunk.css",
-    "static/js/main.540461c1.chunk.js"
+    "static/js/2.85903138.chunk.js",
+    "static/css/main.f1453def.chunk.css",
+    "static/js/main.af7b638a.chunk.js"
   ]
 }
