@@ -48,15 +48,21 @@ function Item({productId, setProductId}) {
   return (
     <div className="w-1/2 m-auto flex justify-center">
 
+    {
+      product &&
+      <>
       <div onClick={()=>setProductId('')}>Close</div>
-    
+
       <h1>{product.title}</h1>
       <div>
-        {LoadImage(product.image)}
+        {LoadImage(product.images)}
       </div>
       <div>
         {LoadVariants(product.variants)}
       </div>
+      </>
+    }
+      
     </div>
   )
 }
