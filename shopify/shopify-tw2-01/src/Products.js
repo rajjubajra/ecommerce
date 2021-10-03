@@ -33,7 +33,7 @@ function Products() {
 
   const LoadImage = (image) => {
     return image.map((item)=>{
-      return <div><img className="w-14 p-1" src={item.src} alt="product item" /></div>
+      return <div><img className="w-48 p-1" src={item.src} alt="product item" /></div>
     })
   }
 
@@ -42,14 +42,14 @@ function Products() {
       const {available, sku, title, price } = item;
       return available && <div className="flex p-2 bg-gray-100 m-1">
         <p>{title}</p>
-        <p>Price: {price}</p>
-        <p>SKU: {sku}</p>
+        <p> Price: {price}</p>
+        <p> SKU: {sku}</p>
       </div>
     })
   }
 
   return (
-    <div className="w-full md:max-w-screen-xl m-auto">
+    <div className="w-full md:max-w-screen-xl m-auto text-sm">
       <h1 className="text-lg">Proucts</h1>
       {
         productState.length > 0 && 
