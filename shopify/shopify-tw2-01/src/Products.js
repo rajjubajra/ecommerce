@@ -1,10 +1,13 @@
 import {useState, useEffect} from 'react';
 import Client from 'shopify-buy';
-
+import Items from './components/Items';
+import Item from './components/Item';
+import {Route} from 'react-router-dom';
 
 function Products() {
 
   const [productState, setProductState] = useState([]);
+  const [productId, setProductId] = useState('');
 
   useEffect(()=>{
     // Initializing a client to return content in the store's primary language
@@ -31,39 +34,24 @@ function Products() {
 
   console.log("Product State", productState);
 
-  const LoadImage = (image) => {
-    return image.map((item)=>{
-      return <div><img className="w-48 p-1" src={item.src} alt="product item" /></div>
-    })
-  }
 
-  const LoadVariants = (data) => {
-    return data.map(item => {
-      const {available, sku, title, price } = item;
-      return available && <div className="flex p-2 bg-gray-100 m-1">
-        <p>{title}</p>
-        <p> Price: {price}</p>
-        <p> SKU: {sku}</p>
-      </div>
-    })
-  }
 
   return (
-    <div className="w-full md:max-w-screen-xl m-auto text-sm">
-      <h1 className="text-lg">Proucts</h1>
-      {
-        productState.length > 0 && 
-        productState.map((item)=>{
-          const {title, descriptionHtml, images, variants} = item;
-          return <div className="border border-gray-300 p-3 m-3">
-            <h3>{title}</h3>
-            <div>{descriptionHtml}</div>
-            <div>{LoadImage(images)}</div>
-            <div>{LoadVariants(variants)}</div>
-          </div>
-        })
-      }
-    </div>
+  <>
+    
+      <div className="w-full md:max-w-screen-xl m-auto text-sm">
+        <h1 className="text-lg">Proucts</h1>
+        {
+          productState.length > 0 && 
+          <Items productState={productState} setProductId={setProductId} />
+        }
+        {
+          productId && 
+          <Item productId={productId} />
+        }
+      </div>
+    
+  </>  
   )
 }
 

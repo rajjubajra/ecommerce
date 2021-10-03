@@ -1,4 +1,5 @@
 import Products from "./Products";
+import {BrowserRouter, Switch } from 'react-router-dom';
 
 
 
@@ -7,7 +8,11 @@ function App() {
   return (
     <div>
       shopify shop
-      <Products />
+      <BrowserRouter>
+        <Switch>
+          <Products />
+        </Switch>
+      </BrowserRouter>
     </div>
   )
 }
