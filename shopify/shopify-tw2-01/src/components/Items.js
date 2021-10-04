@@ -1,5 +1,5 @@
 import {useContext, useEffect} from 'react'
-import {ShopContext} from '../context/ShopContext';
+import {ShopContext} from '../context/shopContext';
 import Loading from './Loading';
 
 
