@@ -13,7 +13,7 @@ function Products() {
     <div>
     <ShopProvider>
       <Items setProductId={setProductId} />
-      <Item productId={productId} />
+      <Item productId={productId} setProductId={setProductId} />
     </ShopProvider>  
     </div>
   )

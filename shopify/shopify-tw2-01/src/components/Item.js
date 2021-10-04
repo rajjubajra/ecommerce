@@ -47,12 +47,10 @@ function Item({productId, setProductId}) {
 
   return (
     <div className="w-1/2 m-auto flex justify-center">
-
+      <div onClick={()=> setProductId('')}> Close </div>
     {
       product &&
       <>
-      <div onClick={()=>setProductId('')}>Close</div>
-
       <h1>{product.title}</h1>
       <div>
         {LoadImage(product.images)}
@@ -63,7 +61,6 @@ function Item({productId, setProductId}) {
       <div>Add to Cart</div>
       </>
     }
-      
     </div>
   )
 }
