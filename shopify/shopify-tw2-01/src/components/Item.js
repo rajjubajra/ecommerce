@@ -60,6 +60,7 @@ function Item({productId, setProductId}) {
       <div>
         {LoadVariants(product.variants)}
       </div>
+      <div>Add to Cart</div>
       </>
     }
       

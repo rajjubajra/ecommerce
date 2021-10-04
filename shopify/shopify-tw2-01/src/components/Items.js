@@ -1,6 +1,21 @@
-import React from 'react'
+import {useContext, useEffect} from 'react'
+import {ShopContext} from '../context/ShopContext';
+import Loading from './Loading';
 
-function Items({productState, setProductId}) {
+
+function Items({setProductId}) {
+
+  const {fetchAllProducts, products} = useContext(ShopContext)
+
+
+  useEffect(()=>{
+      fetchAllProducts();
+      return () => {
+        //clean up
+      };
+  },[fetchAllProducts])
+
+
 
   const LoadImage = (image) => {
     return image.map((item)=>{
@@ -19,11 +34,11 @@ function Items({productState, setProductId}) {
     })
   }
 
-
+  if(!products) return <Loading />
   return (
     <div>
       {
-        productState.map((item)=>{
+        products.map((item)=>{
           const {id,title, descriptionHtml, images, variants} = item;
           return <div 
           onClick={() => setProductId(id)}

@@ -1,5 +1,5 @@
-import Products from "./Products";
 import {BrowserRouter, Switch } from 'react-router-dom';
+import Products from './Products';
 
 
 
