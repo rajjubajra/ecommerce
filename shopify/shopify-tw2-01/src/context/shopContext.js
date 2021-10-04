@@ -3,12 +3,16 @@ import Client from "shopify-buy";
 
 const ShopContext = React.createContext();
 
+
 const client = Client.buildClient({
   storefrontAccessToken: 'cc92551596409162e6f510c8efd7f0b0',
   domain: 'yw-t-shirt.myshopify.com',
 });
 
+
+
 class ShopProvider extends Component {
+
   state = {
     products: [],
     product: {},
@@ -20,8 +24,8 @@ class ShopProvider extends Component {
     // this.createCheckout();
 
     //Check if localStorage has a checkout_id saved
-    if (localStorage.checkout) {
-      this.fetchCheckout(localStorage.checkout);
+    if (localStorage.yw_store_checkout) {
+      this.fetchCheckout(localStorage.yw_store_checkout);
     } else {
       this.createCheckout();
     }
@@ -32,7 +36,7 @@ class ShopProvider extends Component {
 
   createCheckout = async () => {
     const checkout = await client.checkout.create();
-    localStorage.setItem("checkout", checkout.id);
+    localStorage.setItem("yw_store_checkout", checkout.id);
     await this.setState({ checkout: checkout });
   };
 

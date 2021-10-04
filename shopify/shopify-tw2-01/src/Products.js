@@ -7,7 +7,7 @@ function Products() {
 
   const [productId, setProductId] = useState('');
 
-  console.log(productId);
+  //console.log(productId);
 
   return (
     <div>
