@@ -1,13 +1,20 @@
-import {useEffect, useState} from 'react';
-import Client from 'shopify-buy';
+import {useEffect, useState, useContext} from 'react';
+import {ShopContext} from '../context/shopContext';
+import Loading from './Loading';
 
 
 function Item({productId, setProductId}) {
 
-  const [product, setProduct] = useState('');
+  const { fetchProductWithId, addItemToCheckout, product } = useContext(ShopContext)
+
+
+  useEffect(()=>{
+    fetchProductWithId(productId);
+  },[fetchProductWithId, productId])
+
 
   const LoadImage = (image) => {
-    return image.map((item)=>{
+    return image.map((item)=> {
       return <div><img className="w-48 p-1" src={item.src} alt="product item" /></div>
     })
   }
@@ -23,28 +30,8 @@ function Item({productId, setProductId}) {
     })
   }
 
-  
 
-  useEffect(()=>{
-    // Initializing a client to return content in the store's primary language
-    const client = Client.buildClient({
-      domain: 'yw-t-shirt.myshopify.com',
-      storefrontAccessToken: 'cc92551596409162e6f510c8efd7f0b0'
-    });
-
-    // Fetch a single product by ID
-    //const productId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=';
-    client.product.fetch(productId).then((product) => {
-      // Do something with the product
-      console.log("SINGLE PRODUCT",product);
-      setProduct(product);
-    });
-
-    
-  },[productId])
-
-
-
+  if(!product.title) return <Loading />
   return (
     <div className="w-1/2 m-auto flex justify-center">
       <div onClick={()=> setProductId('')}> Close </div>
@@ -58,7 +45,7 @@ function Item({productId, setProductId}) {
       <div>
         {LoadVariants(product.variants)}
       </div>
-      <div>Add to Cart</div>
+      <div onClick={() => addItemToCheckout(product.variants[0].id, 1)}>Add to Cart</div>
       </>
     }
     </div>
