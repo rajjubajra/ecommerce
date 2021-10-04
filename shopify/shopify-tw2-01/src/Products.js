@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import ShopProvider from './context/shopContext';
 import Items from './components/Items';
 
 function Products() {
@@ -9,9 +10,9 @@ function Products() {
 
   return (
     <div>
-
+    <ShopProvider>
       <Items setProductId={setProductId} />
-      
+    </ShopProvider>  
     </div>
   )
 }
