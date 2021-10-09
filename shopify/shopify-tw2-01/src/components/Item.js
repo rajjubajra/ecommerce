@@ -12,6 +12,7 @@ function Item({productId, setProductId}) {
     fetchProductWithId(productId);
   },[fetchProductWithId, productId])
 
+  console.log(product);
 
   const LoadImage = (image) => {
     return image.map((item)=> {

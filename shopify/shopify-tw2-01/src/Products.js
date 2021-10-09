@@ -16,7 +16,7 @@ function Products() {
     <ShopProvider>
       <Items setProductId={setProductId} />
       <Item productId={productId} setProductId={setProductId} />
-      <Cart productId={productId} quantity={quantity} />
+      <Cart />
     </ShopProvider>  
     </div>
   )
