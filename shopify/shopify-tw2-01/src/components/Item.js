@@ -46,7 +46,10 @@ function Item({productId, setProductId}) {
       <div>
         {LoadVariants(product.variants)}
       </div>
-      <div onClick={() => addItemToCheckout(product.variants[0].id, 1)}>Add to Cart</div>
+      <div 
+      className="cursor-pointer p-2 m-2 border border-gray-200"
+      onClick={() => addItemToCheckout(product.variants[0].id, 1)}
+      >Add to Cart</div>
       </>
     }
     </div>
