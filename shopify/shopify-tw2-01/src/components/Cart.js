@@ -17,14 +17,14 @@ function Cart() {
           return <div>
             <h3>{item.title}</h3>
             <div>
-              <img 
+              {/* <img 
                 className="w-24" 
                 src={item.variant.image.src}  
-                alt={item.variant.image.altText} />
+                alt={item.variant.image.altText} /> */}
             </div>
-            <p>{item.variant.ttitle}</p>
+            {/* <p>{item.variant.ttitle}</p>
             <p>{item.quantity}</p>
-            <p>{item.variant.price}</p>
+            <p>{item.variant.price}</p> */}
           </div>
         })}
       </div>
