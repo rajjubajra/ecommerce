@@ -7,12 +7,13 @@ function Cart() {
   const { isCartOpen, closeCart, checkout } = useContext(ShopContext)
 
   console.log(checkout);
+  console.log(checkout.lineItems);
+  
 
-  //if(checkout.lineItems){
+  if(checkout.lineItems){
     return (
       <div>
-        <h1>Cart</h1>
-        {/* {checkout.lineItems.map((item)=>{
+        {checkout.lineItems.map((item)=>{
           return <div>
             <h3>{item.title}</h3>
             <div>
@@ -25,10 +26,10 @@ function Cart() {
             <p>{item.quantity}</p>
             <p>{item.variant.price}</p>
           </div>
-        })} */}
+        })}
       </div>
     )
- // }
+  }
 }
 
 export default Cart
