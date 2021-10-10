@@ -8,10 +8,11 @@ function Cart() {
 
   console.log(checkout);
 
-  if(checkout.lineItems){
+  //if(checkout.lineItems){
     return (
       <div>
-        {checkout.lineItems.map((item)=>{
+        <h1>Cart</h1>
+        {/* {checkout.lineItems.map((item)=>{
           return <div>
             <h3>{item.title}</h3>
             <div>
@@ -24,10 +25,10 @@ function Cart() {
             <p>{item.quantity}</p>
             <p>{item.variant.price}</p>
           </div>
-        })}
+        })} */}
       </div>
     )
-  }
+ // }
 }
 
 export default Cart
