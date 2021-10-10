@@ -15,7 +15,7 @@ function Items({setProductId}) {
       };
   },[fetchAllProducts])
 
-
+  console.log(products);
 
   const LoadImage = (image) => {
     return image.map((item)=>{
