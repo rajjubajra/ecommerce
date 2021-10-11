@@ -1,5 +1,6 @@
 import {useContext} from 'react';
 import {ShopContext} from '../context/shopContext';
+import Loading from '../components/Loading';
 
 
 function Cart() {
@@ -8,12 +9,11 @@ function Cart() {
 
   console.log(checkout);
   console.log(checkout && checkout.lineItems);
-  
 
-  //if(checkout.lineItems){
+  if(!checkout) return <Loading />
     return (
       <div>
-        {/* {checkout.lineItems.map((item)=>{
+        {checkout.lineItems.map((item)=>{
           return <div>
             <h3>{item.title}</h3>
             <div>
@@ -26,10 +26,9 @@ function Cart() {
             <p>{item.quantity}</p>
             <p>{item.variant.price}</p>
           </div>
-        })} */}
+        })}
       </div>
     )
-  //}
 }
 
 export default Cart
