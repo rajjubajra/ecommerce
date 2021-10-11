@@ -24,9 +24,9 @@ function Item({productId, setProductId}) {
     return data.map(item => {
       const {available, sku, title, price } = item;
       return available && <div className="flex flex-col p-2 bg-gray-100 m-1">
-        <p>{title}</p>
-        <p> Price: {price}</p>
-        <p> SKU: {sku}</p>
+        <div>{title}</div>
+        <div> Price: {price}</div>
+        <div> SKU: {sku}</div>
       </div>
     })
   }

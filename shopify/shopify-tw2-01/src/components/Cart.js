@@ -22,7 +22,7 @@ console.log(!undefined && lineItems);
     return (
       <div className="w-full flex flex-col">
         <h2 className="text-xl">Cart</h2>
-        {lineItems === !undefined && lineItems.map((item)=>{
+        {lineItems === !undefined ? lineItems.map((item)=>{
         return <div className="flex flex-col">
             <h3>{item.title}</h3>
             <div>
@@ -35,7 +35,10 @@ console.log(!undefined && lineItems);
             <p>{item.quantity}</p>
             <p>{item.variant.price}</p>
           </div>
-        })}
+        })
+        : 'I dont know why'
+        
+        }
       </div>
     )
 }
