@@ -10,8 +10,8 @@ function Cart() {
   console.log(checkout);
   console.log(checkout && checkout.lineItems);
 
-  if(!checkout) return <Loading />
-    return (
+  
+    return checkout && (
       <div>
         {checkout.lineItems.map((item)=>{
           return <div>
