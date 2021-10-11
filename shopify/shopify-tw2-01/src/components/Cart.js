@@ -9,8 +9,8 @@ function Cart() {
 
   const { isCartOpen, closeCart, checkout } = useContext(ShopContext)
 
-  console.log(checkout);
-  console.log(checkout && checkout.lineItems);
+//  console.log(checkout);
+//  console.log(checkout && checkout.lineItems);
 
   useEffect(()=>{
       checkout && !undefined && setLineItems(checkout.lineItems);
@@ -18,14 +18,15 @@ function Cart() {
 
 console.log(!undefined && lineItems);
 
+    lineItems === undefined && <Loading />
     return (
       <div>
         {lineItems === !undefined && lineItems.map((item)=>{
-        return <div>
+        return <div className="flex flex-col">
             <h3>{item.title}</h3>
             <div>
               <img 
-                className="w-24" 
+                className="w-40" 
                 src={item.variant.image.src}  
                 alt={item.variant.image.altText} />
             </div>

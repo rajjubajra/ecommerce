@@ -23,7 +23,7 @@ function Item({productId, setProductId}) {
   const LoadVariants = (data) => {
     return data.map(item => {
       const {available, sku, title, price } = item;
-      return available && <div className="flex p-2 bg-gray-100 m-1">
+      return available && <div className="flex flex-col p-2 bg-gray-100 m-1">
         <p>{title}</p>
         <p> Price: {price}</p>
         <p> SKU: {sku}</p>
@@ -34,14 +34,14 @@ function Item({productId, setProductId}) {
 
   if(!product.title) return <Loading />
   return (
-    <div className="w-1/2 m-auto flex justify-center">
+    <div className="w-1/2 m-auto flex flex-col justify-center">
     <div className="p-2 m-2 w-20 cursor-pointer">
       <div onClick={()=> setProductId('')}> Close </div>
     </div>
       
     {
       product &&
-      <>
+      <div className="flex flex-col">
       <h1>{product.title}</h1>
       <div>
         {LoadImage(product.images)}
@@ -54,7 +54,7 @@ function Item({productId, setProductId}) {
         Add to Cart</div>
       </div>
       
-      </>
+      </div>
     }
     </div>
   )
