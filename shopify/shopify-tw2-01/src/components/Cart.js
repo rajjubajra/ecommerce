@@ -20,7 +20,8 @@ console.log(!undefined && lineItems);
 
     lineItems === undefined && <Loading />
     return (
-      <div>
+      <div className="w-full flex flex-col">
+        <h2 className="text-xl">Cart</h2>
         {lineItems === !undefined && lineItems.map((item)=>{
         return <div className="flex flex-col">
             <h3>{item.title}</h3>

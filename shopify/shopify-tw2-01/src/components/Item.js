@@ -16,7 +16,7 @@ function Item({productId, setProductId}) {
 
   const LoadImage = (image) => {
     return image.map((item)=> {
-      return <div><img className="w-48 p-1" src={item.src} alt="product item" /></div>
+      return <div><img className="md:w-1/2 w-full p-1" src={item.src} alt="product item" /></div>
     })
   }
 
@@ -41,8 +41,9 @@ function Item({productId, setProductId}) {
       
     {
       product &&
-      <div className="flex flex-col">
-      <h1>{product.title}</h1>
+      <div className="flex flex-col py-4 my-2 border border-gray-200">
+
+      <h1 className="text-2xl">{product.title}</h1>
       <div>
         {LoadImage(product.images)}
       </div>
