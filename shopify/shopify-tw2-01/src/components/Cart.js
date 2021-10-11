@@ -18,10 +18,10 @@ function Cart() {
 
   console.log(lineItems);
 
-    lineItems.length < 1 && <Loading />
+
     return (
       <div>
-        {lineItems.map((item)=>{
+        {lineItems.length > 0 && lineItems.map((item)=>{
           return <div>
             <h3>{item.title}</h3>
             <div>
