@@ -16,8 +16,9 @@ function Cart() {
       checkout && setLineItems(checkout.lineItems);
   },[checkout])
 
+  console.log(lineItems);
 
-    !lineItems && <Loading />
+    lineItems.length < 1 && <Loading />
     return (
       <div>
         {lineItems.map((item)=>{
