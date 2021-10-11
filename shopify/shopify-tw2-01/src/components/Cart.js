@@ -13,16 +13,17 @@ function Cart() {
 //  console.log(checkout && checkout.lineItems);
 
   useEffect(()=>{
-      checkout && !undefined && setLineItems(checkout.lineItems);
+      checkout && checkout === !undefined && setLineItems(checkout.lineItems);
   },[checkout])
 
-console.log(!undefined && lineItems);
+console.log(lineItems);
 
     lineItems === undefined && <Loading />
     return (
       <div className="w-full flex flex-col">
         <h2 className="text-xl">Cart</h2>
-        {lineItems === !undefined ? lineItems.map((item)=>{
+        {lineItems === !undefined 
+        ? lineItems.map((item)=>{
         return <div className="flex flex-col">
             <h3>{item.title}</h3>
             <div>
