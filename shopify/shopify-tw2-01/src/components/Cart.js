@@ -20,7 +20,7 @@ console.log(lineItems);
 
     return (
       <div>
-        {!undefined && lineItems.map((item)=>{
+        {/* {lineItems.map((item)=>{
         return <div>
             <h3>{item.title}</h3>
             <div>
@@ -33,7 +33,7 @@ console.log(lineItems);
             <p>{item.quantity}</p>
             <p>{item.variant.price}</p>
           </div>
-        })}
+        })} */}
       </div>
     )
 }
