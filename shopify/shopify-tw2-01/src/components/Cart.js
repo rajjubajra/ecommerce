@@ -18,11 +18,11 @@ function Cart() {
 
 console.log(lineItems);
 
-    lineItems === undefined && <Loading />
+    lineItems.length < 1 && <Loading />
     return (
-      <div className="w-full flex flex-col">
+      <div className="w-full flex flex-col p-2 my-3">
         <h2 className="text-xl">Cart</h2>
-        {lineItems === !undefined 
+        {lineItems.length > 0 
         ? lineItems.map((item)=>{
         return <div className="flex flex-col">
             <h3>{item.title}</h3>
