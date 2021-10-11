@@ -20,8 +20,8 @@ console.log(lineItems);
 
     return (
       <div>
-        {/* {lineItems.length > 0 && lineItems.map((item)=>{
-          return <div>
+        {lineItems.length > 0 && lineItems.map((item)=>{
+        return <div>
             <h3>{item.title}</h3>
             <div>
               <img 
@@ -33,7 +33,7 @@ console.log(lineItems);
             <p>{item.quantity}</p>
             <p>{item.variant.price}</p>
           </div>
-        })} */}
+        })}
       </div>
     )
 }
