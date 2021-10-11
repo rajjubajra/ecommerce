@@ -7,7 +7,7 @@ function Cart() {
   const { isCartOpen, closeCart, checkout } = useContext(ShopContext)
 
   console.log(checkout);
-  console.log(checkout);
+  console.log(checkout && checkout.lineItems);
   
 
   //if(checkout.lineItems){
