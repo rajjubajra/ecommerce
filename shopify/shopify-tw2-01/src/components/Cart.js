@@ -11,9 +11,9 @@ function Cart() {
   console.log(checkout && checkout.lineItems);
 
   
-    return checkout && (
+    return (
       <div>
-        {checkout.lineItems.map((item)=>{
+        {/* {checkout.lineItems.map((item)=>{
           return <div>
             <h3>{item.title}</h3>
             <div>
@@ -26,7 +26,7 @@ function Cart() {
             <p>{item.quantity}</p>
             <p>{item.variant.price}</p>
           </div>
-        })}
+        })} */}
       </div>
     )
 }
