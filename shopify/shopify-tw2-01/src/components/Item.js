@@ -35,7 +35,10 @@ function Item({productId, setProductId}) {
   if(!product.title) return <Loading />
   return (
     <div className="w-1/2 m-auto flex justify-center">
+    <div className="p-2 m-2 w-20 cursor-pointer">
       <div onClick={()=> setProductId('')}> Close </div>
+    </div>
+      
     {
       product &&
       <>
@@ -46,7 +49,11 @@ function Item({productId, setProductId}) {
       <div>
         {LoadVariants(product.variants)}
       </div>
-      <div onClick={() => addItemToCheckout(product.variants[0].id, 1)}>Add to Cart</div>
+      <div>
+        <div className="cursor-pointer p-2 m-2" onClick={() => addItemToCheckout(product.variants[0].id, 1)}>
+        Add to Cart</div>
+      </div>
+      
       </>
     }
     </div>
