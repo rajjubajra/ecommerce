@@ -9,8 +9,8 @@ function Cart() {
 
   const { isCartOpen, closeCart, checkout } = useContext(ShopContext)
 
-//  console.log(checkout);
-//  console.log(checkout && checkout.lineItems);
+console.log(checkout);
+console.log(checkout && checkout.lineItems);
 
   useEffect(()=>{
       checkout && checkout === !undefined && setLineItems(checkout.lineItems);
