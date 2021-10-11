@@ -16,7 +16,7 @@ function Cart() {
       checkout && !undefined && setLineItems(checkout.lineItems);
   },[checkout])
 
-console.log(lineItems);
+console.log(!undefined && lineItems);
 
     return (
       <div>
