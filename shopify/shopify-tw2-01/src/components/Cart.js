@@ -20,7 +20,7 @@ console.log(lineItems);
 
     return (
       <div>
-        {lineItems.length > 0 && lineItems.map((item)=>{
+        {!undefined && lineItems.map((item)=>{
         return <div>
             <h3>{item.title}</h3>
             <div>
