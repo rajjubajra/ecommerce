@@ -13,7 +13,7 @@ function Cart() {
   console.log(checkout && checkout.lineItems);
 
   useEffect(()=>{
-      checkout && setLineItems(checkout);
+      checkout && !undefined && setLineItems(checkout.lineItems);
   },[checkout])
 
 console.log(lineItems);
