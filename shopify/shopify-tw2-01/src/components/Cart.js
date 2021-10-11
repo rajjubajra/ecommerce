@@ -20,7 +20,7 @@ function Cart() {
     !lineItems && <Loading />
     return (
       <div>
-        {checkout.lineItems.map((item)=>{
+        {lineItems.map((item)=>{
           return <div>
             <h3>{item.title}</h3>
             <div>
