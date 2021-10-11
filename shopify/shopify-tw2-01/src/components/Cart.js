@@ -13,15 +13,14 @@ function Cart() {
   console.log(checkout && checkout.lineItems);
 
   useEffect(()=>{
-      checkout && setLineItems(checkout.lineItems);
+      checkout && setLineItems(checkout);
   },[checkout])
 
-  console.log(lineItems);
-
+console.log(lineItems);
 
     return (
       <div>
-        {lineItems.length > 0 && lineItems.map((item)=>{
+        {/* {lineItems.length > 0 && lineItems.map((item)=>{
           return <div>
             <h3>{item.title}</h3>
             <div>
@@ -34,7 +33,7 @@ function Cart() {
             <p>{item.quantity}</p>
             <p>{item.variant.price}</p>
           </div>
-        })}
+        })} */}
       </div>
     )
 }
