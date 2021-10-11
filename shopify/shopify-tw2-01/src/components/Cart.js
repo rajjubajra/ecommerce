@@ -1,19 +1,26 @@
-import {useContext} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {ShopContext} from '../context/shopContext';
 import Loading from '../components/Loading';
 
 
 function Cart() {
 
+  const [lineItems, setLineItems] = useState([]);
+
   const { isCartOpen, closeCart, checkout } = useContext(ShopContext)
 
   console.log(checkout);
   console.log(checkout && checkout.lineItems);
 
-  
+  useEffect(()=>{
+      checkout && setLineItems(checkout.lineItems);
+  },[checkout])
+
+
+    !lineItems && <Loading />
     return (
       <div>
-        {/* {checkout.lineItems.map((item)=>{
+        {checkout.lineItems.map((item)=>{
           return <div>
             <h3>{item.title}</h3>
             <div>
@@ -26,7 +33,7 @@ function Cart() {
             <p>{item.quantity}</p>
             <p>{item.variant.price}</p>
           </div>
-        })} */}
+        })}
       </div>
     )
 }
