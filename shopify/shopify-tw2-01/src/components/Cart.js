@@ -37,6 +37,7 @@ console.log("Line items", lineItems !== undefined && lineItems.length );
           const {variant:{price: rate}, quantity: qty, title} = item;
 
           const amt = rate * qty;
+          setTotalAmount(amt + totalAmount);
         
           
         return <div className="flex flex-col">
