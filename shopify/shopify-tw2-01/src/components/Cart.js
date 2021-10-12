@@ -56,7 +56,7 @@ useEffect(()=>{
         })
         : <div className="text-xl p-2">Cart is empty</div> 
         }
-        <div>Total Amount: {totalAmount.toFixed(2)}</div>
+        <div>Total Amount: {totalAmount}</div>
       </div>
     )
 }
