@@ -39,11 +39,11 @@ useEffect(()=>{
                 src={item.variant.image.src}  
                 alt={item.variant.image.altText} />
             </div>
-            <div className="flex flex-row flex-wrap w-full">
+            <div className="grid grid-flow-row gap-2 w-full">
               <p>Description: {item.variant.title}</p>
               <p>Quantity: {qty}</p>
               <p>Rate: {rate}</p>
-              <p>Amount: {rate * qty}</p>
+              <p>Amount: {(rate * qty).toFixed(2)}</p>
             </div>
           </div>
         })
