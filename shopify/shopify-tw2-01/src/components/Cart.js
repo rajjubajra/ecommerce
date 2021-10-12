@@ -17,7 +17,7 @@ console.log(checkout && checkout === !undefined && checkout.lineItems);
     return (
       <div className="w-full flex flex-col p-2 my-3">
         <h2 className="text-xl">Cart</h2>
-        {checkout.lineItems.length > 0 
+        {checkout === !undefined && checkout.lineItems.length > 0 
         ? checkout.lineItems.map((item)=>{
         return <div className="flex flex-col">
             <h3>{item.title}</h3>
