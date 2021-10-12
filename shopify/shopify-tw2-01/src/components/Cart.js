@@ -23,10 +23,7 @@ useEffect(()=>{
 function AddAmt(amt){
   const arr = [];
   arr.push(amt);
-  let sum = 0;
-  sum = arr.reduce((a,b)=> a + b)
-  console.log(sum);
-  return sum;
+  console.log(arr);
 }
 
 console.log("Line items", lineItems !== undefined && lineItems.length );
