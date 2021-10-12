@@ -35,7 +35,9 @@ console.log("Line items", lineItems !== undefined && lineItems.length );
           const {variant:{price: rate}, quantity: qty, title} = item;
 
           const amt = rate * qty;
-          
+          let arr = [];
+          arr.push(amt);
+          console.log(arr);
           
           
 
