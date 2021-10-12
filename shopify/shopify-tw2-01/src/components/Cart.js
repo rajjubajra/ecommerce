@@ -32,11 +32,11 @@ useEffect(()=>{
           const {variant:{price: rate}, quantity: qty, title} = item;
 
         return <div className="flex flex-col">
-            <h3>{title}</h3>
-            <div className="flex flex-row">
+            <h3 className="text-xl py-1 mb-1">{title}</h3>
+            <div className="flex flex-row flex-wrap">
                 <div>
                 <img
-                  className="w-40" 
+                  className="md:w-1/2 w-full p-1" 
                   src={item.variant.image.src}  
                   alt={item.variant.image.altText} />
                 </div>
