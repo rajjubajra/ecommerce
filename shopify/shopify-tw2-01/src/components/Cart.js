@@ -18,7 +18,7 @@ useEffect(()=>{
   checkout && checkout !== undefined && setLineItems(checkout.lineItems);
 },[checkout])
 
-  console.log("Line items", lineItems.length );
+  console.log("Line items", lineItems !== undefined && lineItems.length );
 
     checkout === !undefined 
     && checkout.lineItems.length < 1 
