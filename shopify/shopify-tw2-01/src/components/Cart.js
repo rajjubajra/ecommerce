@@ -49,7 +49,7 @@ useEffect(()=>{
                   <p>Rate: {rate}</p>
                   <p>Amount: {amt.toFixed(2)}</p>
                 </div>
-                {setTotalAmount(+amt)}
+                {setTotalAmount(++amt)}
             </div>
           </div>
         })
