@@ -5,27 +5,20 @@ import Loading from '../components/Loading';
 
 function Cart() {
 
-  const [lineItems, setLineItems] = useState([]);
-
-  const { isCartOpen, closeCart, checkout } = useContext(ShopContext)
+const { isCartOpen, closeCart, checkout } = useContext(ShopContext)
 
 console.log(checkout);
 console.log(checkout && checkout.lineItems);
-console.log(lineItems.length);
-console.log(lineItems);
 
 
-  useEffect(()=>{
-      checkout && checkout === !undefined && setLineItems(checkout.lineItems);
-  },[checkout])
-
-
-    lineItems.length < 1 && <Loading />
+    checkout === !undefined 
+    && checkout.lineItems.length < 1 
+    && <Loading />
     return (
       <div className="w-full flex flex-col p-2 my-3">
         <h2 className="text-xl">Cart</h2>
-        {lineItems.length > 0 
-        ? lineItems.map((item)=>{
+        {checkout.lineItems.length > 0 
+        ? checkout.lineItems.map((item)=>{
         return <div className="flex flex-col">
             <h3>{item.title}</h3>
             <div>
@@ -39,8 +32,7 @@ console.log(lineItems);
             <p>{item.variant.price}</p>
           </div>
         })
-        : 'I dont know why'
-        
+        : <div className="text-xl p-2">Cart is empty</div> 
         }
       </div>
     )
