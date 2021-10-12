@@ -8,7 +8,7 @@ function Cart() {
 const { isCartOpen, closeCart, checkout } = useContext(ShopContext)
 
 console.log(checkout);
-console.log(checkout && checkout.lineItems);
+console.log(checkout && checkout === !undefined && checkout.lineItems);
 
 
     checkout === !undefined 
