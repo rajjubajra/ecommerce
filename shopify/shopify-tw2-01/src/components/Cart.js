@@ -13,6 +13,7 @@ console.log(checkout);
 console.log(checkout && checkout === !undefined && checkout.lineItems);
 
 const [lineItems, setLineItems] = useState([]);
+const [totalAmount, setTotalAmount] = useState(0);
 
 useEffect(()=>{
   checkout && checkout !== undefined && setLineItems(checkout.lineItems);
@@ -31,12 +32,14 @@ useEffect(()=>{
 
           const {variant:{price: rate}, quantity: qty, title} = item;
 
+          const amt = rate * qty;
+
         return <div className="flex flex-col">
             <h3 className="text-xl py-1 mb-1">{title}</h3>
             <div className="flex flex-row flex-wrap">
                 <div>
                 <img
-                  className="md:w-1/2 w-full p-1" 
+                  className="md:w-1/2 w-full mt-1" 
                   src={item.variant.image.src}  
                   alt={item.variant.image.altText} />
                 </div>
@@ -44,14 +47,15 @@ useEffect(()=>{
                   <p>Description: {item.variant.title}</p>
                   <p>Quantity: {qty}</p>
                   <p>Rate: {rate}</p>
-                  <p>Amount: {(rate * qty).toFixed(2)}</p>
+                  <p>Amount: {amt.toFixed(2)}</p>
                 </div>
+                {setTotalAmount(+amt)}
             </div>
-            
           </div>
         })
         : <div className="text-xl p-2">Cart is empty</div> 
         }
+        <div>Total Amount: {totalAmount.toFixed(2)}</div>
       </div>
     )
 }
