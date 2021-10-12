@@ -21,9 +21,9 @@ useEffect(()=>{
 
 
 function AddAmt(amt){
-
-  return  ++amt;
-
+  const arr = [];
+  arr.push(amt);
+  return arr.reduce((a,b)=> a + b)
 }
 
 console.log("Line items", lineItems !== undefined && lineItems.length );
@@ -40,7 +40,7 @@ console.log("Line items", lineItems !== undefined && lineItems.length );
           const {variant:{price: rate}, quantity: qty, title} = item;
 
           const amt = rate * qty;
-          console.log(AddAmt(amt));
+          setTotalAmount(AddAmt(amt));
           
           
 
