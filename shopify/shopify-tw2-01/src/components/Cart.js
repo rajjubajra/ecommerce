@@ -23,8 +23,13 @@ useEffect(()=>{
 
 console.log("Line items", lineItems !== undefined && lineItems.length );
 
-    const arr = [];
-    console.log(arr);
+const arr = [];
+
+useEffect(()=>{
+ let sum = arr.reduce((a, b) => a + b);
+ setTotalAmount(sum);
+},[arr])
+
 
     lineItems !== undefined 
     && lineItems.length < 1 
@@ -40,9 +45,6 @@ console.log("Line items", lineItems !== undefined && lineItems.length );
           const amt = rate * qty;
           arr.push(amt);
           
-          
-          
-
         return <div className="flex flex-col">
             <h3 className="text-xl py-1 mb-1">{title}</h3>
             <div className="flex flex-row flex-wrap">
