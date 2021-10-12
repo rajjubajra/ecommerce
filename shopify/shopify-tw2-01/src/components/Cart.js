@@ -33,8 +33,7 @@ useEffect(()=>{
           const {variant:{price: rate}, quantity: qty, title} = item;
 
           const amt = rate * qty;
-          const tot = (sum => amt => sum += amt ) ;
-          setTotalAmount(tot);
+          setTotalAmount(amt + totalAmount)
 
         return <div className="flex flex-col">
             <h3 className="text-xl py-1 mb-1">{title}</h3>
