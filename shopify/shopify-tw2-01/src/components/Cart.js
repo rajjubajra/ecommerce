@@ -19,7 +19,13 @@ useEffect(()=>{
   checkout && checkout !== undefined && setLineItems(checkout.lineItems);
 },[checkout])
 
-  console.log("Line items", lineItems !== undefined && lineItems.length );
+
+function AddAmt(amt){
+  console.log(++amt);
+  return ++amt;
+}
+
+console.log("Line items", lineItems !== undefined && lineItems.length );
 
     lineItems !== undefined 
     && lineItems.length < 1 
@@ -33,7 +39,8 @@ useEffect(()=>{
           const {variant:{price: rate}, quantity: qty, title} = item;
 
           const amt = rate * qty;
-          console.log(+amt);
+          AddAmt(amt);
+          
           
 
         return <div className="flex flex-col">
