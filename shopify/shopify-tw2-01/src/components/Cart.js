@@ -5,11 +5,20 @@ import Loading from '../components/Loading';
 
 function Cart() {
 
+
+
 const { isCartOpen, closeCart, checkout } = useContext(ShopContext)
 
 console.log(checkout);
 console.log(checkout && checkout === !undefined && checkout.lineItems);
 
+const [lineItems, setLineItems] = useState([]);
+
+useEffect(()=>{
+  checkout && checkout !== undefined && setLineItems(checkout.lineItems);
+},[checkout])
+
+  console.log("LIne items",lineItems);
 
     checkout === !undefined 
     && checkout.lineItems.length < 1 
@@ -18,7 +27,7 @@ console.log(checkout && checkout === !undefined && checkout.lineItems);
       <div className="w-full flex flex-col p-2 my-3">
         <h2 className="text-xl">Cart</h2>
         {checkout === !undefined && checkout.lineItems.length > 0 
-        ? checkout.lineItems.map((item)=>{
+        ? checkout.lineItems.map((item)=> {
         return <div className="flex flex-col">
             <h3>{item.title}</h3>
             <div>
