@@ -33,18 +33,21 @@ useEffect(()=>{
 
         return <div className="flex flex-col">
             <h3>{title}</h3>
-            <div>
-              <img 
-                className="w-40" 
-                src={item.variant.image.src}  
-                alt={item.variant.image.altText} />
+            <div className="flex flex-row">
+                <div>
+                <img
+                  className="w-40" 
+                  src={item.variant.image.src}  
+                  alt={item.variant.image.altText} />
+                </div>
+                <div className="grid grid-flow-row gap-2 w-full">
+                  <p>Description: {item.variant.title}</p>
+                  <p>Quantity: {qty}</p>
+                  <p>Rate: {rate}</p>
+                  <p>Amount: {(rate * qty).toFixed(2)}</p>
+                </div>
             </div>
-            <div className="grid grid-flow-row gap-2 w-full">
-              <p>Description: {item.variant.title}</p>
-              <p>Quantity: {qty}</p>
-              <p>Rate: {rate}</p>
-              <p>Amount: {(rate * qty).toFixed(2)}</p>
-            </div>
+            
           </div>
         })
         : <div className="text-xl p-2">Cart is empty</div> 
