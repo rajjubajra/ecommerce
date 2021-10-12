@@ -33,8 +33,7 @@ useEffect(()=>{
           const {variant:{price: rate}, quantity: qty, title} = item;
 
           const amt = rate * qty;
-          const tot = 0;
-          console.log(tot += amt);
+          console.log(+amt);
           
 
         return <div className="flex flex-col">
