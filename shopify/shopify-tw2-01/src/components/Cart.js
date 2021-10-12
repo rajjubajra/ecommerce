@@ -21,8 +21,8 @@ useEffect(()=>{
 
 
 function AddAmt(amt){
-  let tot = 0
-  return tot + amt;
+
+  return  ++amt;
 
 }
 
