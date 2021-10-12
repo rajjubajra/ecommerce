@@ -29,7 +29,7 @@ useEffect(()=>{
         {lineItems !== undefined && lineItems.length > 0 
         ? lineItems.map((item)=> {
 
-          const {item:{variant:{price}, quantity, title}} = item;
+          const {variant:{price: rate}, quantity: qty, title} = item;
 
         return <div className="flex flex-col">
             <h3>{title}</h3>
@@ -41,9 +41,9 @@ useEffect(()=>{
             </div>
             <div className="flex flex-row flex-wrap w-full">
               <p>Description: {item.variant.title}</p>
-              <p>Quantity: {quantity}</p>
-              <p>Rate: {price}</p>
-              <p>Amount: {price * quantity}</p>
+              <p>Quantity: {qty}</p>
+              <p>Rate: {rate}</p>
+              <p>Amount: {rate * qty}</p>
             </div>
           </div>
         })
