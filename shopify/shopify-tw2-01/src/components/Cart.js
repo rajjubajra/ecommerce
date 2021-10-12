@@ -20,14 +20,14 @@ useEffect(()=>{
 
   console.log("Line items", lineItems !== undefined && lineItems.length );
 
-    checkout === !undefined 
-    && checkout.lineItems.length < 1 
+    lineItems !== undefined 
+    && lineItems.length < 1 
     && <Loading />
     return (
       <div className="w-full flex flex-col p-2 my-3">
         <h2 className="text-xl">Cart</h2>
-        {checkout === !undefined && checkout.lineItems.length > 0 
-        ? checkout.lineItems.map((item)=> {
+        {lineItems !== undefined && lineItems.length > 0 
+        ? lineItems.map((item)=> {
         return <div className="flex flex-col">
             <h3>{item.title}</h3>
             <div>
