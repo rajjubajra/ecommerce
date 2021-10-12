@@ -38,7 +38,7 @@ console.log("Line items", lineItems !== undefined && lineItems.length );
           let sum = 0;
           const amt = rate * qty;
           sum += amt;
-          setTotalAmount(sum);
+          console.log(sum);
         
           
         return <div className="flex flex-col">
