@@ -11,12 +11,14 @@ function Cart() {
 
 console.log(checkout);
 console.log(checkout && checkout.lineItems);
+console.log(lineItems.length);
+console.log(lineItems);
+
 
   useEffect(()=>{
       checkout && checkout === !undefined && setLineItems(checkout.lineItems);
   },[checkout])
 
-console.log(lineItems.length);
 
     lineItems.length < 1 && <Loading />
     return (
