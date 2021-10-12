@@ -35,9 +35,10 @@ console.log("Line items", lineItems !== undefined && lineItems.length );
         ? lineItems.map((item)=> {
 
           const {variant:{price: rate}, quantity: qty, title} = item;
-
+          let sum = 0;
           const amt = rate * qty;
-          setTotalAmount(amt + totalAmount);
+          sum += amt;
+          setTotalAmount(sum);
         
           
         return <div className="flex flex-col">
