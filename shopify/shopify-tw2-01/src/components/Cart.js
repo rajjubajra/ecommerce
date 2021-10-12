@@ -23,7 +23,9 @@ useEffect(()=>{
 
 console.log("Line items", lineItems !== undefined && lineItems.length );
 
-const arr = [];
+let arr = [];
+
+console.log(arr);
 
 useEffect(()=>{
  let sum = arr.reduce((a, b) => a + b);
