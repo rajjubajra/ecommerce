@@ -36,7 +36,7 @@ console.log("Line items", lineItems !== undefined && lineItems.length );
 
           const amt = rate * qty;
           let arr = [];
-          arr.push({amt});
+          arr.push({amt: amt});
           console.log(arr);
           
           
