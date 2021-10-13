@@ -2,3 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.btn_remove::before {
+    content: "Remove";
+    position: absolute;
+    top: 0px;
+    width: 200px;
+    height: 80px;
+    padding: 20px 10px;
+}

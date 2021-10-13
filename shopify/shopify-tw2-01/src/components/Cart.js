@@ -1,7 +1,7 @@
 import {useContext, useEffect, useState} from 'react';
 import {ShopContext} from '../context/shopContext';
 import Loading from '../components/Loading';
-import {Link} from 'react-router-dom';
+import {BiDotsHorizontal} from 'react-icons/bi';
 
 
 function Cart() {
@@ -16,9 +16,9 @@ const [checkoutData, setCheckoutData] = useState('');
 const [totalAmount, setTotalAmount] = useState(0);
 const [currency, setCurrency] = useState('');
 
+
 useEffect(()=>{
   checkout && checkout !== undefined && setLineItems(checkout.lineItems);
-  checkout && checkout !== undefined && setCheckoutData(checkout);
   checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2);
 },[checkout])
 
@@ -28,10 +28,10 @@ useEffect(()=>{
 },[totalAmount])
 
 
-console.log("Line items", lineItems !== undefined && lineItems.length );
-console.log("checkoutData", checkout !== undefined && checkoutData);
-console.log("checkoutData", checkout !== undefined && totalAmount);
-console.log("checkoutData", checkout !== undefined && currency);
+// console.log("Line items", lineItems !== undefined && lineItems.length );
+// console.log("checkoutData", checkout !== undefined && checkoutData);
+// console.log("checkoutData", checkout !== undefined && totalAmount);
+// console.log("checkoutData", checkout !== undefined && currency);
 
 
     lineItems !== undefined 
@@ -51,6 +51,7 @@ console.log("checkoutData", checkout !== undefined && currency);
             <div className="m-10">
               <div>
                 <h3 className="text-xl py-1 mb-1">{title}</h3>
+                <div><BiDotsHorizontal /></div>
                 <img
                   className="w-56 mt-1 p-2" 
                   src={item.variant.image.src}  
@@ -75,7 +76,8 @@ console.log("checkoutData", checkout !== undefined && currency);
             className="cursor-pointer py-2 px-4 my-5 border-gray-500"
             onClick={() => window.open(checkout.webUrl, '_blank')} >
               Checkout
-              </div> }
+            </div>
+          }
         </div>
       </div>
     )
