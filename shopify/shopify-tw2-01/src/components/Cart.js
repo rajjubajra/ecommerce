@@ -46,7 +46,7 @@ useEffect(()=>{
 
           const {variant:{price: rate}, quantity: qty, title, pid} = item;
           const amt = rate * qty;
-
+          console.log("product id", pid);
           
         return <div className="flex flex-row flex-wrap">
             <div className="m-10">
