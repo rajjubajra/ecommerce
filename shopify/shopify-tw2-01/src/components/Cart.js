@@ -14,15 +14,16 @@ console.log(checkout && checkout === !undefined && checkout.lineItems);
 
 const [lineItems, setLineItems] = useState([]);
 const [totalAmount, setTotalAmount] = useState(0);
+const [currency, setCurrency] = useState('');
 
 useEffect(()=>{
   checkout && checkout !== undefined && setLineItems(checkout.lineItems);
+  checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2.amount);
+  checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2.currencyCode);
 },[checkout])
 
 
-
 console.log("Line items", lineItems !== undefined && lineItems.length );
-
 
 
     lineItems !== undefined 
@@ -35,11 +36,8 @@ console.log("Line items", lineItems !== undefined && lineItems.length );
         ? lineItems.map((item)=> {
 
           const {variant:{price: rate}, quantity: qty, title} = item;
-          let sum = 0;
           const amt = rate * qty;
-          sum += amt;
-          console.log(sum);
-        
+
           
         return <div className="flex flex-col">
             <h3 className="text-xl py-1 mb-1">{title}</h3>
@@ -53,8 +51,8 @@ console.log("Line items", lineItems !== undefined && lineItems.length );
                 <div className="grid grid-flow-row gap-2 w-full">
                   <p>Description: {item.variant.title}</p>
                   <p>Quantity: {qty}</p>
-                  <p>Rate: {rate}</p>
-                  <p>Amount: {amt.toFixed(2)}</p>
+                  <p>Rate:{currency} {rate}</p>
+                  <p>Amount:{currency} {amt.toFixed(2)}</p>
 
                 </div>
             </div>
@@ -62,7 +60,7 @@ console.log("Line items", lineItems !== undefined && lineItems.length );
         })
         : <div className="text-xl p-2">Cart is empty</div> 
         }
-        <div>Total Amount: {totalAmount}</div>
+        <div>Total Amount: {currency} {totalAmount}</div>
       </div>
     )
 }
