@@ -54,7 +54,7 @@ useEffect(()=>{
                 <h3 className="text-xl py-1 mb-1">{title}</h3>
                 <div className={`cursor-pointer relative`}>
                   <div title="Remove">
-                    <TiDeleteOutline size="2x" />
+                    <TiDeleteOutline />
                   </div>
                 </div>
                 <img
