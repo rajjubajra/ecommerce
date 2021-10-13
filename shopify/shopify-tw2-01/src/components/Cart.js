@@ -63,7 +63,7 @@ console.log("checkoutData", checkout !== undefined && totalAmount);
         })
         : <div className="text-xl p-2">Cart is empty</div> 
         }
-        <div>Total Amount:</div>
+        <div>Total Amount:{checkout !== undefined && totalAmount.amount}</div>
       </div>
     )
 }
