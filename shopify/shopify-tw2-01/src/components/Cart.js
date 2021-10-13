@@ -19,7 +19,7 @@ useEffect(()=>{
   checkout && checkout !== undefined && setLineItems(checkout.lineItems);
   checkout && checkout !== undefined && setCheckoutData(checkout);
   checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2.amount);
-  checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2.currencyCode);
+  checkout && checkout !== undefined && setCurrency(checkout.totalPriceV2.currencyCode);
 },[checkout])
 
 
