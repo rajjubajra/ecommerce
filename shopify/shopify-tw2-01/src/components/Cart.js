@@ -18,8 +18,7 @@ const [currency, setCurrency] = useState('');
 
 useEffect(()=>{
   checkout && checkout !== undefined && setLineItems(checkout.lineItems);
-  checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2.amount);
-  checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2.currencyCode);
+  checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2);
 },[checkout])
 
 
