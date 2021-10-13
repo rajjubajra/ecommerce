@@ -59,14 +59,14 @@ console.log("checkoutData", checkout !== undefined && currency);
                   <p>Description: {item.variant.title}</p>
                   <p>Quantity: {qty}</p>
                   <p>Rate: {currency} {rate}</p>
-                  <p class="font-bold mt-2">Amount: {currency} {amt.toFixed(2)}</p>
+                  <p>Amount: {currency} {amt.toFixed(2)}</p>
                 </div>
             </div>
           </div>
         })
         : <div className="text-xl p-2">Cart is empty</div> 
         }
-        <div>Total Amount : {currency} {totalAmount !== undefined && totalAmount.amount}</div>
+        <div class="font-bold mt-2">Total Amount : {currency} {totalAmount !== undefined && totalAmount.amount}</div>
       </div>
     )
 }
