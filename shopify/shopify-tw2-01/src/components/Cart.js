@@ -70,7 +70,7 @@ console.log("checkoutData", checkout !== undefined && currency);
         <div class="font-bold mt-2">Total Amount : {currency} {totalAmount !== undefined && totalAmount.amount}</div>
         <div>
           { checkout !== undefined 
-            && <div onClick={window.location.replace(checkout.webUrl)} >
+            && <div onClick={() => window.location.replace(checkout.webUrl)} >
               Checkout</div> }
         </div>
       </div>
