@@ -13,16 +13,18 @@ console.log(checkout);
 console.log(checkout && checkout === !undefined && checkout.lineItems);
 
 const [lineItems, setLineItems] = useState([]);
+const [checkoutData, setCheckoutData] = useState('');
 const [totalAmount, setTotalAmount] = useState(0);
 const [currency, setCurrency] = useState('');
 
 useEffect(()=>{
   checkout && checkout !== undefined && setLineItems(checkout.lineItems);
-  checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2);
+  checkout && checkout !== undefined && setCheckoutData(checkout);
 },[checkout])
 
 
 console.log("Line items", lineItems !== undefined && lineItems.length );
+console.log("checkoutData", checkout !== undefined && checkoutData);
 
 
     lineItems !== undefined 
