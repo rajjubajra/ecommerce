@@ -2,17 +2,18 @@ import {useContext, useEffect, useState} from 'react';
 import {ShopContext} from '../context/shopContext';
 import Loading from '../components/Loading';
 import {TiDeleteOutline} from 'react-icons/ti';
+import {GrFormAdd} from 'react-icons/gr';
+import {BiMinus} from 'react-icons/bi';
 
 
 function Cart() {
 
-const { isCartOpen, closeCart, checkout } = useContext(ShopContext)
+const { isCartOpen, closeCart, checkout, addItemToCheckout } = useContext(ShopContext)
 
 console.log(checkout);
 console.log(checkout && checkout === !undefined && checkout.lineItems);
 
 const [lineItems, setLineItems] = useState([]);
-const [checkoutData, setCheckoutData] = useState('');
 const [totalAmount, setTotalAmount] = useState(0);
 const [currency, setCurrency] = useState('');
 
@@ -52,7 +53,9 @@ useEffect(()=>{
               <div>
                 <h3 className="text-xl py-1 mb-1">{title}</h3>
                 <div className={`cursor-pointer relative`}>
-                  <div><TiDeleteOutline /></div>
+                  <div title="Remove">
+                    <TiDeleteOutline size="14x" />
+                  </div>
                 </div>
                 <img
                   className="w-56 mt-1 p-2" 
@@ -61,10 +64,14 @@ useEffect(()=>{
                   alt={item.variant.image.altText} />
                 
                 <div className="grid grid-flow-row gap-2 w-full">
-                  <p>Description: {item.variant.title}</p>
-                  <p>Quantity: {qty}</p>
-                  <p>Rate: {currency} {rate}</p>
-                  <p>Amount: {currency} {amt.toFixed(2)}</p>
+                  <div>Description: {item.variant.title}</div>
+                  <div className="grid grid-flow-row gap-2">
+                    <p>Quantity: {qty} </p>
+                    <p onClick={() => addItemToCheckout(item.id, 1)} ><GrFormAdd /></p>
+                    <p onClick={() => addItemToCheckout(item.id, -1)} ><BiMinus /></p>
+                  </div>
+                  <div>Rate: {currency} {rate}</div>
+                  <div>Amount: {currency} {amt.toFixed(2)}</div>
                 </div>
               </div>
             </div>
