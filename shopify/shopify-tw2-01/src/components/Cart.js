@@ -54,7 +54,7 @@ useEffect(()=>{
                 <h3 className="text-xl py-1 mb-1">{title}</h3>
                 <div className={`cursor-pointer relative`}>
                   <div title="Remove">
-                    <TiDeleteOutline size="14x" />
+                    <TiDeleteOutline size="2x" />
                   </div>
                 </div>
                 <img
@@ -65,10 +65,14 @@ useEffect(()=>{
                 
                 <div className="grid grid-flow-row gap-2 w-full">
                   <div>Description: {item.variant.title}</div>
-                  <div className="grid grid-flow-row gap-2">
+                  <div className="grid grid-col-3 gap-2 my-2">
                     <p>Quantity: {qty} </p>
-                    <p onClick={() => addItemToCheckout(item.id, 1)} ><GrFormAdd /></p>
-                    <p onClick={() => addItemToCheckout(item.id, -1)} ><BiMinus /></p>
+                    <p 
+                    className="cursor-pointer p-2 m-2" 
+                    onClick={() => addItemToCheckout(item.id, 1)} ><GrFormAdd /></p>
+                    <p 
+                    className="cursor-pointer p-2 m-2" 
+                    onClick={() => addItemToCheckout(item.id, -1)} ><BiMinus /></p>
                   </div>
                   <div>Rate: {currency} {rate}</div>
                   <div>Amount: {currency} {amt.toFixed(2)}</div>
