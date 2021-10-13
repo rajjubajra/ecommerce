@@ -51,16 +51,15 @@ console.log("checkoutData", checkout !== undefined && currency);
             <div className="flex flex-row flex-wrap">
                 <div>
                 <img
-                  className="md:w-1/2 w-full mt-1" 
+                  className="w-56 mt-1 p-2" 
                   src={item.variant.image.src}  
                   alt={item.variant.image.altText} />
                 </div>
                 <div className="grid grid-flow-row gap-2 w-full">
                   <p>Description: {item.variant.title}</p>
                   <p>Quantity: {qty}</p>
-                  <p>Rate:{currency} {rate}</p>
-                  <p>Amount:{currency} {amt.toFixed(2)}</p>
-
+                  <p>Rate: {currency} {rate}</p>
+                  <p class="font-bold mt-2">Amount: {currency} {amt.toFixed(2)}</p>
                 </div>
             </div>
           </div>
