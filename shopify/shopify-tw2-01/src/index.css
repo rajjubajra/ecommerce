@@ -3,12 +3,3 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@layer components{
-
-    .btn_remove::before {
-        content: "Remove";
-        @apply p-2 absolute top-0
-    }
-
-}

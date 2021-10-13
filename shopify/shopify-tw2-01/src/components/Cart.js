@@ -1,7 +1,7 @@
 import {useContext, useEffect, useState} from 'react';
 import {ShopContext} from '../context/shopContext';
 import Loading from '../components/Loading';
-import {BiDotsHorizontal} from 'react-icons/bi';
+import {TiDeleteOutline} from 'react-icons/ti';
 
 
 function Cart() {
@@ -52,7 +52,7 @@ useEffect(()=>{
               <div>
                 <h3 className="text-xl py-1 mb-1">{title}</h3>
                 <div className={`cursor-pointer relative`}>
-                  <div className={`btn_remove`}><BiDotsHorizontal /></div>
+                  <div><TiDeleteOutline /></div>
                 </div>
                 <img
                   className="w-56 mt-1 p-2" 
