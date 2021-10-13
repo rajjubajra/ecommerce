@@ -44,7 +44,7 @@ useEffect(()=>{
         {lineItems !== undefined && lineItems.length > 0 
         ? lineItems.map((item)=> {
 
-          const {variant:{price: rate}, quantity: qty, title} = item;
+          const {variant:{price: rate}, quantity: qty, title, pid} = item;
           const amt = rate * qty;
 
           
@@ -69,10 +69,10 @@ useEffect(()=>{
                     <p>Quantity: {qty} </p>
                     <p 
                     className="cursor-pointer p-2 m-2" 
-                    onClick={() => addItemToCheckout(item.id, 1)} ><GrFormAdd /></p>
+                    onClick={() => addItemToCheckout(pid, 1)} ><GrFormAdd /></p>
                     <p 
                     className="cursor-pointer p-2 m-2" 
-                    onClick={() => addItemToCheckout(item.id, -1)} ><BiMinus /></p>
+                    onClick={() => addItemToCheckout(pid, -1)} ><BiMinus /></p>
                   </div>
                   <div>Rate: {currency} {rate}</div>
                   <div>Amount: {currency} {amt.toFixed(2)}</div>
