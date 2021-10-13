@@ -18,9 +18,13 @@ const [currency, setCurrency] = useState('');
 useEffect(()=>{
   checkout && checkout !== undefined && setLineItems(checkout.lineItems);
   checkout && checkout !== undefined && setCheckoutData(checkout);
-  checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2.amount);
-  checkout && checkout !== undefined && setCurrency(checkout.totalPriceV2.currencyCode);
+  checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2);
 },[checkout])
+
+
+useEffect(()=>{
+  totalAmount !== undefined && setCurrency(totalAmount.currencyCode);
+},[totalAmount])
 
 
 console.log("Line items", lineItems !== undefined && lineItems.length );
@@ -63,7 +67,7 @@ console.log("checkoutData", checkout !== undefined && currency);
         })
         : <div className="text-xl p-2">Cart is empty</div> 
         }
-        <div>Total Amount:</div>
+        <div>Total Amount : {currency} {totalAmount !== undefined && totalAmount.amount}</div>
       </div>
     )
 }
