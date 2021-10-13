@@ -51,8 +51,8 @@ useEffect(()=>{
             <div className="m-10">
               <div>
                 <h3 className="text-xl py-1 mb-1">{title}</h3>
-                <div className={`cursor-pointer btn-remove`}>
-                  <BiDotsHorizontal />
+                <div className={`cursor-pointer relative`}>
+                  <div className={`btn_remove`}><BiDotsHorizontal /></div>
                 </div>
                 <img
                   className="w-56 mt-1 p-2" 

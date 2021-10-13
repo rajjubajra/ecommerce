@@ -4,11 +4,11 @@
 @tailwind utilities;
 
 
-.btn_remove::before {
-    content: "Remove";
-    position: absolute;
-    top: 0px;
-    width: 200px;
-    height: 80px;
-    padding: 20px 10px;
+@layer components{
+
+    .btn_remove::before {
+        content: "Remove";
+        @apply p-2 absolute top-0
+    }
+
 }
