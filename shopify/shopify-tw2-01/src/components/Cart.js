@@ -48,9 +48,9 @@ console.log("checkoutData", checkout !== undefined && currency);
 
           
         return <div className="flex flex-row flex-wrap">
-            <h3 className="text-xl py-1 mb-1">{title}</h3>
-            <div className="flex flex-row flex-wrap">
+            <div className="m-10">
               <div>
+                <h3 className="text-xl py-1 mb-1">{title}</h3>
                 <img
                   className="w-56 mt-1 p-2" 
                   src={item.variant.image.src}  
