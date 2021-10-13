@@ -44,7 +44,7 @@ useEffect(()=>{
         {lineItems !== undefined && lineItems.length > 0 
         ? lineItems.map((item)=> {
 
-          const {variant:{price: rate}, quantity: qty, title, id:pid} = item;
+          const {variant:{price:rate, id:pid}, quantity: qty, title} = item;
           const amt = rate * qty;
           console.log("product id", pid);
           
