@@ -86,6 +86,15 @@ class ShopProvider extends Component {
     this.setState({ isCartOpen: true });
   };
 
+
+  removeItem = async (checkoutId, lineItemIdsToRemove) => {
+    // Remove an item from the checkout
+    client.checkout.removeLineItems(checkoutId, lineItemIdsToRemove).then((checkout) => {
+      // Do something with the updated checkout
+      console.log(checkout.lineItems); // Checkout with line item 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=' removed
+    });
+  }
+
   render() {
     return (
       <ShopContext.Provider
@@ -96,6 +105,7 @@ class ShopProvider extends Component {
           closeCart: this.closeCart,
           openCart: this.openCart,
           addItemToCheckout: this.addItemToCheckout,
+          removeItem: this.removeItem,
         }}
       >
         {this.props.children}

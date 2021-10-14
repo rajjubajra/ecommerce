@@ -8,7 +8,7 @@ import {BiMinus} from 'react-icons/bi';
 
 function Cart() {
 
-const { isCartOpen, closeCart, checkout, addItemToCheckout } = useContext(ShopContext)
+const { isCartOpen, closeCart, checkout, addItemToCheckout, removeItem } = useContext(ShopContext)
 
 console.log(checkout);
 console.log(checkout && checkout === !undefined && checkout.lineItems);
@@ -21,13 +21,16 @@ const [currency, setCurrency] = useState('');
 useEffect(()=>{
   checkout && checkout !== undefined && setLineItems(checkout.lineItems);
   checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2);
-},[checkout])
+},[checkout]);
 
 
 useEffect(()=>{
   totalAmount !== undefined && setCurrency(totalAmount.currencyCode);
 },[totalAmount])
 
+const BtnAddItem = () => {
+  
+}
 
 // console.log("Line items", lineItems !== undefined && lineItems.length );
 // console.log("checkoutData", checkout !== undefined && checkoutData);
@@ -53,7 +56,9 @@ useEffect(()=>{
               <div>
                 <h3 className="text-xl py-1 mb-1">{title}</h3>
                 <div className={`cursor-pointer relative`}>
-                  <div title="Remove">
+                  <div 
+                  title="Remove"
+                  onClick={ () => removeItem(checkout.id, pid)}>
                     <TiDeleteOutline />
                   </div>
                 </div>
@@ -67,12 +72,19 @@ useEffect(()=>{
                   <div>Description: {item.variant.title}</div>
                   <div className="grid grid-col-3 gap-2 my-2">
                     <p>Quantity: {qty} </p>
+                    
                     <p 
                     className="cursor-pointer p-2 m-2" 
                     onClick={() => addItemToCheckout(pid, 1)} ><GrFormAdd /></p>
+                    
+                    { qty > 1 ?
                     <p 
                     className="cursor-pointer p-2 m-2" 
                     onClick={() => addItemToCheckout(pid, -1)} ><BiMinus /></p>
+                    : <p 
+                    className="cursor-pointer p-2 m-2" 
+                    onClick={() => addItemToCheckout(pid, -1)} ><BiMinus /></p>
+                    }
                   </div>
                   <div>Rate: {currency} {rate}</div>
                   <div>Amount: {currency} {amt.toFixed(2)}</div>
