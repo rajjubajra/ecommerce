@@ -18,19 +18,21 @@ const [totalAmount, setTotalAmount] = useState(0);
 const [currency, setCurrency] = useState('');
 
 
+/** 
+ * state checkout line items
+ * state total Amount of the Checkout items
+*/
 useEffect(()=>{
   checkout && checkout !== undefined && setLineItems(checkout.lineItems);
   checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2);
-},[checkout]);
+},[checkout, lineItems]);
 
 
+/** State Currency Code */
 useEffect(()=>{
   totalAmount !== undefined && setCurrency(totalAmount.currencyCode);
 },[totalAmount])
 
-const BtnAddItem = () => {
-  
-}
 
 // console.log("Line items", lineItems !== undefined && lineItems.length );
 // console.log("checkoutData", checkout !== undefined && checkoutData);
@@ -97,7 +99,7 @@ const BtnAddItem = () => {
         }
         <div class="font-bold mt-2">Total Amount : {currency} {totalAmount !== undefined && totalAmount.amount}</div>
         <div>
-          { checkout !== undefined 
+          { checkout !== undefined && lineItems.length < 1
             && <div 
             className="cursor-pointer py-2 px-4 my-5 border-gray-500"
             onClick={() => window.open(checkout.webUrl, '_blank')} >
