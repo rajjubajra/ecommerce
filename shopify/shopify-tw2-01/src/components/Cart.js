@@ -58,7 +58,7 @@ const BtnAddItem = () => {
                 <div className={`cursor-pointer relative`}>
                   <div 
                   title="Remove"
-                  onClick={ () => removeItem(checkout.id, pid)}>
+                  onClick={ () => removeItem(checkout.id, item.id)}>
                     <TiDeleteOutline />
                   </div>
                 </div>
