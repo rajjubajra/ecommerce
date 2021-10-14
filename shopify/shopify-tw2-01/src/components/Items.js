@@ -7,6 +7,7 @@ function Items({setProductId}) {
 
   const {fetchAllProducts, products} = useContext(ShopContext)
 
+  console.log("productts ",products);
 
   useEffect(()=>{
       fetchAllProducts();

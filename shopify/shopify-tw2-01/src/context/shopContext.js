@@ -34,12 +34,19 @@ class ShopProvider extends Component {
     //else fetch the checkout from shopify
   }
 
+  /**
+   * Store checkout id into localstorage
+   */
   createCheckout = async () => {
     const checkout = await client.checkout.create();
     localStorage.setItem("yw_store_checkout", checkout.id);
     await this.setState({ checkout: checkout });
   };
 
+  /**
+   * 
+   * Fetch Checkout 
+   */
   fetchCheckout = async (checkoutId) => {
     client.checkout
       .fetch(checkoutId)
@@ -49,6 +56,10 @@ class ShopProvider extends Component {
       .catch((err) => console.log(err));
   };
 
+  /**
+   * 
+   * Add Item to checkout
+   */
   addItemToCheckout = async (variantId, quantity) => {
     const lineItemsToAdd = [
       {
@@ -66,11 +77,18 @@ class ShopProvider extends Component {
     this.openCart();
   };
 
+  /**
+   * Fetch All Products
+   */
   fetchAllProducts = async () => {
     const products = await client.product.fetchAll();
     this.setState({ products: products });
   };
 
+  /**
+   * 
+   * Fetch single product
+   */
   fetchProductWithId = async (id) => {
     const product = await client.product.fetch(id);
     this.setState({ product: product });
@@ -87,6 +105,10 @@ class ShopProvider extends Component {
   };
 
 
+  /**
+   * 
+   * Remove item from Cart 
+   */
   removeItem = async (checkoutId, lineItemIdsToRemove) => {
     // Remove an item from the checkout
     client.checkout.removeLineItems(checkoutId, lineItemIdsToRemove).then((checkout) => {
@@ -95,6 +117,7 @@ class ShopProvider extends Component {
     });
   }
 
+  
   render() {
     return (
       <ShopContext.Provider
