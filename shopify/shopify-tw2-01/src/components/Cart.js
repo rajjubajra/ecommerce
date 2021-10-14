@@ -49,7 +49,7 @@ const BtnAddItem = () => {
 
           const {variant:{price:rate, id:pid}, quantity: qty, title} = item;
           const amt = rate * qty;
-          console.log("product id", pid);
+          console.log("product id", pid, "checkoutid", checkout.id);
           
         return <div className="flex flex-row flex-wrap">
             <div className="m-10">
