@@ -132,7 +132,7 @@ class ShopProvider extends Component {
           closeCart: this.closeCart,
           openCart: this.openCart,
           addItemToCheckout: this.addItemToCheckout,
-          removeItem: this.removeItem,
+          removeItemFromCheckout: this.removeItemFromCheckout,
         }}
       >
         {this.props.children}
