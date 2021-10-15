@@ -99,7 +99,7 @@ useEffect(()=>{
         }
         <div class="font-bold mt-2">Total Amount : {currency} {totalAmount !== undefined && totalAmount.amount}</div>
         <div>
-          { checkout !== undefined && lineItems.length < 1
+          { checkout !== undefined && lineItems !== undefined && lineItems.length < 1
             && <div 
             className="cursor-pointer py-2 px-4 my-5 border-gray-500"
             onClick={() => window.open(checkout.webUrl, '_blank')} >
