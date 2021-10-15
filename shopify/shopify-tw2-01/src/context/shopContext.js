@@ -88,6 +88,7 @@ class ShopProvider extends Component {
       .then((checkout) => {
         // Do something with the updated checkout
         console.log(checkout.lineItems); // Checkout with line item 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=' removed
+        console.log(checkout.lineItems.type)
         return checkout.lineItems;
       });
 
