@@ -119,7 +119,7 @@ class ShopProvider extends Component {
        * store remove items in to localstorage
        */
       const removeItemsArr = [];
-      removeItemsArr.push(checkout.lineItems);
+      removeItemsArr.push(checkout.lineItems[0]);
       localStorage.setItem("removedItem", removeItemsArr);
       console.log("ITEM ARR ",removeItemsArr[0]);
 
