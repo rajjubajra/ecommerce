@@ -16,6 +16,7 @@ console.log(checkout && checkout === !undefined && checkout.lineItems);
 const [lineItems, setLineItems] = useState([]);
 const [totalAmount, setTotalAmount] = useState(0);
 const [currency, setCurrency] = useState('');
+const [removedItems, setRemovedItems] = useState([]);
 
 
 /** 

@@ -114,6 +114,13 @@ class ShopProvider extends Component {
     client.checkout.removeLineItems(checkoutId, lineItemIdsToRemove).then((checkout) => {
       // Do something with the updated checkout
       console.log(checkout.lineItems); // Checkout with line item 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=' removed
+
+      /**
+       * store remove items in to localstorage
+       */
+      const removeItemsArr = [];
+      removeItemsArr.push(checkout.lineItems);
+      localStorage.setItem("removedItem", removeItemsArr);
     });
   }
 
