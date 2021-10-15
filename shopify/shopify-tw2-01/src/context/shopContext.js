@@ -18,6 +18,7 @@ class ShopProvider extends Component {
     product: {},
     checkout: {},
     isCartOpen: false,
+    removedItem: {}
   };
 
   componentDidMount() {
@@ -109,21 +110,18 @@ class ShopProvider extends Component {
    * 
    * Remove item from Cart 
    */
-  removeItem = async (checkoutId, lineItemIdsToRemove) => {
+  removeItem = async (existingCheckoutId, lineItemIds) => {
+
+      const checkoutId = existingCheckoutId; // ID of an   existing checkout
+      const lineItemIdsToRemove = [lineItemIds]; // lineitem id to be removed
+
     // Remove an item from the checkout
     client.checkout.removeLineItems(checkoutId, lineItemIdsToRemove).then((checkout) => {
       // Do something with the updated checkout
       console.log(checkout.lineItems); // Checkout with line item 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=' removed
+  });
 
-      /**
-       * store remove items in to localstorage
-       */
-      const removeItemsArr = '';
-      removeItemsArr.push(checkout.lineItems);
-      localStorage.setItem("removedItem", removeItemsArr);
-      console.log("ITEM ARR ",removeItemsArr);
-    });
-  }
+}
 
   
   render() {
