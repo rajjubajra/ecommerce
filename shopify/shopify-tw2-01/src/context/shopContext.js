@@ -91,7 +91,7 @@ class ShopProvider extends Component {
         return checkout.lineItems;
       });
 
-      this.setState({ checkout: checkout });
+      //this.setState({ checkout: checkout });
       console.log(checkout);
 
       
