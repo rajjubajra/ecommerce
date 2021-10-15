@@ -62,21 +62,37 @@ class ShopProvider extends Component {
    * Add Item to checkout
    */
   addItemToCheckout = async (variantId, quantity) => {
-    const lineItemsToAdd = [
-      {
-        variantId,
-        quantity: parseInt(quantity, 10),
-      },
-    ];
+
+    const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10)}];
+    
     const checkout = await client.checkout.addLineItems(
       this.state.checkout.id,
       lineItemsToAdd
     );
+    
     this.setState({ checkout: checkout });
     console.log(checkout);
 
     this.openCart();
   };
+
+  /**
+   * Remove Item from checkout
+   */
+  removeItemFromCheckout = async (checkoutId, lineItemIdsRemove) => {
+    
+      const lineItemIdsToRemove = [lineItemIdsRemove];
+
+      // Remove an item from the checkout
+      client.checkout.removeLineItems(checkoutId, lineItemIdsToRemove).then((checkout) => {
+        // Do something with the updated checkout
+        console.log(checkout.lineItems); // Checkout with line item 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=' removed
+      });
+
+      
+  }
+
+
 
   /**
    * Fetch All Products
@@ -104,24 +120,6 @@ class ShopProvider extends Component {
   openCart = () => {
     this.setState({ isCartOpen: true });
   };
-
-
-  /**
-   * 
-   * Remove item from Cart 
-   */
-  removeItem = async (existingCheckoutId, lineItemIds) => {
-
-      const checkoutId = existingCheckoutId; // ID of an   existing checkout
-      const lineItemIdsToRemove = [lineItemIds]; // lineitem id to be removed
-
-    // Remove an item from the checkout
-    client.checkout.removeLineItems(checkoutId, lineItemIdsToRemove).then((checkout) => {
-      // Do something with the updated checkout
-      console.log(checkout.lineItems); // Checkout with line item 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=' removed
-  });
-
-}
 
   
   render() {

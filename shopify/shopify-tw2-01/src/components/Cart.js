@@ -8,7 +8,7 @@ import {BiMinus} from 'react-icons/bi';
 
 function Cart() {
 
-const { isCartOpen, closeCart, checkout, addItemToCheckout, removeItem } = useContext(ShopContext)
+const { isCartOpen, closeCart, checkout, addItemToCheckout, removeItemFromCheckout } = useContext(ShopContext)
 
 console.log(checkout);
 console.log(checkout && checkout === !undefined && checkout.lineItems);
@@ -61,7 +61,7 @@ useEffect(()=>{
                 <div className={`cursor-pointer relative`}>
                   <div 
                   title="Remove"
-                  onClick={ () => removeItem(checkout.id, item.id)}>
+                  onClick={ () => removeItemFromCheckout(checkout.id, item.id)}>
                     <TiDeleteOutline />
                   </div>
                 </div>
