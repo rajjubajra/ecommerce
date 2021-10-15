@@ -16,7 +16,6 @@ console.log(checkout && checkout === !undefined && checkout.lineItems);
 const [lineItems, setLineItems] = useState([]);
 const [totalAmount, setTotalAmount] = useState(0);
 const [currency, setCurrency] = useState('');
-const [removedItems, setRemovedItems] = useState([]);
 
 
 /** 
@@ -96,7 +95,10 @@ useEffect(()=>{
             </div>
           </div>
         })
-        : <div className="text-xl p-2">Cart is empty</div> 
+        : <div>
+          {closeCart()}
+          <div className="text-xl p-2">Cart is empty</div>
+          </div> 
         }
         <div class="font-bold mt-2">Total Amount : {currency} {totalAmount !== undefined && totalAmount.amount}</div>
         <div>

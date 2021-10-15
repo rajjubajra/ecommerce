@@ -95,6 +95,7 @@ class ShopProvider extends Component {
       //this.setState({ checkout: checkout });
       console.log(checkout);
 
+
       
   }
 
