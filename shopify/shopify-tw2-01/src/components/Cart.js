@@ -52,7 +52,7 @@ console.log("LENGTH",length);
     && <Loading />
     return (
       <div className="w-full flex flex-col p-4 my-3 border-2 border-gray-300">
-        <h2 className="text-xl">Cart</h2>
+        <h2 className="text-xl">Cart Items:{length}</h2>
         {lineItems !== undefined && lineItems.length > 0 
         ? lineItems.map((item)=> {
           
