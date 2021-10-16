@@ -27,7 +27,7 @@ useEffect(()=>{
   checkout && checkout !== undefined && setLineItems(checkout.lineItems);
   checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2);
   checkout && checkout !== undefined && setLineItemsLength(checkout.lineItems.length);
-},[checkout, lineItems, lineItemsLength]);
+},[checkout, lineItems]);
 
 
 /** State Currency Code */
