@@ -48,7 +48,7 @@ useEffect(()=>{
         <h2 className="text-xl">Cart</h2>
         {lineItems !== undefined && lineItems.length > 0 
         ? lineItems.map((item)=> {
-          isCartOpen();
+          
           const {variant:{price:rate, id:pid}, quantity: qty, title} = item;
           const amt = rate * qty;
           console.log("product id", pid, "checkoutid", checkout.id);
@@ -96,7 +96,6 @@ useEffect(()=>{
           </div>
         })
         : <div>
-          closeCart();
           <div className="text-xl p-2">Cart is empty</div>
           </div> 
         }
