@@ -96,7 +96,6 @@ useEffect(()=>{
           </div>
         })
         : <div>
-          closeCart()
           <div className="text-xl p-2">Cart is empty</div>
           </div> 
         }
