@@ -16,7 +16,6 @@ console.log(checkout && checkout === !undefined && checkout.lineItems);
 const [lineItems, setLineItems] = useState([]);
 const [totalAmount, setTotalAmount] = useState(0);
 const [currency, setCurrency] = useState('');
-const [lineItemsLength, setLineItemsLength] = useState(0);
 
 
 /** 
@@ -26,7 +25,6 @@ const [lineItemsLength, setLineItemsLength] = useState(0);
 useEffect(()=>{
   checkout && checkout !== undefined && setLineItems(checkout.lineItems);
   checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2);
-  checkout && checkout !== undefined && setLineItemsLength(checkout.lineItems.length);
 },[checkout, lineItems]);
 
 
@@ -50,7 +48,7 @@ useEffect(()=>{
         <h2 className="text-xl">Cart</h2>
         {lineItems !== undefined && lineItems.length > 0 
         ? lineItems.map((item)=> {
-
+          isCartOpen();
           const {variant:{price:rate, id:pid}, quantity: qty, title} = item;
           const amt = rate * qty;
           console.log("product id", pid, "checkoutid", checkout.id);
@@ -98,6 +96,7 @@ useEffect(()=>{
           </div>
         })
         : <div>
+          closeCart();
           <div className="text-xl p-2">Cart is empty</div>
           </div> 
         }
