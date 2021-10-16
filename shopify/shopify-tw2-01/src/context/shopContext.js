@@ -95,7 +95,7 @@ class ShopProvider extends Component {
 
       //this.setState({ checkout: checkout });
       console.log(checkout);
-
+      checkout.lineItems.length > 0 ? this.isCartOpen() : this.closeCart();
 
       
   }
