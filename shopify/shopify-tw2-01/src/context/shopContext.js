@@ -90,15 +90,10 @@ class ShopProvider extends Component {
         console.log(checkout.lineItems); // Checkout with line item 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=' removed
         console.log(checkout.lineItems.type)
         console.log("LENGTH", checkout.lineItems.length); 
-        
-        return checkout.lineItems.length > 0 ? this.isCartOpen() : this.closeCart();
-
       });
 
       //this.setState({ checkout: checkout });
       console.log(checkout);
-      
-
       
   }
 
