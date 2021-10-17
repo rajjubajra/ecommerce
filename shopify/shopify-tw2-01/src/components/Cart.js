@@ -8,7 +8,7 @@ import {BiMinus} from 'react-icons/bi';
 
 function Cart() {
 
-const { isCartOpen, closeCart, checkout, addItemToCheckout, removeItemFromCheckout } = useContext(ShopContext)
+const { checkout, addItemToCheckout, removeItemFromCheckout } = useContext(ShopContext)
 
 console.log(checkout);
 console.log(checkout && checkout === !undefined && checkout.lineItems);
