@@ -20,12 +20,13 @@ export const actionFetchAllProduct = () => {
 
     // Fetch all products in your shop
     client.product.fetchAll().then((products) => {
+      console.log(products);
       // Do something with the products
       dispatch({
         type: actionType.PRODUCT_FETCHED,
         data: products
       })
-      console.log(products);
+      
     })
 
   }
