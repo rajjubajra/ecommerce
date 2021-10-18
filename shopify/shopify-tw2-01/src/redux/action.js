@@ -8,7 +8,8 @@ const client = Client.buildClient({
 });
 
 
-export const actionFetchAllProduct = async () => {
+//export const actionNav = () => {
+export const actionFetchAllProduct = () => {
 
   return function (dispatch) {
 
