@@ -10,7 +10,6 @@ const client = Client.buildClient({
 });
 
 
-
 //export const actionNav = () => {
 export const actionFetchAllProduct = () => {
 
@@ -22,14 +21,15 @@ export const actionFetchAllProduct = () => {
 
     const fetchAllProducts = async () => {
       const products = await client.product.fetchAll();
-      return products;
+      dispatch({
+        type: actionType.PRODUCT_FETCHED,
+        data: products
+      })
     };
 
+
     console.log(fetchAllProducts);
-    dispatch({
-          type: actionType.PRODUCT_FETCHED,
-          data: fetchAllProducts
-        })
+    return fetchAllProducts();
 
     // Fetch all products in your shop
     // client.product.fetchAll().then((products) => {
