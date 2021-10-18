@@ -5,8 +5,8 @@ import Client from 'shopify-buy';
 
 // Initializing a client to return content in the store's primary language
 const client = Client.buildClient({
-  domain: 'your-shop-name.myshopify.com',
-  storefrontAccessToken: 'your-storefront-access-token'
+  storefrontAccessToken: 'cc92551596409162e6f510c8efd7f0b0',
+  domain: 'yw-t-shirt.myshopify.com',
 });
 
 
@@ -36,7 +36,6 @@ export const actionFetchAllProduct = () => {
         err:err
       })
     })
-
   }// action fetchAllProducts closed
 
 
