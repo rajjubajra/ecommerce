@@ -13,12 +13,12 @@ const client = Client.buildClient({
 //export const actionNav = () => {
 export const actionFetchAllProduct = () => {
 
-  return function (dispatch) {
+  return function () {
 
-    /** MAIN MENU  */
-    dispatch({
-      type: actionType.PRODUCT_START_FETCHING
-    })
+    // /** MAIN MENU  */
+    // dispatch({
+    //   type: actionType.PRODUCT_START_FETCHING
+    // })
 
     // Fetch all products in your shop
     client.product.fetchAll().then((products) => {
