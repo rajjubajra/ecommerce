@@ -19,6 +19,7 @@ export const reducerFetchAllProducts = (state = initalStateAllProducts, action) 
         product_data: []
       }
     case actionType.PRODUCT_FETCHED:
+      console.log(action.data);
       return {
         product_data: action.data,
         product_fetched: true,
