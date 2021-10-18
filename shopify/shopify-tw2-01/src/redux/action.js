@@ -10,26 +10,36 @@ const client = Client.buildClient({
 });
 
 
+
 //export const actionNav = () => {
 export const actionFetchAllProduct = () => {
 
-  return function () {
+  return function (dispatch) {
 
-    // /** MAIN MENU  */
-    // dispatch({
-    //   type: actionType.PRODUCT_START_FETCHING
-    // })
+    dispatch({
+      type: actionType.PRODUCT_START_FETCHING
+    })
+
+    const fetchAllProducts = async () => {
+      const products = await client.product.fetchAll();
+      return products;
+    };
+
+    console.log(fetchAllProducts);
+    dispatch({
+          type: actionType.PRODUCT_FETCHED,
+          data: fetchAllProducts
+        })
 
     // Fetch all products in your shop
-    client.product.fetchAll().then((products) => {
-      console.log(products);
-      // Do something with the products
-      //dispatch({
-      //   type: actionType.PRODUCT_FETCHED,
-      //   data: products
-      // })
-      
-    })
+    // client.product.fetchAll().then((products) => {
+    //   console.log(products);
+    //   //Do something with the products
+    //   dispatch({
+    //     type: actionType.PRODUCT_FETCHED,
+    //     data: products
+    //   })
+    // })
 
   }
 
