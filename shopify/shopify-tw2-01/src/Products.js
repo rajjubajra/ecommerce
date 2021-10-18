@@ -9,13 +9,11 @@ function Products() {
 
   const dispatch = useDispatch();
 
-  const product = useSelector(state => state.reducerFetchAllProducts);
+  //const product = useSelector(state => state.reducerFetchAllProducts);
 
-  console.log(product);
+  //console.log(product);
 
   const [productId, setProductId] = useState('');
-
-
 
   useEffect(()=>{
     dispatch(actionFetchAllProduct());
