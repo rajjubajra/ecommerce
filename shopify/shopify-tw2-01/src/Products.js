@@ -8,7 +8,8 @@ import {useDispatch, useSelector} from 'react-redux';
 function Products() {
 
   const dispatch = useDispatch();
-  const product = useSelector(state => state.reducerFetchAllProducts.product_data);
+
+  const product = useSelector(state => state.reducerFetchAllProducts);
 
   console.log(product);
 
