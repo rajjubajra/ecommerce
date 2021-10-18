@@ -19,29 +19,25 @@ export const actionFetchAllProduct = () => {
       type: actionType.PRODUCT_START_FETCHING
     })
 
-    const fetchAllProducts = async () => {
-      const products = await client.product.fetchAll();
+    //Fetch all products in your shop
+    client.product.fetchAll()
+    .then((products) => {
+      console.log(products);
+      //Do something with the products
       dispatch({
         type: actionType.PRODUCT_FETCHED,
         data: products
       })
-    };
+    })
+    .catch(err => {
+      dispatch({ 
+        type: actionType.PRODUCT_FETCH_ERROR,
+        fetched: false,
+        err:err
+      })
+    })
 
-
-    console.log(fetchAllProducts);
-    return fetchAllProducts();
-
-    // Fetch all products in your shop
-    // client.product.fetchAll().then((products) => {
-    //   console.log(products);
-    //   //Do something with the products
-    //   dispatch({
-    //     type: actionType.PRODUCT_FETCHED,
-    //     data: products
-    //   })
-    // })
-
-  }
+  }// action fetchAllProducts closed
 
 
 
