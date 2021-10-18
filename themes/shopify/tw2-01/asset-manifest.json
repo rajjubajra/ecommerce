@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/ecommerce/themes/shopify/tw2-01/static/css/main.d5c00e32.chunk.css",
-    "main.js": "/ecommerce/themes/shopify/tw2-01/static/js/main.fd044298.chunk.js",
-    "main.js.map": "/ecommerce/themes/shopify/tw2-01/static/js/main.fd044298.chunk.js.map",
+    "main.css": "/ecommerce/themes/shopify/tw2-01/static/css/main.d7618b6d.chunk.css",
+    "main.js": "/ecommerce/themes/shopify/tw2-01/static/js/main.ba6b1a80.chunk.js",
+    "main.js.map": "/ecommerce/themes/shopify/tw2-01/static/js/main.ba6b1a80.chunk.js.map",
     "runtime-main.js": "/ecommerce/themes/shopify/tw2-01/static/js/runtime-main.138f6709.js",
     "runtime-main.js.map": "/ecommerce/themes/shopify/tw2-01/static/js/runtime-main.138f6709.js.map",
-    "static/js/2.5f0f1dd3.chunk.js": "/ecommerce/themes/shopify/tw2-01/static/js/2.5f0f1dd3.chunk.js",
-    "static/js/2.5f0f1dd3.chunk.js.map": "/ecommerce/themes/shopify/tw2-01/static/js/2.5f0f1dd3.chunk.js.map",
+    "static/js/2.2db2250d.chunk.js": "/ecommerce/themes/shopify/tw2-01/static/js/2.2db2250d.chunk.js",
+    "static/js/2.2db2250d.chunk.js.map": "/ecommerce/themes/shopify/tw2-01/static/js/2.2db2250d.chunk.js.map",
     "index.html": "/ecommerce/themes/shopify/tw2-01/index.html",
-    "static/css/main.d5c00e32.chunk.css.map": "/ecommerce/themes/shopify/tw2-01/static/css/main.d5c00e32.chunk.css.map",
-    "static/js/2.5f0f1dd3.chunk.js.LICENSE.txt": "/ecommerce/themes/shopify/tw2-01/static/js/2.5f0f1dd3.chunk.js.LICENSE.txt"
+    "static/css/main.d7618b6d.chunk.css.map": "/ecommerce/themes/shopify/tw2-01/static/css/main.d7618b6d.chunk.css.map",
+    "static/js/2.2db2250d.chunk.js.LICENSE.txt": "/ecommerce/themes/shopify/tw2-01/static/js/2.2db2250d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.138f6709.js",
-    "static/js/2.5f0f1dd3.chunk.js",
-    "static/css/main.d5c00e32.chunk.css",
-    "static/js/main.fd044298.chunk.js"
+    "static/js/2.2db2250d.chunk.js",
+    "static/css/main.d7618b6d.chunk.css",
+    "static/js/main.ba6b1a80.chunk.js"
   ]
 }
