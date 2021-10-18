@@ -11,11 +11,14 @@ const initalStateAllProducts = {
 
 export const reducerFetchAllProducts = (state = initalStateAllProducts, action) => {
 
+  console.log("REDUCER???",action.type);
+  
   switch (action.type) {
-
+    
     case actionType.PRODUCT_START_FETCHING:
+      console.log("fetching");
       return {
-        fetching: true,
+        product_fetching: true,
         product_data: []
       }
     case actionType.PRODUCT_FETCHED:
@@ -39,3 +42,5 @@ export const reducerFetchAllProducts = (state = initalStateAllProducts, action) 
 
 
 }
+
+

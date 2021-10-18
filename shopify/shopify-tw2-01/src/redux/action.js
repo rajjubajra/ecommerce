@@ -14,7 +14,7 @@ const client = Client.buildClient({
 export const actionFetchAllProduct = () => {
 
   return function (dispatch) {
-
+    
     dispatch({
       type: actionType.PRODUCT_START_FETCHING
     })
