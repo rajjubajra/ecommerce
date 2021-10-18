@@ -1,6 +1,8 @@
 import {actionType} from './actionTypes';
 import Client from 'shopify-buy';
 
+
+
 // Initializing a client to return content in the store's primary language
 const client = Client.buildClient({
   domain: 'your-shop-name.myshopify.com',
@@ -22,10 +24,10 @@ export const actionFetchAllProduct = () => {
     client.product.fetchAll().then((products) => {
       console.log(products);
       // Do something with the products
-      dispatch({
-        type: actionType.PRODUCT_FETCHED,
-        data: products
-      })
+      //dispatch({
+      //   type: actionType.PRODUCT_FETCHED,
+      //   data: products
+      // })
       
     })
 
