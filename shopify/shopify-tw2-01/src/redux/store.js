@@ -4,12 +4,14 @@ import thunk from 'redux-thunk';
 import {
 
   reducerFetchAllProducts,
+  reducerFetchProduct,
   
 } from './reducer';
 
 const reducer = combineReducers({
 
     reducerFetchAllProducts,
+    reducerFetchProduct,
 
   }
 );
