@@ -10,6 +10,7 @@ function Items() {
   const products = useSelector(state => state.reducerFetchAllProducts.product_data);
   const product_fetched = useSelector(state => state.reducerFetchAllProducts.product_fetched)
 
+
   console.log("productts ",products);
   
   const LoadImage = (image) => {
