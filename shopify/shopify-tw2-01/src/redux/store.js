@@ -3,11 +3,12 @@ import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
 import {
-  reducerFetchAllProducts
+  
+  reducerFetchAllProducts,
 } from './reducer';
 
 const reducers = combineReducers(
-  reducerFetchAllProducts
+  reducerFetchAllProducts,
 )
 
 const middleware = applyMiddleware(thunk, createLogger());
