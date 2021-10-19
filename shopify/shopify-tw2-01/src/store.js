@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import {
   
   reducerFetchAllProducts,
-} from './reducer';
+} from './redux/reducer';
 
 const reducers = combineReducers(
   reducerFetchAllProducts,
