@@ -9,8 +9,6 @@ function Products() {
 
   const dispatch = useDispatch();
 
-  const [productId, setProductId] = useState('');
-
   useEffect(()=>{
     dispatch(actionFetchAllProduct());
   },[dispatch])
@@ -18,7 +16,14 @@ function Products() {
   return (
     <div>
       <h1>Shopify : REDUX </h1>
-      <Items setProductId={setProductId} />
+      <div>
+        <Items />
+      </div>
+      <div>
+        <Item />
+      </div>
+      
+
     </div>
   )
 }

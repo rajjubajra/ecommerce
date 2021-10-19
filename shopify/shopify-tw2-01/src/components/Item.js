@@ -1,18 +1,12 @@
-import {useEffect, useState, useContext} from 'react';
-import {ShopContext} from '../context/shopContext';
+import {useSelector} from 'react-redux';
 import Loading from './Loading';
 
 
-function Item({productId, setProductId}) {
+function Item() {
 
-  const { fetchProductWithId, addItemToCheckout, product } = useContext(ShopContext)
+  const product = useSelector(state => state.reducerFetchProduct);
 
-
-  useEffect(()=>{
-    fetchProductWithId(productId);
-  },[fetchProductWithId, productId])
-
-  //console.log(product);
+  
 
   const LoadImage = (image) => {
     return image.map((item)=> {
@@ -36,7 +30,7 @@ function Item({productId, setProductId}) {
   return (
     <div className="w-1/2 m-auto flex flex-col justify-center">
     <div className="p-2 m-2 w-20 cursor-pointer">
-      <div onClick={()=> setProductId('')}> Close </div>
+      <div> Close </div>
     </div>
       
     {
@@ -51,7 +45,7 @@ function Item({productId, setProductId}) {
         {LoadVariants(product.variants)}
       </div>
       <div>
-        <div className="cursor-pointer p-2 m-2" onClick={() => addItemToCheckout(product.variants[0].id, 1)}>
+        <div className="cursor-pointer p-2 m-2" >
         Add to Cart</div>
       </div>
       

@@ -10,7 +10,10 @@ const client = Client.buildClient({
 });
 
 
-//export const actionNav = () => {
+/**
+ * 
+ * @returns FETCH ALL PRODUCTS
+ */
 export const actionFetchAllProduct = () => {
 
   return function (dispatch) {
@@ -39,5 +42,37 @@ export const actionFetchAllProduct = () => {
   }// action fetchAllProducts closed
 
 
+
+}
+
+/**
+ * FETCH SINGLE PRODUCT PRODUCT BY ID
+*/
+export const actionFetchSingleProduct = (productId) => {
+
+  return function (dispatch) {
+
+  dispatch({
+    type: actionType.A_PRODUCT_START_FETCHING
+  })  
+
+  client.product.fetch(productId).then((product) => {
+    console.log(product);
+    dispatch({
+      type: actionType.A_PRODUCT_FETCHED,
+      data: product,
+    })
+  }).catch((error) => {
+    dispatch({
+      type: actionType.A_PRODUCT_FETCH_ERROR,
+      fetched: false,
+      error: error
+    })
+  })
+  
+
+  }
+  
+  
 
 }

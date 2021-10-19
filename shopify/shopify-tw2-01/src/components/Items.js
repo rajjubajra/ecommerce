@@ -1,8 +1,11 @@
 import Loading from './Loading';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {actionFetchSingleProduct} from '../redux/action';
 
 
-function Items({setProductId}) {
+function Items() {
+
+  const dispatch = useDispatch();
 
   const products = useSelector(state => state.reducerFetchAllProducts.product_data);
   const product_fetched = useSelector(state => state.reducerFetchAllProducts.product_fetched)
@@ -12,7 +15,8 @@ function Items({setProductId}) {
   const LoadImage = (image) => {
     return image.map((item)=>{
       return <div>
-        <img className="w-48 p-1" src={item.src} alt="product item" /></div>
+        <img className="w-48 p-1" src={item.src} alt="product item" />
+      </div>
     })
   }
 
@@ -34,7 +38,7 @@ function Items({setProductId}) {
         products.map((item)=>{
           const {id,title, descriptionHtml, images, variants} = item;
           return <div 
-          onClick={() => setProductId(id)}
+          onClick={() => dispatch(actionFetchSingleProduct(id))}
           className="border border-gray-300 p-3 m-3">
             <h3>{title}</h3>
             <div>{descriptionHtml}</div>
