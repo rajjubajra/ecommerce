@@ -5,8 +5,7 @@ import Loading from './Loading';
 function Item() {
 
   const product = useSelector(state => state.reducerFetchProduct);
-
-  
+  const product_fetched = useSelector(state => state.reducerFetchProduct.product_fetched);
 
   const LoadImage = (image) => {
     return image.map((item)=> {
@@ -25,14 +24,13 @@ function Item() {
     })
   }
 
-
-  if(!product.title) return <Loading />
+  if(product_fetched) return <Loading />
   return (
     <div className="w-1/2 m-auto flex flex-col justify-center">
     <div className="p-2 m-2 w-20 cursor-pointer">
       <div> Close </div>
     </div>
-      
+    
     {
       product &&
       <div className="flex flex-col py-4 my-2 border border-gray-200">
