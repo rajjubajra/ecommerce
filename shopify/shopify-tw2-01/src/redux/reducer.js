@@ -24,7 +24,6 @@ export const reducerFetchAllProducts = (state = initalStateAllProducts, action) 
       return {
         product_data: action.data,
         product_fetched: true,
-        product_dataLength: action.data.data.length
       }
     case actionType.PRODUCT_FETCH_ERROR:
       return {
