@@ -4,12 +4,14 @@ import Loading from './Loading';
 
 function Item() {
 
-  const product = useSelector(state => state.reducerFetchProduct);
+  const product = useSelector(state => state.reducerFetchProduct.a_product_data);
   const product_fetched = useSelector(state => state.reducerFetchProduct.a_product_fetched);
 
   const LoadImage = (image) => {
     return image.map((item)=> {
-      return <div><img className="md:w-1/2 w-full p-1" src={item.src} alt="product item" /></div>
+      return <div>
+        <img className="md:w-1/2 w-full p-1" src={item.src} alt="product item" />
+        </div>
     })
   }
 
