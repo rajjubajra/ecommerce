@@ -2,15 +2,14 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
-import {
-  
+import {  
   reducerFetchAllProducts,
 } from './redux/reducer';
 
-const reducers = combineReducers(
+const reducer = combineReducers(
   reducerFetchAllProducts,
 )
 
 const middleware = applyMiddleware(thunk, createLogger());
 
-export const store = createStore(reducers, middleware);
+export const store = createStore(reducer, middleware);
