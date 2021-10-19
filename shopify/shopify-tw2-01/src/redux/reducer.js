@@ -12,7 +12,7 @@ const initalStateAllProducts = {
 export const reducerFetchAllProducts = (state = initalStateAllProducts, action) => {
 
   console.log("REDUCER???",action.type);
-  
+
   switch (action.type) {
     
     case actionType.PRODUCT_START_FETCHING:
