@@ -11,18 +11,16 @@ const initalStateAllProducts = {
 
 export const reducerFetchAllProducts = (state = initalStateAllProducts, action) => {
 
-  console.log("REDUCER???",action.type);
+  //console.log("REDUCER???",action.type);
 
   switch (action.type) {
     
     case actionType.PRODUCT_START_FETCHING:
-      console.log("fetching");
       return {
         product_fetching: true,
         product_data: []
       }
     case actionType.PRODUCT_FETCHED:
-      console.log(action.data);
       return {
         product_data: action.data,
         product_fetched: true,
@@ -34,12 +32,10 @@ export const reducerFetchAllProducts = (state = initalStateAllProducts, action) 
         product_fetching: false,
         product_fetch_error: action.error
       }
-    
     /** default state */
     default:
       return state;
     }
-
 
 }
 
