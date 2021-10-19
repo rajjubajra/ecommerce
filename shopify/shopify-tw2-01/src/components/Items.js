@@ -1,26 +1,18 @@
-import {useContext, useEffect} from 'react'
-import {ShopContext} from '../context/shopContext';
 import Loading from './Loading';
+import {useSelector} from 'react-redux';
 
 
 function Items({setProductId}) {
 
-  const {fetchAllProducts, products} = useContext(ShopContext)
+  const products = useSelector(state => state.reducerFetchAllProducts.product_data);
+  const product_fetched = useSelector(state => state.reducerFetchAllProducts.product_fetched)
 
   console.log("productts ",products);
-
-  useEffect(()=>{
-      fetchAllProducts();
-      return () => {
-        //clean up
-      };
-  },[fetchAllProducts])
-
-  //console.log(products);
-
+  
   const LoadImage = (image) => {
     return image.map((item)=>{
-      return <div><img className="w-48 p-1" src={item.src} alt="product item" /></div>
+      return <div>
+        <img className="w-48 p-1" src={item.src} alt="product item" /></div>
     })
   }
 
@@ -35,7 +27,7 @@ function Items({setProductId}) {
     })
   }
 
-  if(!products) return <Loading />
+  if(!product_fetched) return <Loading />
   return (
     <div>
       {

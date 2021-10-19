@@ -3,16 +3,11 @@ import Items from './components/Items';
 import Item from './components/Item';
 import Cart from './components/Cart';
 import {actionFetchAllProduct} from './redux/action';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 
 function Products() {
 
   const dispatch = useDispatch();
-
-  const product = useSelector(state => state.reducerFetchAllProducts.product_data);
-  const product_fetched = useSelector(state => state.reducerFetchAllProducts.product_fetched)
-
-  console.log(product, product_fetched);
 
   const [productId, setProductId] = useState('');
 
@@ -23,6 +18,7 @@ function Products() {
   return (
     <div>
       <h1>Shopify : REDUX </h1>
+      <Items setProductId={setProductId} />
     </div>
   )
 }
