@@ -9,9 +9,10 @@ function Products() {
 
   const dispatch = useDispatch();
 
-  const product = useSelector(state => state.reducerFetchAllProducts);
+  const product = useSelector(state => state.reducerFetchAllProducts.product_data);
+  const product_fetched = useSelector(state => state.reducerFetchAllProducts.product_fetched)
 
-  console.log(product);
+  console.log(product, product_fetched);
 
   const [productId, setProductId] = useState('');
 
