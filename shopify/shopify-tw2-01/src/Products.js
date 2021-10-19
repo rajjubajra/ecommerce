@@ -20,7 +20,7 @@ function Products() {
         <Items />
       </div>
       <div>
-      
+        <Item />
       </div>
       
 
