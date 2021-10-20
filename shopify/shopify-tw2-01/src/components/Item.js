@@ -50,7 +50,7 @@ function Item() {
         </div>
         <div>
           <div 
-          onClick={() => dispatch(actionAddToCart(checkoutId, 1))}
+          onClick={() => dispatch(actionAddToCart(checkoutId, product.variants.id, 1))}
           className="cursor-pointer p-2 m-2" >
           Add to Cart</div>
         </div>
