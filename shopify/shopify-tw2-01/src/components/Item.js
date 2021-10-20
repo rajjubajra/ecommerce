@@ -1,11 +1,15 @@
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import Loading from './Loading';
+import {actionAddToCart} from '../redux/action';
 
 
 function Item() {
 
+  const dispatch = useDispatch();
+
   const product = useSelector(state => state.reducerFetchProduct.a_product_data);
   const product_fetched = useSelector(state => state.reducerFetchProduct.a_product_fetched);
+  const checkoutId = useSelector(state => state.reducerCreateCheckoutId.checkout_id);
 
   const LoadImage = (image) => {
     return image.map((item)=> {
@@ -37,17 +41,19 @@ function Item() {
       product &&
       <div className="flex flex-col py-4 my-2 border border-gray-200">
 
-      <h1 className="text-2xl">{product.title}</h1>
-      <div>
-        {LoadImage(product.images)}
-      </div>
-      <div>
-        {LoadVariants(product.variants)}
-      </div>
-      <div>
-        <div className="cursor-pointer p-2 m-2" >
-        Add to Cart</div>
-      </div>
+        <h1 className="text-2xl">{product.title}</h1>
+        <div>
+          {LoadImage(product.images)}
+        </div>
+        <div>
+          {LoadVariants(product.variants)}
+        </div>
+        <div>
+          <div 
+          onClick={() => dispatch(actionAddToCart(checkoutId, 1))}
+          className="cursor-pointer p-2 m-2" >
+          Add to Cart</div>
+        </div>
       
       </div>
     }

@@ -94,20 +94,57 @@ export const reducerCreateCheckoutId = (state = initalStateCheckoutId, action) =
 
   switch (action.type) {
     
-    case actionType.CHECKOUT_CREATING:
+    case actionType.CHECKOUT_ID_CREATING:
       return {
         checkout_fetching: true,
         checkout_id: ''
       }
-    case actionType.CHECKOUT_CREATED:
+    case actionType.CHECKOUT_ID_CREATED:
       return {
         checkout_id: action.data,
         checkout_created: true,
       }
-    case actionType.CHECKOUT_CREATE_ERROR:
+    case actionType.CHECKOUT_ID_CREATE_ERROR:
       return {
         checkout_created: false,
         checkout_error: action.error
+      }
+    /** default state */
+    default:
+      return state;
+    }
+}
+
+
+
+/** 
+ * ADD TO CART [Adding Line Items]
+ */
+ const initalStateAddToCart = {
+  adding_to_cart: false,
+  added_to_cart: false,
+  add_to_cart_error: '',
+  cart_items: [],
+}
+
+export const reducerAddToCart = (state = initalStateAddToCart, action) => {
+
+  switch (action.type) {
+    
+    case actionType.ADDING_TO_CART:
+      return {
+        adding_to_cart: true,
+        cart_items: []
+      }
+    case actionType.ADDED_TO_CART:
+      return {
+        cart_items: action.data,
+        added_to_cart: true,
+      }
+    case actionType.ADD_TO_CART_ERROR:
+      return {
+        added_to_cart: false,
+        add_to_cart_error: action.error
       }
     /** default state */
     default:

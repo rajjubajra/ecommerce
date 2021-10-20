@@ -17,14 +17,14 @@ export const actionCreateCheckoutId = () => {
   
     return function (dispatch) {
 
-      dispatch({type:actionType.CHECKOUT_CREATING})
+      dispatch({type:actionType.CHECKOUT_ID_CREATING})
 
       // Create an empty checkout
       client.checkout.create().then((checkout) => {
           // Do something with the checkout
-          console.log(checkout);
+         // console.log(checkout);
           dispatch({
-            type: actionType.CHECKOUT_CREATED,
+            type: actionType.CHECKOUT_ID_CREATING,
             data: checkout.id,
           })
           
@@ -32,7 +32,14 @@ export const actionCreateCheckoutId = () => {
           if (!localStorage.checkout) {
             localStorage.setItem("checkout", checkout.id);
           }
-        });
+        })
+        .catch(error => {
+          dispatch({
+            type: actionType.CHECKOUT_ID_CREATE_ERROR,
+            fetched: false,
+            error: error
+          })
+        })
     }    
 
 }
@@ -85,7 +92,7 @@ export const actionFetchSingleProduct = (productId) => {
   })  
 
   client.product.fetch(productId).then((product) => {
-    console.log(product);
+   // console.log(product);
     dispatch({
       type: actionType.A_PRODUCT_FETCHED,
       data: product,
@@ -127,8 +134,18 @@ export const actionAddToCart = (checkoutId, variantId, qty) => {
     client.checkout.addLineItems(checkoutId, lineItemsToAdd).then((checkout) => {
     // Do something with the updated checkout
       console.log(checkout.lineItems); // Array with one additional line item
-    });
-
+      dispatch({
+        type: actionType.ADDED_TO_CART,
+        data: checkout.lineItems
+      })
+    })
+    .catch(error => {
+      dispatch({
+        type: actionType.ADD_TO_CART_ERROR,
+        fetched: false,
+        error: error,
+      })
+    })
   }
 
 }
