@@ -19,6 +19,8 @@ function Item() {
     })
   }
 
+  console.log(product);
+  
   const LoadVariants = (data) => {
     return data.map(item => {
       const {available, sku, title, price } = item;
