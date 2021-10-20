@@ -90,7 +90,7 @@ const initalStateCheckoutId = {
   checkout_id: '',
 }
 
-export const reducerCheckout = (state = initalStateCheckoutId, action) => {
+export const reducerCreateCheckoutId = (state = initalStateCheckoutId, action) => {
 
   switch (action.type) {
     

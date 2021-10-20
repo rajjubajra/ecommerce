@@ -5,6 +5,7 @@ import {
 
   reducerFetchAllProducts,
   reducerFetchProduct,
+  reducerCreateCheckoutId,
   
 } from './reducer';
 
@@ -12,6 +13,7 @@ const reducer = combineReducers({
 
     reducerFetchAllProducts,
     reducerFetchProduct,
+    reducerCreateCheckoutId,
 
   }
 );
