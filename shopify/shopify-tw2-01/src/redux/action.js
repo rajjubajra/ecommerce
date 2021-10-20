@@ -22,9 +22,9 @@ export const actionCreateCheckoutId = () => {
       // Create an empty checkout
       client.checkout.create().then((checkout) => {
           // Do something with the checkout
-          console.log(checkout);
+          //console.log("CHECKOUT ACTION:",checkout.id);
           dispatch({
-            type: actionType.CHECKOUT_ID_CREATING,
+            type: actionType.CHECKOUT_ID_CREATED,
             data: checkout.id,
           })
           
