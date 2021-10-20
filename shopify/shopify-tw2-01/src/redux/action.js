@@ -2,12 +2,40 @@ import {actionType} from './actionTypes';
 import Client from 'shopify-buy';
 
 
-
 // Initializing a client to return content in the store's primary language
 const client = Client.buildClient({
   storefrontAccessToken: 'cc92551596409162e6f510c8efd7f0b0',
   domain: 'yw-t-shirt.myshopify.com',
 });
+
+
+/**
+ * 
+ * @returns store checkoutId into local storage
+ */
+export const actionCreateCheckoutId = () => {
+  
+    return function (dispatch) {
+
+      dispatch({type:actionType.CHECKOUT_CREATING})
+
+      // Create an empty checkout
+      client.checkout.create().then((checkout) => {
+          // Do something with the checkout
+          console.log(checkout);
+          dispatch({
+            type: actionType.CHECKOUT_CREATED,
+            data: checkout.id,
+          })
+          
+          /** store checkout into localstorage */
+          if (!localStorage.checkout) {
+            localStorage.setItem("checkout", checkout.id);
+          }
+        });
+    }    
+
+}
 
 
 /**
@@ -74,5 +102,33 @@ export const actionFetchSingleProduct = (productId) => {
   }
   
   
+
+}
+
+
+/**
+ * ADD TO CART [Adding Line Items]
+ */
+export const actionAddToCart = (checkoutId, variantId, qty) => {
+
+  const lineItemsToAdd = [
+    {
+      variantId: variantId,
+      quantity: qty,
+      customAttributes: [{key: "MyKey", value: "MyValue"}]
+    }
+  ];
+
+  return function(dispatch){
+
+    dispatch({type:actionType.ADDING_TO_CART})
+
+    // Add an item to the checkout
+    client.checkout.addLineItems(checkoutId, lineItemsToAdd).then((checkout) => {
+    // Do something with the updated checkout
+      console.log(checkout.lineItems); // Array with one additional line item
+    });
+
+  }
 
 }

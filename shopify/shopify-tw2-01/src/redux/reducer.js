@@ -78,3 +78,39 @@ export const reducerFetchProduct = (state = initalStateProduct, action) => {
       return state;
     }
 }
+
+
+/** 
+ * CREATE CHECKOUT ID
+*/
+const initalStateCheckoutId = {
+  checkout_creating: false,
+  checkout_created: false,
+  checkout_error: '',
+  checkout_id: '',
+}
+
+export const reducerCheckout = (state = initalStateCheckoutId, action) => {
+
+  switch (action.type) {
+    
+    case actionType.CHECKOUT_CREATING:
+      return {
+        checkout_fetching: true,
+        checkout_id: ''
+      }
+    case actionType.CHECKOUT_CREATED:
+      return {
+        checkout_id: action.data,
+        checkout_created: true,
+      }
+    case actionType.CHECKOUT_CREATE_ERROR:
+      return {
+        checkout_created: false,
+        checkout_error: action.error
+      }
+    /** default state */
+    default:
+      return state;
+    }
+}
