@@ -11,6 +11,12 @@ function Item() {
   const product_fetched = useSelector(state => state.reducerFetchProduct.a_product_fetched);
   const checkoutId = useSelector(state => state.reducerCreateCheckoutId.checkout_id);
 
+
+  const AddToCart = () => {
+
+
+  }
+
   const LoadImage = (image) => {
     return image.map((item)=> {
       return <div>
@@ -52,7 +58,7 @@ function Item() {
         </div>
         <div>
           <div 
-          onClick={() => dispatch(actionAddToCart(checkoutId, product.variants.id, 1))}
+          onClick={() => dispatch(actionAddToCart(checkoutId, product.variants[0].id, 1))}
           className="cursor-pointer p-2 m-2" >
           Add to Cart</div>
         </div>
