@@ -15,7 +15,7 @@ function Items() {
   
   const Image = (image) => (
       <div>
-        <img className="md:w-52 w-full p-1" src={image[0].src} alt="product item" />
+        <img className="w-full p-2" src={image[0].src} alt="product item" />
       </div>
   )
 
@@ -40,7 +40,7 @@ function Items() {
           const {id,title, images, variants} = item;
           return <div 
           onClick={() => dispatch(actionFetchSingleProduct(id))}
-          className="md:w-56 w-full border border-gray-300 p-3 m-3">
+          className="md:w-64 w-full border border-gray-300 p-3 m-3">
             <div>{Image(images)}</div>
             <h3>{title}</h3>
             <div>{Price(variants)}</div>
