@@ -15,7 +15,7 @@ function Items() {
   
   const Image = (image) => (
       <div>
-        <img className="w-48 p-1" src={image[0].src} alt="product item" />
+        <img className="md:w-52 w-full p-1" src={image[0].src} alt="product item" />
       </div>
   )
 
@@ -34,19 +34,19 @@ function Items() {
 
   if(!product_fetched) return <Loading />
   return (
-    <div>
+    <div className="flex flex-row flex-wrap">
       {
         products.map((item)=>{
           const {id,title, images, variants} = item;
           return <div 
           onClick={() => dispatch(actionFetchSingleProduct(id))}
-          className="border border-gray-300 p-3 m-3">
-            <h3>{title}</h3>
+          className="md:w-56 w-full border border-gray-300 p-3 m-3">
             <div>{Image(images)}</div>
+            <h3>{title}</h3>
             <div>{Price(variants)}</div>
           </div>
         })
-      }  
+      }
     </div>
   )
 }
