@@ -34,7 +34,7 @@ function Items() {
 
   if(!product_fetched) return <Loading />
   return (
-    <div className="flex flex-row flex-wrap">
+    <div className="grid md:grid-cols-3 lg:grid-cols-4">
       {
         products.map((item)=>{
           const {id,title, images, variants} = item;
@@ -42,7 +42,7 @@ function Items() {
           onClick={() => dispatch(actionFetchSingleProduct(id))}
           className="md:w-96 w-full border border-gray-300 p-3 m-3">
             <div>{Image(images)}</div>
-            <div className="font-light">
+            <div className="font-light mt-2">
               <h3>{title}</h3>
               <div>{Price(variants)}</div>
             </div>
