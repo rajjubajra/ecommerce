@@ -25,7 +25,8 @@ export const actionCreateCheckoutId = () => {
           //console.log("CHECKOUT ACTION:",checkout.id);
           dispatch({
             type: actionType.CHECKOUT_ID_CREATED,
-            data: checkout.id,
+            checkoutId: checkout.id,
+            data: checkout
           })
           
           /** store checkout into localstorage */
