@@ -58,11 +58,14 @@ function Item() {
 
     {
       product &&
-      <div className="grid md:grid-cols-2 py-4 my-2">
-        <div className="grid md:grid-cols-2 grid-flow-row gap-2">
-          {LoadImage(product.images)}
+      <div className="grid md:grid-cols-12 gap-2 py-4 my-2">
+        <div className="col-span-8">
+          <div className="grid md:grid-cols-2 grid-flow-row gap-2">
+            {LoadImage(product.images)}
+          </div>
         </div>
-        <div>
+        
+        <div className="col-span-4">
             <h1 className="text-2xl my-2">{product.title}</h1>
             <div>
               {LoadVariants(product.variants)}
