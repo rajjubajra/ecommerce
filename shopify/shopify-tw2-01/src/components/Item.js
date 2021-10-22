@@ -29,7 +29,7 @@ function Item() {
 
   const LoadImage = (image) => {
     return image.map((item)=> {
-      return <div className="grid grid-cos-1 md:grid-cols-2 xl:grid-cols-3" >
+      return <div>
         <img className="w-full p-2" src={item.src} alt="product item" />
         </div>
     })
@@ -50,8 +50,8 @@ function Item() {
 
   if(!product_fetched) return <Loading />
   return (
-    <div className="w-1/2 m-auto flex flex-col justify-center">
-    
+    <div className="max-w-screen-xl">
+
       <div className="p-2 m-2 w-20 cursor-pointer">
         <div><Link to="/">Close</Link> </div>
       </div>
@@ -59,11 +59,11 @@ function Item() {
     {
       product &&
       <div className="grid md:grid-cols-2 py-4 my-2">
-        <div>
+        <div className="grid md:grid-cols-2 grid-flow-row gap-2">
           {LoadImage(product.images)}
         </div>
         <div>
-            <h1 className="text-2xl">{product.title}</h1>
+            <h1 className="text-2xl my-2">{product.title}</h1>
             <div>
               {LoadVariants(product.variants)}
             </div>
