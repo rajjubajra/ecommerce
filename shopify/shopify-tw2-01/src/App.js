@@ -9,8 +9,8 @@ function App() {
  
   return (
     <div>
-      shopify shop <Link to="/">Products List</Link>
       <BrowserRouter>
+      Shopify shop <Link to="/">Products List</Link>
         <Switch>
           <Route exact path="/" >
           <Products />
