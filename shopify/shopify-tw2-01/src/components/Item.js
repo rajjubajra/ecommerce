@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Loading from './Loading';
 import {actionAddToCart, actionFetchSingleProduct} from '../redux/action';
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 
 
 
@@ -21,7 +21,7 @@ function Item() {
       dispatch(actionFetchSingleProduct(id));
   },[dispatch, id])
 
-  
+
   const AddToCart = () => {
 
 
@@ -29,8 +29,8 @@ function Item() {
 
   const LoadImage = (image) => {
     return image.map((item)=> {
-      return <div>
-        <img className="md:w-1/2 w-full p-1" src={item.src} alt="product item" />
+      return <div className="grid grid-cos-1 md:grid-cols-2 xl:grid-cols-3" >
+        <img className="w-full p-2" src={item.src} alt="product item" />
         </div>
     })
   }
@@ -51,28 +51,30 @@ function Item() {
   if(!product_fetched) return <Loading />
   return (
     <div className="w-1/2 m-auto flex flex-col justify-center">
-    <div className="p-2 m-2 w-20 cursor-pointer">
-      <div> Close </div>
-    </div>
+    
+      <div className="p-2 m-2 w-20 cursor-pointer">
+        <div><Link to="/">Close</Link> </div>
+      </div>
 
     {
       product &&
-      <div className="flex flex-col py-4 my-2 border border-gray-200">
-
-        <h1 className="text-2xl">{product.title}</h1>
+      <div className="grid md:grid-cols-2 py-4 my-2">
         <div>
           {LoadImage(product.images)}
         </div>
         <div>
-          {LoadVariants(product.variants)}
+            <h1 className="text-2xl">{product.title}</h1>
+            <div>
+              {LoadVariants(product.variants)}
+            </div>
+            <div>
+              <div 
+                onClick={() => dispatch(actionAddToCart(checkoutId, product.variants[0].id, 1))}
+                className="cursor-pointer p-2 m-2" >
+                Add to Cart
+              </div>
+            </div>
         </div>
-        <div>
-          <div 
-          onClick={() => dispatch(actionAddToCart(checkoutId, product.variants[0].id, 1))}
-          className="cursor-pointer p-2 m-2" >
-          Add to Cart</div>
-        </div>
-      
       </div>
     }
     </div>
