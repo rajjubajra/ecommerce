@@ -1,9 +1,14 @@
+import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Loading from './Loading';
-import {actionAddToCart} from '../redux/action';
+import {actionAddToCart, actionFetchSingleProduct} from '../redux/action';
+import {useParams} from 'react-router-dom';
+
 
 
 function Item() {
+
+  const {id} = useParams();
 
   const dispatch = useDispatch();
 
@@ -12,6 +17,11 @@ function Item() {
   const checkoutId = useSelector(state => state.reducerCreateCheckoutId.checkout_id);
 
 
+  useEffect(()=>{
+      dispatch(actionFetchSingleProduct(id));
+  },[dispatch, id])
+
+  
   const AddToCart = () => {
 
 

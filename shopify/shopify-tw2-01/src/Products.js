@@ -19,15 +19,7 @@ function Products() {
 
   return (
     <div>
-      <h1>Shopify : REDUX </h1>
-      <div>
-        <Items />
-      </div>
-      <div>
-        <Item />
-      </div>
-      
-
+      <Items />
     </div>
   )
 }
