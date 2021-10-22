@@ -34,13 +34,13 @@ function Items() {
 
   if(!product_fetched) return <Loading />
   return (
-    <div className="grid md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid md:grid-cols-3 lg:grid-cols-4 md:m-0 m-2">
       {
         products.map((item)=>{
-          const {id,title, images, variants} = item;
+          const {id, title, images, variants} = item;
           return <div 
           onClick={() => dispatch(actionFetchSingleProduct(id))}
-          className="md:w-96 w-full border border-gray-300 p-3 m-3">
+          className="w-full border border-gray-300 p-3 md:m-2">
             <div>{Image(images)}</div>
             <div className="font-light mt-2">
               <h3>{title}</h3>
