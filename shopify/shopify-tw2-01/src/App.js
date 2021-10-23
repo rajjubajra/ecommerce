@@ -10,15 +10,15 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const [id, setId] = useState('');
+  const [checkoutId, setCheckoutId] = useState('');
 
-  console.log(id);
-  
+  console.log(checkoutId);
+
   useEffect(()=>{
-      setId(localStorage.getItem("checkout"))
+      setCheckoutId(localStorage.getItem("checkout"))
   },[])
 
-  const checkoutId = useSelector( state => state.reducerCreateCheckout.checkout_id );
+  //const checkoutId = useSelector( state => state.reducerCreateCheckout.checkout_id );
   const checkoutdata = useSelector(state => state.reducerCreateCheckout.data);
 
   useEffect(()=>{
