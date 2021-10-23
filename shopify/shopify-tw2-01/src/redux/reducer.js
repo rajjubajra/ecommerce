@@ -83,7 +83,7 @@ export const reducerFetchProduct = (state = initalStateProduct, action) => {
 /** 
  * CREATE CHECKOUT ID
 */
-const initalStateCheckoutId = {
+const initalStateCheckout = {
   checkout_creating: false,
   checkout_created: false,
   checkout_error: '',
@@ -91,22 +91,22 @@ const initalStateCheckoutId = {
   data: '',
 }
 
-export const reducerCreateCheckoutId = (state = initalStateCheckoutId, action) => {
+export const reducerCreateCheckout = (state = initalStateCheckout, action) => {
 
   switch (action.type) {
     
-    case actionType.CHECKOUT_ID_CREATING:
+    case actionType.CHECKOUT_CREATING:
       return {
         checkout_fetching: true,
         checkout_id: ''
       }
-    case actionType.CHECKOUT_ID_CREATED:
+    case actionType.CHECKOUT_CREATED:
       return {
         checkout_id: action.checkoutId,
         data: action.data,
         checkout_created: true,
       }
-    case actionType.CHECKOUT_ID_CREATE_ERROR:
+    case actionType.CHECKOUT_CREATE_ERROR:
       return {
         checkout_created: false,
         checkout_error: action.error

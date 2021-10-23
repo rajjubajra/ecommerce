@@ -11,20 +11,21 @@ const client = Client.buildClient({
 
 /**
  * 
- * @returns store checkoutId into local storage
+ * create checkout & 
+ * store checkout Id into local storage
  */
-export const actionCreateCheckoutId = () => {
+export const actionCreateCheckout = () => {
   
     return function (dispatch) {
 
-      dispatch({type:actionType.CHECKOUT_ID_CREATING})
+      dispatch({type:actionType.CHECKOUT_CREATING})
 
       // Create an empty checkout
       client.checkout.create().then((checkout) => {
           // Do something with the checkout
           //console.log("CHECKOUT ACTION:",checkout.id);
           dispatch({
-            type: actionType.CHECKOUT_ID_CREATED,
+            type: actionType.CHECKOUT_CREATED,
             checkoutId: checkout.id,
             data: checkout
           })
@@ -36,7 +37,7 @@ export const actionCreateCheckoutId = () => {
         })
         .catch(error => {
           dispatch({
-            type: actionType.CHECKOUT_ID_CREATE_ERROR,
+            type: actionType.CHECKOUT_CREATE_ERROR,
             fetched: false,
             error: error
           })

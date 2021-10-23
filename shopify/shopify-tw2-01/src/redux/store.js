@@ -5,7 +5,7 @@ import {
 
   reducerFetchAllProducts,
   reducerFetchProduct,
-  reducerCreateCheckoutId,
+  reducerCreateCheckout,
   reducerAddToCart,
   
   
@@ -15,7 +15,7 @@ const reducer = combineReducers({
 
     reducerFetchAllProducts,
     reducerFetchProduct,
-    reducerCreateCheckoutId,
+    reducerCreateCheckout,
     reducerAddToCart,
     
   }
