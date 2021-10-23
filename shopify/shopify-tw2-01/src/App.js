@@ -10,16 +10,30 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const chekcoutId = useSelector( state => state.reducerCreateCheckout.checkout_id );
+  const checkoutId = useSelector( state => state.reducerCreateCheckout.checkout_id );
+  const checkout = useSelector(state => state.reducerCreateCheckout.data);
 
   useEffect(()=>{
-    chekcoutId && dispatch(actionFetchCheckout(chekcoutId));
-  },[dispatch, chekcoutId])
+    checkoutId && dispatch(actionFetchCheckout(checkoutId));
+  },[dispatch, checkoutId])
 
   return (
     <div>
       <BrowserRouter>
-      Shopify shop <Link to="/">Products List</Link>
+      Shopify shop 
+      <div>
+        <Link to="/">Products List</Link>
+      </div>
+      <div>
+      <div>
+          <div 
+            className="cursor-pointer py-2 px-4 my-5 border-gray-500"
+            onClick={() => window.open(checkout.webUrl, '_blank')} >
+              Checkout
+          </div>
+        </div>
+      </div>
+
         <Switch>
           <Route exact path="/" >
           <Products />
