@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Loading from './Loading';
 import {actionAddToCart, actionFetchSingleProduct} from '../redux/action';
@@ -14,18 +14,20 @@ function Item() {
 
   const product = useSelector(state => state.reducerFetchProduct.a_product_data);
   const product_fetched = useSelector(state => state.reducerFetchProduct.a_product_fetched);
-  const checkoutId = useSelector(state => state.reducerCreateCheckout.checkout_id);
 
+  const [checkoutId, setCheckoutId] = useState('');
+  useEffect(()=>{
+    setCheckoutId(localStorage.getItem("checkout"))
+  },[])
+
+  //const checkoutId = useSelector(state => state.reducerCreateCheckout.checkout_id);
 
   useEffect(()=>{
       dispatch(actionFetchSingleProduct(id));
   },[dispatch, id])
 
 
-  const AddToCart = () => {
-
-
-  }
+  
 
   const LoadImage = (image) => {
     return image.map((item)=> {
