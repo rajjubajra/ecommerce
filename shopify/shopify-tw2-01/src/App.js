@@ -13,9 +13,9 @@ function App() {
   const chekcoutId = useSelector( state => state.reducerCreateCheckout.checkout_id );
 
   useEffect(()=>{
-      dispatch(actionFetchCheckout(chekcoutId));
+    chekcoutId && dispatch(actionFetchCheckout(chekcoutId));
   },[dispatch, chekcoutId])
-  
+
   return (
     <div>
       <BrowserRouter>
