@@ -14,7 +14,7 @@ function Item() {
 
   const product = useSelector(state => state.reducerFetchProduct.a_product_data);
   const product_fetched = useSelector(state => state.reducerFetchProduct.a_product_fetched);
-  const checkoutId = useSelector(state => state.reducerCreateCheckoutId.checkout_id);
+  const checkoutId = useSelector(state => state.reducerCreateCheckout.checkout_id);
 
 
   useEffect(()=>{
