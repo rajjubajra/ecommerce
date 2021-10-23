@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import {BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import Products from './Products';
 import Product from './Product';
@@ -10,8 +10,16 @@ function App() {
 
   const dispatch = useDispatch();
 
+  const [id, setId] = useState('');
+
+  console.log(id);
+  
+  useEffect(()=>{
+      setId(localStorage.getItem("checkout"))
+  },[])
+
   const checkoutId = useSelector( state => state.reducerCreateCheckout.checkout_id );
-  const checkout = useSelector(state => state.reducerCreateCheckout.data);
+  const checkoutdata = useSelector(state => state.reducerCreateCheckout.data);
 
   useEffect(()=>{
     checkoutId && dispatch(actionFetchCheckout(checkoutId));
@@ -28,7 +36,7 @@ function App() {
       <div>
           <div 
             className="cursor-pointer py-2 px-4 my-5 border-gray-500"
-            onClick={() => window.open(checkout.webUrl, '_blank')} >
+            onClick={() => window.open(checkoutdata.webUrl, '_blank')} >
               Checkout
           </div>
         </div>
