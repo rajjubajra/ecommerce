@@ -153,3 +153,40 @@ export const reducerAddToCart = (state = initalStateAddToCart, action) => {
       return state;
     }
 }
+
+
+
+/** 
+ * FETCH CHECKOUT
+ */
+ const initalStateFetchCheckout = {
+  checkout_fetching: false,
+  checkout_fetched: false,
+  checkout_fetch_error: '',
+  checkout_data: '',
+}
+
+export const reducerFetchCheckout = (state = initalStateFetchCheckout, action) => {
+
+  switch (action.type) {
+    
+    case actionType.CHECKOUT_FETCHING:
+      return {
+        checkout_fetching: true,
+        checkout_data: []
+      }
+    case actionType.CHECKOUT_FETCHED:
+      return {
+        checkout_data: action.data,
+        checkout_fetched: true,
+      }
+    case actionType.CHECKOUT_FETCH_ERROR:
+      return {
+        checkout_fetched: false,
+        checkout_fetch_error: action.error
+      }
+    /** default state */
+    default:
+      return state;
+    }
+}

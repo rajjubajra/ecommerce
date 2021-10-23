@@ -151,3 +151,31 @@ export const actionAddToCart = (checkoutId, variantId, qty) => {
   }
 
 }
+
+/**
+ * FETCH CHECKOUT
+ */
+export const actionFetchCheckout = (checkoutId) => {
+
+  return function(dispatch){
+    dispatch({
+      type: actionType.CHECKOUT_FETCHING
+    })
+
+    client.checkout.fetch(checkoutId).then((checkout) => {
+      
+      console.log(checkout);
+      dispatch({
+        type: actionType.CHECKOUT_FETCHED,
+        data: checkout,
+      })
+
+    })
+    .catch(error => {
+      dispatch({
+        type: actionType.CHECKOUT_FETCH_ERROR,
+        error: error,
+      })
+    })
+  }
+}
