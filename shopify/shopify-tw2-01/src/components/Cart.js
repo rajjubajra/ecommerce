@@ -80,14 +80,14 @@ const addItemToCheckout = () => ("test about");
             <div className="col-span-9">
               <div>
               <div className={`cursor-pointer relative w-full text-right`}>
-                  <div 
+                  <div className="w-4" 
                   title="Remove"
                   onClick={ () => removeItemFromCheckout(checkout.id, item.id)}>
                     <TiDeleteOutline />
                   </div>
                 </div>
 
-                <h3 className="text-xl py-1 mb-1">{title}</h3>
+                <h3 className="text-xl mb-1">{title}</h3>
                 
                 
                 <div className="grid grid-flow-row gap-2 w-full text-sm">
