@@ -69,7 +69,7 @@ const addItemToCheckout = () => ("test about");
           const amt = rate * qty;
           console.log("product id", pid, "checkoutid", checkout.id);
           
-        return <div className="grid grid-cols-12">
+        return <div className="grid grid-cols-12 my-2">
              {/** IMAGE DIV */}
             <div className="col-span-3">
                 <img  className="w-56 mt-1 p-2" 
@@ -90,22 +90,22 @@ const addItemToCheckout = () => ("test about");
                 <h3 className="text-xl py-1 mb-1">{title}</h3>
                 
                 
-                <div className="grid grid-flow-row gap-2 w-full">
+                <div className="grid grid-flow-row gap-2 w-full text-sm">
                   <div>Description: {item.variant.title}</div>
                   <div className="grid grid-cols-2 gap-2 my-2">
-                    <div className="p-2">Quantity: {qty} </div>
+                    <div className="py-2">Quantity: {qty} </div>
                     <div className="flex flex-row">
                         <div
-                        className="cursor-pointer p-2 m-2" 
+                        className="cursor-pointer px-2" 
                         onClick={() => addItemToCheckout(pid, 1)} ><GrFormAdd />
                         </div>
                         { qty > 1 ?
                         <div 
-                        className="cursor-pointer p-2 m-2" 
+                        className="cursor-pointer px-2" 
                         onClick={() => addItemToCheckout(pid, -1)} ><BiMinus />
                         </div>
                         : <div 
-                        className="cursor-pointer p-2 m-2" 
+                        className="cursor-pointer px-2" 
                         onClick={() => addItemToCheckout(pid, -1)} ><BiMinus />
                         </div>
                         }
