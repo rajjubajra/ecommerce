@@ -1,14 +1,20 @@
-import {useContext, useEffect, useState} from 'react';
-import {ShopContext} from '../context/shopContext';
+import {useEffect, useState} from 'react';
+//import {ShopContext} from '../context/shopContext';
 import Loading from '../components/Loading';
 import {TiDeleteOutline} from 'react-icons/ti';
 import {GrFormAdd} from 'react-icons/gr';
 import {BiMinus} from 'react-icons/bi';
+import {useSelector, useDispatch} from 'react-redux';
+
 
 
 function Cart() {
 
-const { checkout, addItemToCheckout, removeItemFromCheckout } = useContext(ShopContext)
+const dispatch = useDispatch();
+
+//const { checkout, addItemToCheckout, removeItemFromCheckout } = useContext(ShopContext)
+
+const checkout = useSelector(state => state.reducerFetchCheckout.checkout_data);
 
 console.log(checkout);
 console.log(checkout && checkout === !undefined && checkout.lineItems);
@@ -18,11 +24,11 @@ const [totalAmount, setTotalAmount] = useState(0);
 const [currency, setCurrency] = useState('');
 const [length, setLength] = useState(0);
 
-
 /** 
  * state checkout line items
  * state total Amount of the Checkout items
 */
+
 useEffect(()=>{
   checkout && checkout !== undefined && setLineItems(checkout.lineItems);
   checkout && checkout !== undefined && setTotalAmount(checkout.totalPriceV2);
@@ -45,6 +51,9 @@ useEffect(()=>{
 // console.log("checkoutData", checkout !== undefined && totalAmount);
 // console.log("checkoutData", checkout !== undefined && currency);
 console.log("LENGTH",length);
+
+const removeItemFromCheckout = () => ("test remove"); 
+const addItemToCheckout = () => ("test about");
 
 
     lineItems !== undefined 

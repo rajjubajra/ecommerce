@@ -125,7 +125,7 @@ export const actionAddToCart = (checkoutId, variantId, quantity) => {
     {
       variantId: variantId,
       quantity: parseInt(quantity, 10),
-      customAttributes: [{key: "MyKey", value: "MyValue"}]
+      //customAttributes: [{key: "MyKey", value: "MyValue"}]
     }
   ];
 
@@ -152,6 +152,8 @@ export const actionAddToCart = (checkoutId, variantId, quantity) => {
   }
 
 }
+
+
 
 /**
  * FETCH CHECKOUT
