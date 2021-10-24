@@ -22,7 +22,7 @@ console.log(checkout && checkout === !undefined && checkout.lineItems);
 const [lineItems, setLineItems] = useState([]);
 const [totalAmount, setTotalAmount] = useState(0);
 const [currency, setCurrency] = useState('');
-const [length, setLength] = useState(0);
+//const [length, setLength] = useState(0);
 
 /** 
  * state checkout line items
@@ -41,16 +41,16 @@ useEffect(()=>{
 },[totalAmount])
 
 /** item length */
-useEffect(()=>{
-  lineItems !== undefined && lineItems.length < 1 && setLength(lineItems.length);
-},[lineItems])
+// useEffect(()=>{
+//   lineItems !== undefined && lineItems.length < 1 && setLength(lineItems.length);
+// },[lineItems])
 
 
 // console.log("Line items", lineItems !== undefined && lineItems.length );
 // console.log("checkoutData", checkout !== undefined && checkoutData);
 // console.log("checkoutData", checkout !== undefined && totalAmount);
 // console.log("checkoutData", checkout !== undefined && currency);
-console.log("LENGTH",length);
+//console.log("LENGTH",length);
 
 const removeItemFromCheckout = () => ("test remove"); 
 const addItemToCheckout = () => ("test about");
@@ -61,7 +61,7 @@ const addItemToCheckout = () => ("test about");
     && <Loading />
     return (
       <div className="w-full flex flex-col p-4 my-3 border-2 border-gray-300">
-        <h2 className="text-xl">Cart Items:{length}</h2>
+        <h2 className="text-xl">Your Bag Items: {lineItems.length}</h2>
         {lineItems !== undefined && lineItems.length > 0 
         ? lineItems.map((item)=> {
           
@@ -69,7 +69,14 @@ const addItemToCheckout = () => ("test about");
           const amt = rate * qty;
           console.log("product id", pid, "checkoutid", checkout.id);
           
-        return <div className="flex flex-row flex-wrap">
+        return <div className="grid grid-cols-2">
+             {/** IMAGE DIV */}
+            <div>
+                <img  className="w-56 mt-1 p-2" 
+                      src={item.variant.image.src}  
+                      alt={item.variant.image.altText} />
+            </div>
+            {/** DESCRIPTION DIV */}
             <div className="m-10">
               <div>
                 <h3 className="text-xl py-1 mb-1">{title}</h3>
@@ -80,28 +87,23 @@ const addItemToCheckout = () => ("test about");
                     <TiDeleteOutline />
                   </div>
                 </div>
-                <img
-                  className="w-56 mt-1 p-2" 
-
-                  src={item.variant.image.src}  
-                  alt={item.variant.image.altText} />
                 
                 <div className="grid grid-flow-row gap-2 w-full">
                   <div>Description: {item.variant.title}</div>
                   <div className="grid grid-col-3 gap-2 my-2">
-                    <p>Quantity: {qty} </p>
+                    <div>Quantity: {qty} </div>
                     
-                    <p 
+                    <div
                     className="cursor-pointer p-2 m-2" 
-                    onClick={() => addItemToCheckout(pid, 1)} ><GrFormAdd /></p>
+                    onClick={() => addItemToCheckout(pid, 1)} ><GrFormAdd /></div>
                     
                     { qty > 1 ?
-                    <p 
+                    <div 
                     className="cursor-pointer p-2 m-2" 
-                    onClick={() => addItemToCheckout(pid, -1)} ><BiMinus /></p>
-                    : <p 
+                    onClick={() => addItemToCheckout(pid, -1)} ><BiMinus /></div>
+                    : <div 
                     className="cursor-pointer p-2 m-2" 
-                    onClick={() => addItemToCheckout(pid, -1)} ><BiMinus /></p>
+                    onClick={() => addItemToCheckout(pid, -1)} ><BiMinus /></div>
                     }
                   </div>
                   <div>Rate: {currency} {rate}</div>
