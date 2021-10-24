@@ -72,7 +72,7 @@ const addItemToCheckout = () => ("test about");
         return <div className="grid grid-cols-12 my-2">
              {/** IMAGE DIV */}
             <div className="col-span-3">
-                <img  className="w-56 mt-1 p-2" 
+                <img  className="w-56 mt-1" 
                       src={item.variant.image.src}  
                       alt={item.variant.image.altText} />
             </div>
@@ -92,7 +92,7 @@ const addItemToCheckout = () => ("test about");
                 
                 <div className="grid grid-flow-row gap-2 w-full text-sm">
                   <div>Description: {item.variant.title}</div>
-                  <div className="grid grid-cols-2 gap-2 my-2">
+                  <div className="grid grid-cols-2">
                     <div className="py-2">Quantity: {qty} </div>
                     <div className="flex flex-row">
                         <div
