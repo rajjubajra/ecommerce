@@ -69,15 +69,15 @@ const addItemToCheckout = () => ("test about");
           const amt = rate * qty;
           console.log("product id", pid, "checkoutid", checkout.id);
           
-        return <div className="grid grid-cols-2">
+        return <div className="grid grid-cols-12">
              {/** IMAGE DIV */}
-            <div>
+            <div className="col-span-3">
                 <img  className="w-56 mt-1 p-2" 
                       src={item.variant.image.src}  
                       alt={item.variant.image.altText} />
             </div>
             {/** DESCRIPTION DIV */}
-            <div className="m-10">
+            <div className="col-span-9">
               <div>
                 <h3 className="text-xl py-1 mb-1">{title}</h3>
                 <div className={`cursor-pointer relative`}>
@@ -90,7 +90,7 @@ const addItemToCheckout = () => ("test about");
                 
                 <div className="grid grid-flow-row gap-2 w-full">
                   <div>Description: {item.variant.title}</div>
-                  <div className="grid grid-col-3 gap-2 my-2">
+                  <div className="grid grid-cols-3 gap-2 my-2">
                     <div>Quantity: {qty} </div>
                     
                     <div
