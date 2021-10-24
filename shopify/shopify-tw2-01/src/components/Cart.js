@@ -79,19 +79,21 @@ const addItemToCheckout = () => ("test about");
             {/** DESCRIPTION DIV */}
             <div className="col-span-9">
               <div>
-                <h3 className="text-xl py-1 mb-1">{title}</h3>
-                <div className={`cursor-pointer relative`}>
+              <div className={`cursor-pointer relative w-full text-right`}>
                   <div 
                   title="Remove"
                   onClick={ () => removeItemFromCheckout(checkout.id, item.id)}>
                     <TiDeleteOutline />
                   </div>
                 </div>
+
+                <h3 className="text-xl py-1 mb-1">{title}</h3>
+                
                 
                 <div className="grid grid-flow-row gap-2 w-full">
                   <div>Description: {item.variant.title}</div>
                   <div className="grid grid-cols-2 gap-2 my-2">
-                    <div className="p-2 m-2">Quantity: {qty} </div>
+                    <div className="p-2">Quantity: {qty} </div>
                     <div className="flex flex-row">
                         <div
                         className="cursor-pointer p-2 m-2" 
