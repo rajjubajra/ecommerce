@@ -90,22 +90,26 @@ const addItemToCheckout = () => ("test about");
                 
                 <div className="grid grid-flow-row gap-2 w-full">
                   <div>Description: {item.variant.title}</div>
-                  <div className="grid grid-cols-3 gap-2 my-2">
-                    <div>Quantity: {qty} </div>
-                    
-                    <div
-                    className="cursor-pointer p-2 m-2" 
-                    onClick={() => addItemToCheckout(pid, 1)} ><GrFormAdd /></div>
-                    
-                    { qty > 1 ?
-                    <div 
-                    className="cursor-pointer p-2 m-2" 
-                    onClick={() => addItemToCheckout(pid, -1)} ><BiMinus /></div>
-                    : <div 
-                    className="cursor-pointer p-2 m-2" 
-                    onClick={() => addItemToCheckout(pid, -1)} ><BiMinus /></div>
-                    }
+                  <div className="grid grid-cols-2 gap-2 my-2">
+                    <div className="p-2 m-2">Quantity: {qty} </div>
+                    <div className="flex flex-row">
+                        <div
+                        className="cursor-pointer p-2 m-2" 
+                        onClick={() => addItemToCheckout(pid, 1)} ><GrFormAdd />
+                        </div>
+                        { qty > 1 ?
+                        <div 
+                        className="cursor-pointer p-2 m-2" 
+                        onClick={() => addItemToCheckout(pid, -1)} ><BiMinus />
+                        </div>
+                        : <div 
+                        className="cursor-pointer p-2 m-2" 
+                        onClick={() => addItemToCheckout(pid, -1)} ><BiMinus />
+                        </div>
+                        }
+                    </div>
                   </div>
+                    
                   <div>Rate: {currency} {rate}</div>
                   <div>Amount: {currency} {amt.toFixed(2)}</div>
                 </div>
