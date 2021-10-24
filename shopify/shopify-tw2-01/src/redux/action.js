@@ -118,12 +118,13 @@ export const actionFetchSingleProduct = (productId) => {
 /**
  * ADD TO CART [Adding Line Items]
  */
-export const actionAddToCart = (checkoutId, variantId, qty) => {
+export const actionAddToCart = (checkoutId, variantId, quantity) => {
 
+  //const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10)}];
   const lineItemsToAdd = [
     {
       variantId: variantId,
-      quantity: qty,
+      quantity: parseInt(quantity, 10),
       customAttributes: [{key: "MyKey", value: "MyValue"}]
     }
   ];
