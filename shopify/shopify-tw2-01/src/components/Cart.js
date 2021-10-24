@@ -22,7 +22,7 @@ console.log(checkout && checkout === !undefined && checkout.lineItems);
 const [lineItems, setLineItems] = useState([]);
 const [totalAmount, setTotalAmount] = useState(0);
 const [currency, setCurrency] = useState('');
-//const [length, setLength] = useState(0);
+const [length, setLength] = useState(0);
 
 /** 
  * state checkout line items
@@ -41,9 +41,9 @@ useEffect(()=>{
 },[totalAmount])
 
 /** item length */
-// useEffect(()=>{
-//   lineItems !== undefined && lineItems.length < 1 && setLength(lineItems.length);
-// },[lineItems])
+useEffect(()=>{
+  lineItems !== undefined && lineItems.length < 1 && setLength(lineItems.length);
+},[lineItems])
 
 
 // console.log("Line items", lineItems !== undefined && lineItems.length );
@@ -61,7 +61,7 @@ const addItemToCheckout = () => ("test about");
     && <Loading />
     return (
       <div className="w-full flex flex-col p-4 my-3 border-2 border-gray-300">
-        <h2 className="text-xl">Your Bag Items: {lineItems.length}</h2>
+        <h2 className="text-xl">Your Bag Items: {length}</h2>
         {lineItems !== undefined && lineItems.length > 0 
         ? lineItems.map((item)=> {
           
