@@ -156,6 +156,8 @@ export const reducerAddToCart = (state = initalStateAddToCart, action) => {
 
 
 
+
+
 /** 
  * FETCH CHECKOUT
  */
@@ -189,4 +191,8 @@ export const reducerFetchCheckout = (state = initalStateFetchCheckout, action) =
     default:
       return state;
     }
+
 }
+
+
+

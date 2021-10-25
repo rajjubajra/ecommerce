@@ -5,6 +5,7 @@ import {TiDeleteOutline} from 'react-icons/ti';
 import {GrFormAdd} from 'react-icons/gr';
 import {BiMinus} from 'react-icons/bi';
 import {useSelector, useDispatch} from 'react-redux';
+import {actionUpdateCart} from '../redux/action';
 
 
 
@@ -53,8 +54,6 @@ useEffect(()=>{
 //console.log("LENGTH",length);
 
 const removeItemFromCheckout = () => ("test remove"); 
-const addItemToCheckout = () => ("test about");
-
 
     lineItems !== undefined 
     && lineItems.length < 1 
@@ -76,6 +75,7 @@ const addItemToCheckout = () => ("test about");
                       src={item.variant.image.src}  
                       alt={item.variant.image.altText} />
             </div>
+
             {/** DESCRIPTION DIV */}
             <div className="col-span-9">
               <div>
@@ -90,23 +90,26 @@ const addItemToCheckout = () => ("test about");
                 <h3 className="text-xl mb-1">{title}</h3>
                 
                 
-                <div className="grid grid-flow-row gap-2 w-full text-sm">
+                <div className="grid grid-flow-row w-full text-sm">
                   <div>Description: {item.variant.title}</div>
                   <div className="grid grid-cols-2">
-                    <div className="py-2">Quantity: {qty} </div>
+                    <div>Quantity: {qty} </div>
                     <div className="flex flex-row">
                         <div
                         className="cursor-pointer px-2" 
-                        onClick={() => addItemToCheckout(pid, 1)} ><GrFormAdd />
+                        onClick={() => dispatch(actionUpdateCart(pid, 1))} >
+                        <GrFormAdd />
                         </div>
                         { qty > 1 ?
                         <div 
                         className="cursor-pointer px-2" 
-                        onClick={() => addItemToCheckout(pid, -1)} ><BiMinus />
+                        onClick={() => dispatch(actionUpdateCart(pid, -1))} >
+                        <BiMinus />
                         </div>
                         : <div 
                         className="cursor-pointer px-2" 
-                        onClick={() => addItemToCheckout(pid, -1)} ><BiMinus />
+                        onClick={() => dispatch(actionUpdateCart(pid, -1))} >
+                        <BiMinus />
                         </div>
                         }
                     </div>
