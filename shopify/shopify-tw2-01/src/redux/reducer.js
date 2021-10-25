@@ -156,6 +156,44 @@ export const reducerAddToCart = (state = initalStateAddToCart, action) => {
 
 
 
+/** 
+ * ADD TO CART [Adding Line Items]
+ */
+const initalStateUpdateCart = {
+  cart_updating: false,
+  cart_updated: false,
+  cart_update_error: '',
+  cart_items: [],
+}
+
+export const reducerUpdateCart = (state = initalStateUpdateCart, action) => {
+
+  switch (action.type) {
+    
+    case actionType.CART_UPDATING:
+      return {
+        cart_updating: true,
+        cart_items: []
+      }
+    case actionType.CART_UPDATED:
+      return {
+        cart_items: action.data,
+        cart_updated: true,
+      }
+    case actionType.CART_UPDATE_ERROR:
+      return {
+        cart_updated: false,
+        cart_update_error: action.error
+      }
+    /** default state */
+    default:
+      return state;
+    }
+
+}
+
+
+
 
 
 /** 
@@ -193,6 +231,3 @@ export const reducerFetchCheckout = (state = initalStateFetchCheckout, action) =
     }
 
 }
-
-
-

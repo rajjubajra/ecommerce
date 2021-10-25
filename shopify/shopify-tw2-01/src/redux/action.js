@@ -167,19 +167,19 @@ export const actionUpdateCart = (checkoutId, quantity) => {
   ];
 
   return function(dispatch){
-    dispatch({type: actionType.ADDING_TO_CART})
+    dispatch({type: actionType.CART_UPDATING})
 
     // Update the line item on the checkout (change the quantity or variant)
       client.checkout.updateLineItems(checkoutId, lineItemsToUpdate).then((checkout) => {
         // Do something with the updated checkout
         console.log(checkout.lineItems); // Quantity of line item 
         dispatch({
-          type: actionType.ADDED_TO_CART,
+          type: actionType.CART_UPDATED,
           data: checkout.lineItems,
         })
       }).catch((error) => {
         dispatch({
-          type: actionType.ADD_TO_CART_ERROR,
+          type: actionType.CART_UPDATE_ERROR,
           error: error
         })
       })
