@@ -97,18 +97,18 @@ const removeItemFromCheckout = () => ("test remove");
                     <div className="flex flex-row">
                         <div
                         className="cursor-pointer px-2" 
-                        onClick={() => dispatch(actionUpdateCart(pid, 1))} >
+                        onClick={() => dispatch(actionUpdateCart(checkout.id, pid, 1))} >
                         <GrFormAdd />
                         </div>
                         { qty > 1 ?
                         <div 
                         className="cursor-pointer px-2" 
-                        onClick={() => dispatch(actionUpdateCart(pid, -1))} >
+                        onClick={() => dispatch(actionUpdateCart(checkout.id, pid, -1))} >
                         <BiMinus />
                         </div>
                         : <div 
                         className="cursor-pointer px-2" 
-                        onClick={() => dispatch(actionUpdateCart(pid, -1))} >
+                        onClick={() => dispatch(actionUpdateCart(checkout.id, pid, -1))} >
                         <BiMinus />
                         </div>
                         }

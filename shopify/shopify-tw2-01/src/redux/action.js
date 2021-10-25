@@ -157,11 +157,11 @@ export const actionAddToCart = (checkoutId, variantId, quantity) => {
  * 
  * UPDATE CART
  */
-export const actionUpdateCart = (checkoutId, quantity) => {
+export const actionUpdateCart = (checkoutId, pid ,quantity) => {
 
   const lineItemsToUpdate = [
     {
-      id: checkoutId, 
+      id: pid, 
       quantity: parseInt(quantity, 10),
     }
   ];
