@@ -166,6 +166,9 @@ export const actionUpdateCart = (checkoutId, pid ,quantity) => {
     }
   ];
 
+  console.log("line item to update",lineItemsToUpdate);
+  console.log("checkoutid action", checkoutId)
+
   return function(dispatch){
     dispatch({type: actionType.CART_UPDATING})
 
