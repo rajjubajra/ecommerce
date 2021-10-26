@@ -16,11 +16,20 @@ function Item() {
   const product_fetched = useSelector(state => state.reducerFetchProduct.a_product_fetched);
 
   const [checkoutId, setCheckoutId] = useState('');
+  const [checkoutItem, setCheckoutItem] = useState('');
+
   useEffect(()=>{
     setCheckoutId(localStorage.getItem("checkout"))
   },[])
 
-  //const checkoutId = useSelector(state => state.reducerCreateCheckout.checkout_id);
+  const checkout = useSelector(state => state.reducerCreateCheckout);
+
+  useEffect(()=>{
+      checkout && checkout.length > 0 && setCheckoutItem();
+  },[checkout]);
+  
+  console.log("ITEM",checkout);
+  console.log("ITEM",checkoutItem);
 
   useEffect(()=>{
       dispatch(actionFetchSingleProduct(id));
