@@ -157,7 +157,7 @@ export const actionAddToCart = (checkoutId, variantId, quantity) => {
  * 
  * UPDATE CART
  */
-export const actionUpdateCart = (checkoutId, pid ,quantity) => {
+export const actionUpdateCart = (checkoutId, pid, quantity) => {
 
   const lineItemsToUpdate = [
     {
