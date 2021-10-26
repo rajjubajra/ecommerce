@@ -5,6 +5,7 @@ import Product from './Product';
 import {useDispatch, useSelector} from 'react-redux';
 import {actionFetchCheckout} from './redux/action';
 import Cart from './components/Cart';
+import CartQty from './components/Cart/CartQty';
 
 
 function App() {
@@ -28,7 +29,13 @@ function App() {
 
   return (
     <div>
-      <Cart />
+      <div>
+        Cart : <CartQty />
+      </div>
+      <div>
+        <Cart />
+      </div>
+      
       <BrowserRouter>
       Shopify shop 
       <div>
