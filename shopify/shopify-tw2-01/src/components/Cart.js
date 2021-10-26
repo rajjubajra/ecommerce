@@ -69,7 +69,9 @@ const removeItemFromCheckout = () => ("test remove");
           console.log("product id", pid, "checkoutid", checkout.id);
           const checkoutId = checkout.id
           const chId_ls = localStorage.getItem("checkout"); 
-          console.log("rd",checkoutId, "ls",chId_ls);
+          console.log("rd",checkoutId);
+          console.log("LS", chId_ls);
+          console.log("pid", pid);
 
           
         return <div className="grid grid-cols-12 my-2">

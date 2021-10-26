@@ -23,7 +23,7 @@ export const actionCreateCheckout = () => {
       // Create an empty checkout
       client.checkout.create().then((checkout) => {
           // Do something with the checkout
-          //console.log("CHECKOUT ACTION:",checkout.id);
+          console.log("CHECKOUT ACTION:",checkout.id);
           dispatch({
             type: actionType.CHECKOUT_CREATED,
             checkoutId: checkout.id,
@@ -170,6 +170,7 @@ export const actionUpdateCart = (checkoutId, pid ,quantity) => {
   console.log("checkoutid action", checkoutId)
 
   return function(dispatch){
+
     dispatch({type: actionType.CART_UPDATING})
 
     // Update the line item on the checkout (change the quantity or variant)
