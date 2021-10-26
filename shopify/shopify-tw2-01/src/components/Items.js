@@ -35,7 +35,7 @@ function Items() {
 
   if(!product_fetched) return <Loading />
   return (
-    <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:m-0 m-2">
+    <div className="grid md:grid-cols-3 xl:grid-cols-4 md:m-0 m-2">
       {
         products.map((item)=>{
           const {id, title, images, variants} = item;
