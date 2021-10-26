@@ -14,7 +14,7 @@ console.log("cart items", checkout.lineItems);
     && checkout.length === 0 
     && <Loading />
     return (
-      checkout.lineItems.map(item => {
+      checkout.lineItems !== undefined && checkout.lineItems.map(item => {
         const {variant:{image:{src, altText},title:description, id:pid, priceV2:{currencyCode, amount},price:rate}} = item;
         const {id:itemId, title, quantity,variableValues:{id:checkoutId}} = item;
 
