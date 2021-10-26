@@ -25,7 +25,7 @@ function Item() {
   const checkout = useSelector(state => state.reducerCreateCheckout);
 
   useEffect(()=>{
-      checkout && checkout.length > 0 && setCheckoutItem();
+      checkout && setCheckoutItem(checkout.data);
   },[checkout]);
   
   console.log("ITEM",checkout);
