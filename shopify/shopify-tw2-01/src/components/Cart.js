@@ -1,9 +1,5 @@
-import {useEffect, useState} from 'react';
 import Loading from './Loading';
-import {TiDeleteOutline} from 'react-icons/ti';
-import {GrFormAdd} from 'react-icons/gr';
-import {BiMinus} from 'react-icons/bi';
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 
 
@@ -14,11 +10,27 @@ const checkout = useSelector(state => state.reducerFetchCheckout.checkout_data);
 console.log("CART",checkout);
 console.log("cart items", checkout.lineItems);
 
-
+    checkout.lineItems === undefined && <Loading />
     return (
-      <div className="w-full flex flex-col p-4 my-3 border-2 border-gray-300">
-        ORDER BOX
-      </div>
+      checkout.lineItems.map(item => {
+        const {variant:{image:{src, altText},title:description, id:pid, priceV2:{currencyCode, amount},price:rate}} = item;
+        const {id:itemId, title, quantity,variableValues:{id:checkoutId}} = item;
+
+        return <cartItems
+          image={src}
+          alt={altText}
+          checkoutId={checkoutId} 
+          itemId={itemId} 
+          title={title}
+          description={description} 
+          qty={quantity}
+          pid={pid}
+          currency={currencyCode}
+          rate={rate} 
+          amount={amount}
+        />
+
+      })
     )
 }
 
