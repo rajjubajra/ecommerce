@@ -10,7 +10,9 @@ const checkout = useSelector(state => state.reducerFetchCheckout.checkout_data);
 console.log("CART",checkout);
 console.log("cart items", checkout.lineItems);
 
-    checkout.lineItems === undefined && <Loading />
+    checkout.lineItems === undefined 
+    && checkout.length === 0 
+    && <Loading />
     return (
       checkout.lineItems.map(item => {
         const {variant:{image:{src, altText},title:description, id:pid, priceV2:{currencyCode, amount},price:rate}} = item;
