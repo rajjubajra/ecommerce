@@ -12,6 +12,7 @@ function Cart() {
 const checkout = useSelector(state => state.reducerFetchCheckout.checkout_data);
 
 console.log("CART",checkout);
+console.log("cart items", checkout.lineItems);
 
 
     return (
