@@ -67,6 +67,7 @@ const removeItemFromCheckout = () => ("test remove");
           const {variant:{price:rate, id:pid}, quantity: qty, title} = item;
           const amt = rate * qty;
           console.log("product id", pid, "checkoutid", checkout.id);
+          console.log(checkout.id === localStorage.getItem("checkout") ? true : false);
           
         return <div className="grid grid-cols-12 my-2">
              {/** IMAGE DIV */}
