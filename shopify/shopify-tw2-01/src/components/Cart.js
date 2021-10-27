@@ -43,34 +43,34 @@ console.log("cart items", checkout.lineItems);
             {/** DESCRIPTION DIV */}
             <div className="col-span-9">
               <div>
-              <div className={`cursor-pointer relative w-full text-right`}>
-                  <div className="w-4" 
+                <div className={`cursor-pointer relative w-full`}>
+                  <div className="w-4 text-right" 
                   title="Remove"
                   onClick={ () => removeItemFromCheckout(checkoutId, itemId)}>
                     <TiDeleteOutline />
                   </div>
                 </div>
 
-                <h3 className="text-xl mb-1">{title}</h3>
+                <h3 className="text-xl">{title}</h3>
                 
-                <div className="grid grid-flow-row w-full text-sm">
+                <div className="grid grid-flow-row w-full text-xs">
                   <div>Description: {description}</div>
                   <div className="grid grid-cols-2">
                     <div>Quantity: {quantity} </div>
                     <div className="flex flex-row">
                         <div
-                        className="cursor-pointer px-2" 
+                        className="cursor-pointer px-2 border border-gray-200" 
                         onClick={() => dispatch(actionUpdateCart(checkoutId, pid, 1))} >
                         <GrFormAdd />
                         </div>
                         { quantity > 1 ?
                         <div 
-                        className="cursor-pointer px-2" 
+                        className="cursor-pointer px-2 border border-gray-200" 
                         onClick={() => dispatch(actionUpdateCart(checkoutId, pid, -1))} >
                         <BiMinus />
                         </div>
                         : <div 
-                        className="cursor-pointer px-2" 
+                        className="cursor-pointer px-2 border border-gray-200" 
                         onClick={() => dispatch(actionUpdateCart(checkoutId, pid, -1))} >
                         <BiMinus />
                         </div>
@@ -79,7 +79,7 @@ console.log("cart items", checkout.lineItems);
                   </div>
                     
                   <div>Rate: {currencyCode}: {rate}</div>
-                  <div>Amount: {currencyCode} : </div>
+                  <div>Amount: {currencyCode} : {rate * quantity}</div>
                 </div>
               </div>
             </div>
