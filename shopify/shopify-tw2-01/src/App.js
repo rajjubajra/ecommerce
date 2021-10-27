@@ -29,11 +29,11 @@ function App() {
 
   return (
     <div>
+      <BrowserRouter>
+      Shopify shop 
       <div>
         Cart : <CartQty />
       </div>
-      <BrowserRouter>
-      Shopify shop 
       <div>
         <Link to="/">Products List</Link>
       </div>
