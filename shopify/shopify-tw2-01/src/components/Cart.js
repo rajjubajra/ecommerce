@@ -4,6 +4,7 @@ import {GrFormAdd} from 'react-icons/gr';
 import {BiMinus} from 'react-icons/bi';
 import {actionUpdateCart} from '../redux/action';
 import {useSelector, useDispatch} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 
 
@@ -31,9 +32,10 @@ console.log("cart items", checkout.lineItems);
         const {id:itemId, title, quantity,variableValues:{id:checkoutId}} = item;
 
         return <div className="grid grid-cols-12 my-2">
-             {/** IMAGE DIV */}
+            
+            {/** IMAGE DIV */}
             <div className="col-span-3">
-                <img  className="w-56 mt-1" 
+                <img  className="w-56 mt-1 px-2" 
                       src={src}  
                       alt={altText} />
             </div>
@@ -81,9 +83,15 @@ console.log("cart items", checkout.lineItems);
                 </div>
               </div>
             </div>
+
           </div>
       })
     }
+    <div className="p-2 bg-gray-100 m-1">
+      <div onClick={() => window.open(checkout.webUrl, '_blank')}>
+        Checkout
+      </div>
+    </div>
     </div>
     )
 }

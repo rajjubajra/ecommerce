@@ -38,13 +38,6 @@ function App() {
         Cart : <CartQty />
       </div>
       <div>
-      <div>
-          <div 
-            className="cursor-pointer py-2 px-4 my-5 border-gray-500"
-            onClick={() => window.open(checkoutdata.webUrl, '_blank')} >
-              Checkout
-          </div>
-        </div>
       </div>
 
         <Switch>
