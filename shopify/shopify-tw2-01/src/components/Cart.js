@@ -59,19 +59,19 @@ console.log("cart items", checkout.lineItems);
                     <div>Quantity: {quantity} </div>
                     <div className="flex flex-row">
                         <div
-                        className="cursor-pointer px-2 border border-gray-200" 
-                        onClick={() => dispatch(actionUpdateCart(checkoutId, pid, 1))} >
+                        className="cursor-pointer px-2 border border-gray-200 mx-1" 
+                        onClick={() => dispatch(actionUpdateCart(checkoutId,itemId, 1))} >
                         <GrFormAdd />
                         </div>
                         { quantity > 1 ?
                         <div 
-                        className="cursor-pointer px-2 border border-gray-200" 
-                        onClick={() => dispatch(actionUpdateCart(checkoutId, pid, -1))} >
+                        className="cursor-pointer px-2 border border-gray-200 mx-1" 
+                        onClick={() => dispatch(actionUpdateCart(checkoutId, itemId, -1))} >
                         <BiMinus />
                         </div>
                         : <div 
-                        className="cursor-pointer px-2 border border-gray-200" 
-                        onClick={() => dispatch(actionUpdateCart(checkoutId, pid, -1))} >
+                        className="cursor-pointer px-2 border border-gray-200 mx-1" 
+                        onClick={() => dispatch(actionUpdateCart(checkoutId, itemId, -1))} >
                         <BiMinus />
                         </div>
                         }
@@ -79,7 +79,7 @@ console.log("cart items", checkout.lineItems);
                   </div>
                     
                   <div>Rate: {currencyCode}: {rate}</div>
-                  <div>Amount: {currencyCode} : {rate * quantity}</div>
+                  <div>Amount: {currencyCode} : {(rate * quantity).toFixed(2)}</div>
                 </div>
               </div>
             </div>
