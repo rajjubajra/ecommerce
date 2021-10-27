@@ -5,7 +5,7 @@ import {BiMinus} from 'react-icons/bi';
 import {actionUpdateCart} from '../redux/action';
 import {useSelector, useDispatch} from 'react-redux';
 
-function CartItem({image, alt, checkoutId, itemId, title, description, qty, pid, currency, rate, amount}) {
+function CartItem(image, alt, checkoutId, itemId, title, description, qty, pid, currency, rate, amount) {
 
   const dispatch = useDispatch();
 
