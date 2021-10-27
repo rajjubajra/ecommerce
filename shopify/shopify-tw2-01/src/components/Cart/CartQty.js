@@ -15,7 +15,7 @@ function CartQty() {
 
   return (
     <div>
-      Bag Items: {bag}
+      Bag Items: {quantity.lineItems.length}
     </div>
   )
 }
