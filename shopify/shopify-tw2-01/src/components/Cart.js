@@ -25,9 +25,9 @@ console.log("cart items", checkout.lineItems);
     && <Loading />
     return (
       <div>
-        {
+      {
       checkout.lineItems !== undefined && checkout.lineItems.map(item => {
-        const {variant:{image:{src, altText},title:description, id:pid, priceV2:{currencyCode, amount},price:rate}} = item;
+        const {variant:{image:{src, altText},title:description, id:pid, priceV2:{currencyCode},price:rate}} = item;
         const {id:itemId, title, quantity,variableValues:{id:checkoutId}} = item;
 
         return <div className="grid grid-cols-12 my-2">
@@ -50,7 +50,6 @@ console.log("cart items", checkout.lineItems);
                 </div>
 
                 <h3 className="text-xl mb-1">{title}</h3>
-                
                 
                 <div className="grid grid-flow-row w-full text-sm">
                   <div>Description: {description}</div>
@@ -78,13 +77,13 @@ console.log("cart items", checkout.lineItems);
                   </div>
                     
                   <div>Rate: {currencyCode}: {rate}</div>
-                  <div>Amount: {currencyCode} : {checkout.totalPriceV2.amount.toFixed(2)}</div>
+                  <div>Amount: {currencyCode} : </div>
                 </div>
               </div>
             </div>
           </div>
       })
-        }
+    }
     </div>
     )
 }
