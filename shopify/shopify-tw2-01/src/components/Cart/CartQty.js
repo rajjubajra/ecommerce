@@ -10,7 +10,7 @@ function CartQty() {
 
   console.log("Quantity : ",quantity);
   useEffect(()=>{
-    quantity && quantity.length > 0 && setBag(quantity.lineItems.length);
+    quantity && quantity.length !== 0 && setBag(quantity.lineItems.length);
   },[quantity])
 
   return (
