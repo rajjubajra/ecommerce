@@ -32,10 +32,6 @@ function App() {
       <div>
         Cart : <CartQty />
       </div>
-      <div>
-        <Cart />
-      </div>
-      
       <BrowserRouter>
       Shopify shop 
       <div>
@@ -57,6 +53,9 @@ function App() {
           </Route>
           <Route path="/item/:id" >
             <Product />
+          </Route>
+          <Route path="/cart">
+            <Cart />
           </Route>
 
 

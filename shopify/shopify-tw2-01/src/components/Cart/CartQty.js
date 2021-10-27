@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 
 function CartQty() {
@@ -15,7 +16,7 @@ function CartQty() {
 
   return (
     <div>
-      Bag Items: {bag}
+      <Link to="/cart" className="cursor-pointer">Bag Items: {bag}</Link>
     </div>
   )
 }
