@@ -13,6 +13,7 @@ function Cart() {
 const dispatch = useDispatch();
 const checkout = useSelector(state => state.reducerFetchCheckout.checkout_data);
 
+
 const removeItemFromCheckout = () => ("test");
 
 
