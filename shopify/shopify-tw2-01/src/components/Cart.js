@@ -77,8 +77,8 @@ console.log("cart items", checkout.lineItems);
                     </div>
                   </div>
                     
-                  <div>Rate: {currencyCode} {rate}</div>
-                  <div>Amount: {currencyCode} {amount.toFixed(2)}</div>
+                  <div>Rate: {currencyCode}: {rate}</div>
+                  <div>Amount: {currencyCode} : {checkout.totalPriceV2.amount.toFixed(2)}</div>
                 </div>
               </div>
             </div>

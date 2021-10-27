@@ -32,10 +32,10 @@ function App() {
       <BrowserRouter>
       Shopify shop 
       <div>
-        Cart : <CartQty />
+        <Link to="/">Products List</Link>
       </div>
       <div>
-        <Link to="/">Products List</Link>
+        Cart : <CartQty />
       </div>
       <div>
       <div>
