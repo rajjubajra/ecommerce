@@ -36,8 +36,6 @@ function Item() {
   },[dispatch, id])
 
 
-  
-
   const LoadImage = (image) => {
     return image.map((item)=> {
       return <div>
@@ -64,7 +62,9 @@ function Item() {
     <div className="max-w-screen-xl">
 
       <div className="p-2 m-2 w-20 cursor-pointer">
-        <div><Link to="/">Close</Link> </div>
+        <div>
+          <Link to="/">Close</Link> 
+        </div>
       </div>
 
     {

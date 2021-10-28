@@ -59,18 +59,18 @@ console.log("cart items", checkout.lineItems);
                     <div>Quantity: {quantity} </div>
                     <div className="flex flex-row">
                         <div
-                        className="cursor-pointer px-2 border border-gray-200 mx-1" 
+                        className="cursor-pointer p-1 border border-gray-200 mx-1" 
                         onClick={() => dispatch(actionUpdateCart(checkoutId,itemId, 1))} >
                         <GrFormAdd />
                         </div>
                         { quantity > 1 ?
                         <div 
-                        className="cursor-pointer px-2 border border-gray-200 mx-1" 
+                        className="cursor-pointer p-1 border border-gray-200 mx-1" 
                         onClick={() => dispatch(actionUpdateCart(checkoutId, itemId, -1))} >
                         <BiMinus />
                         </div>
                         : <div 
-                        className="cursor-pointer px-2 border border-gray-200 mx-1" 
+                        className="cursor-pointer p-1 border border-gray-200 mx-1" 
                         onClick={() => dispatch(actionUpdateCart(checkoutId, itemId, -1))} >
                         <BiMinus />
                         </div>
@@ -87,11 +87,11 @@ console.log("cart items", checkout.lineItems);
           </div>
       })
     }
-    <div className="p-2 bg-gray-100 m-1">
-      <div onClick={() => window.open(checkout.webUrl, '_blank')}>
-        Checkout
+      <div 
+      className="p-2 bg-gray-100 cursor-pointer text-center m-2" 
+      onClick={() => window.open(checkout.webUrl, '_blank')}>
+      Checkout
       </div>
-    </div>
     </div>
     )
 }
