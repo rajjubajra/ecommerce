@@ -48,11 +48,9 @@ function Item() {
 
   const LoadVariants = (data) => {
     return data.map(item => {
-      const {available, sku, title, price } = item;
+      const {id, available, sku, title, price } = item;
       return available && <div className="flex flex-col p-2 bg-gray-100 m-1">
-        <div>{title}</div>
-        <div> Price: {price}</div>
-        <div> SKU: {sku}</div>
+          <option value={id}>{title}</option>
       </div>
     })
   }
@@ -79,7 +77,9 @@ function Item() {
         <div className="col-span-4">
             <h1 className="text-2xl my-2">{product.title}</h1>
             <div>
+              <select>
               {LoadVariants(product.variants)}
+              </select>
             </div>
             <div>
               <div 
