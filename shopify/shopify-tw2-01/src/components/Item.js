@@ -48,8 +48,16 @@ function Item() {
 
   const LoadVariants = (data) => {
     return data.map(item => {
-      const {id, available, sku, title, price } = item;
-      return available && <option value={id}>{title}</option>
+      const {id, available, sku, title, price, selectedOptions } = item;
+      return <div className="p-2 my-1 border border-gray-200">
+            <div>Id: {id}</div>
+            <div>Title: {title}</div>
+            <div>Price: {price}</div>
+            <div>{selectedOptions[0].name}: {selectedOptions[0].value}</div>
+            <div>{selectedOptions[1].name}: {selectedOptions[1].value}</div>
+            <div>{selectedOptions[2].name}: {selectedOptions[2].value}</div>
+      </div>
+      
     })
   }
 
@@ -74,10 +82,8 @@ function Item() {
         
         <div className="col-span-4">
             <h1 className="text-2xl my-2">{product.title}</h1>
-            <div>
-              <select>
+            <div>  
               {LoadVariants(product.variants)}
-              </select>
             </div>
             <div>
               <div 
