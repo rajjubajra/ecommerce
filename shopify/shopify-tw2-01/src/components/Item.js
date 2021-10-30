@@ -17,7 +17,7 @@ function Item() {
 
   const [checkoutId, setCheckoutId] = useState('');
   const [checkoutItem, setCheckoutItem] = useState('');
-  const [productVariantId, setproductVariantId] = useState(0);
+  const [productVariant, setproductVariant] = useState([]);
 
   useEffect(()=>{
     setCheckoutId(localStorage.getItem("checkout"))
@@ -48,19 +48,13 @@ function Item() {
   console.log(product);
 
   const LoadVariants = (data) => {
-    return data.map(item => {
+    return data.map((item, index) => {
       const {id, available, sku, title, price, selectedOptions } = item;
-      return <div 
-      className="p-2 my-1 border border-gray-200" 
-      onClick={() => setproductVariantId(id)}>
-            <div className="text-xs">Id: {id}</div>
-            <div>Title: {title}</div>
-            <div>Price: {price}</div>
-            <div>{selectedOptions[0].name}: {selectedOptions[0].value}</div>
-            <div>{selectedOptions[1].name}: {selectedOptions[1].value}</div>
-            <div>{selectedOptions[2].name}: {selectedOptions[2].value}</div>
+      return <div className="p-2 my-1 border border-gray-200" >
+            <div onClick={() => setproductVariant([{index:index, id: id}])}>
+              <div>{selectedOptions[0].name}: {selectedOptions[0].value}</div>
+            </div>
       </div>
-      
     })
   }
 
@@ -89,8 +83,22 @@ function Item() {
               {LoadVariants(product.variants)}
             </div>
             <div>
+              {productVariant.length > 0 &&
+                <div>
+                  <div>Title: {product.variants[productVariant[0].index].title}</div>
+                  <div>Price: {product.variants[productVariant[0].index].price}</div>       
+                  <div>Color:
+                    {product.variants[productVariant[0].index].selectedOptions[1].name}: {product.variants[productVariant[0].index].selectedOptions[1].value}
+                  </div>
+                  <div>Material:
+                    {product.variants[productVariant[0].index].selectedOptions[2].name}: {product.variants[productVariant[0].index].selectedOptions[2].value}</div>
+                </div>
+              
+              }
+            </div>
+            <div>
               <div 
-                onClick={() => dispatch(actionAddToCart(checkoutId, productVariantId, 1))}
+                onClick={() => dispatch(actionAddToCart(checkoutId, productVariant[0].id, 1))}
                 className="cursor-pointer p-2 m-2" >
                 Add to Cart
               </div>
