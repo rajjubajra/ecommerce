@@ -50,7 +50,7 @@ function Item() {
   const LoadVariants = (data) => {
     return data.map((item, index) => {
       const {id, available, sku, title, price, selectedOptions } = item;
-      return <div className="p-2 my-1 border border-gray-200 flex" >
+      return <div className="p-2 m-2 border border-gray-200" >
             <div onClick={() => setproductVariant([{index:index, id: id}])}>
               <div>{selectedOptions[0].value}</div>
             </div>
@@ -79,7 +79,7 @@ function Item() {
         
         <div className="col-span-4">
             <h1 className="text-2xl my-2">{product.title}</h1>
-            <div>  
+            <div className="flex">  
               {LoadVariants(product.variants)}
             </div>
             <div>
