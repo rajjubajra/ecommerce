@@ -17,6 +17,7 @@ function Item() {
 
   const [checkoutId, setCheckoutId] = useState('');
   const [checkoutItem, setCheckoutItem] = useState('');
+  const [productVariantId, setproductVariantId] = useState(0);
 
   useEffect(()=>{
     setCheckoutId(localStorage.getItem("checkout"))
@@ -49,8 +50,10 @@ function Item() {
   const LoadVariants = (data) => {
     return data.map(item => {
       const {id, available, sku, title, price, selectedOptions } = item;
-      return <div className="p-2 my-1 border border-gray-200">
-            <div>Id: {id}</div>
+      return <div 
+      className="p-2 my-1 border border-gray-200" 
+      onClick={setproductVariantId(id)}>
+            <div className="text-xs">Id: {id}</div>
             <div>Title: {title}</div>
             <div>Price: {price}</div>
             <div>{selectedOptions[0].name}: {selectedOptions[0].value}</div>
@@ -87,7 +90,7 @@ function Item() {
             </div>
             <div>
               <div 
-                onClick={() => dispatch(actionAddToCart(checkoutId, product.variants[0].id, 1))}
+                onClick={() => dispatch(actionAddToCart(checkoutId, productVariantId, 1))}
                 className="cursor-pointer p-2 m-2" >
                 Add to Cart
               </div>
