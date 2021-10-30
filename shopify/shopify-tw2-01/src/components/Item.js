@@ -52,7 +52,7 @@ function Item() {
       const {id, available, sku, title, price, selectedOptions } = item;
       return <div 
       className="p-2 my-1 border border-gray-200" 
-      onClick={setproductVariantId(id)}>
+      onClick={() => setproductVariantId(id)}>
             <div className="text-xs">Id: {id}</div>
             <div>Title: {title}</div>
             <div>Price: {price}</div>
